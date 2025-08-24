@@ -6,7 +6,7 @@ import { useState } from "react";
 const faqs = [
   {
     question: "How does the licensing system work?",
-    answer: "Each purchase grants you a single license that's bound to one MT4/MT5 account. The license includes the bot/indicator file, installation instructions, and access to updates for the duration of your license period."
+    answer: "Each purchase grants you a single license that's bound to one MT4/MT5 account. The license includes the Python bot files, installation instructions, and access to updates for the duration of your license period."
   },
   {
     question: "What payment methods do you accept?",
@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     question: "How do I install the trading bot?",
-    answer: "After purchase, you'll receive detailed installation instructions via email. Generally, you'll need to copy the bot file to your MT4/MT5 Experts folder and restart the platform. Our support team is available to help with installation."
+    answer: "After purchase, you'll receive detailed installation instructions via email. Our Python-based bots integrate with MT4/MT5 through APIs and include Telegram integration for signal notifications. Our support team is available to help with setup."
   },
   {
     question: "Do you offer refunds?",
@@ -30,11 +30,11 @@ const faqs = [
   },
   {
     question: "Are the bots tested and safe?",
-    answer: "All our bots are thoroughly backtested and tested on demo accounts before release. They include built-in risk management features and are designed to be safe for live trading when used properly."
+    answer: "All our Python-based bots are thoroughly backtested and tested on demo accounts before release. They include built-in risk management features and are designed to be safe for live trading when used properly."
   },
   {
     question: "Do you provide updates?",
-    answer: "Yes, all licenses include free updates for the duration of your license period. Updates include bug fixes, new features, and compatibility improvements for new MT4/MT5 versions."
+    answer: "Yes, all licenses include free updates for the duration of your license period. Updates include bug fixes, new features, and compatibility improvements for new MT4/MT5 API versions."
   },
   {
     question: "What if the bot stops working?",
@@ -42,7 +42,15 @@ const faqs = [
   },
   {
     question: "Can I modify the bot settings?",
-    answer: "Yes, all our bots come with customizable parameters that you can adjust to match your trading strategy and risk tolerance. We provide documentation for all available settings."
+    answer: "Yes, all our Python bots come with customizable parameters that you can adjust to match your trading strategy and risk tolerance. We provide documentation for all available settings."
+  },
+  {
+    question: "What are the system requirements?",
+    answer: "Our Python-based bots require Python 3.8+ installed on your system, along with the necessary dependencies. They work with MT4/MT5 through API connections and include Telegram integration for notifications."
+  },
+  {
+    question: "Do you provide source code?",
+    answer: "Yes, you receive the complete Python source code with your purchase, allowing you to understand how the bot works and make custom modifications if needed."
   }
 ];
 

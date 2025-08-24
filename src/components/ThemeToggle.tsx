@@ -37,7 +37,7 @@ export function ThemeToggle() {
     >
       <span
         className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform ${
-          isDark ? "translate-x-11" : "translate-x-1"
+          isDark ? "translate-x-12" : "translate-x-1"
         }`}
       />
       <Sun className={`absolute left-2 h-4 w-4 text-yellow-400 transition-opacity ${

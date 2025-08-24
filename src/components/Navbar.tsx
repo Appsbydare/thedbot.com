@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -18,9 +19,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-black/20 border-b border-white/10">
       <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">DB</span>
-          </div>
+          <Image src="/db-logo.svg" alt="theDBot Logo" width={32} height={32} className="w-8 h-8" />
           <span className="text-xl font-bold text-white">theDBot</span>
         </Link>
         

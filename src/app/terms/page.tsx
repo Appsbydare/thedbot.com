@@ -7,10 +7,10 @@ export default function TermsPage() {
         <div className="relative mx-auto max-w-4xl px-4">
           <div className="text-center space-y-8">
             <h1 className="text-5xl sm:text-7xl font-bold tracking-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Terms of <span className="text-blue-400">Service</span>
+              Terms and <span className="text-blue-400">Conditions</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Please read these terms carefully before using our products and services
+              Comprehensive terms covering USA, EU, and international regulations
             </p>
           </div>
         </div>
@@ -21,22 +21,95 @@ export default function TermsPage() {
         <div className="mx-auto max-w-4xl px-4">
           <div className="prose prose-invert max-w-none">
             <div className="space-y-12">
+              {/* Introduction */}
+              <div>
+                <h2 className="text-3xl font-bold text-white mb-6">Introduction</h2>
+                <div className="space-y-4 text-gray-300">
+                  <p>
+                    These Terms and Conditions (&quot;Terms&quot;) govern your use of theDBot&apos;s trading automation software, 
+                    services, and website. By accessing or using our services, you agree to be bound by these Terms.
+                  </p>
+                  <p>
+                    <strong>Last Updated:</strong> December 2024<br />
+                    <strong>Effective Date:</strong> December 2024
+                  </p>
+                </div>
+              </div>
+
+              {/* Definitions */}
+              <div>
+                <h2 className="text-3xl font-bold text-white mb-6">Definitions</h2>
+                <div className="space-y-4 text-gray-300">
+                  <div className="bg-gray-800/50 p-6 rounded-lg">
+                    <ul className="space-y-2 list-disc list-inside">
+                      <li><strong>Service:</strong> Our Python-based trading bots, indicators, and related software</li>
+                      <li><strong>User:</strong> Any individual or entity using our services</li>
+                      <li><strong>License:</strong> The right to use our software on a single MT4/MT5 account</li>
+                      <li><strong>Platform:</strong> MetaTrader 4/5 trading platforms</li>
+                      <li><strong>API:</strong> Application Programming Interface for MT4/MT5 integration</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
               {/* License Terms */}
               <div>
                 <h2 className="text-3xl font-bold text-white mb-6">License Terms</h2>
                 <div className="space-y-4 text-gray-300">
                   <p>
-                    By purchasing our trading bots, indicators, or other software products, you are granted a limited, 
-                    non-exclusive, non-transferable license to use the software on a single MT4/MT5 account.
+                    By purchasing our trading automation software, you are granted a limited, non-exclusive, 
+                    non-transferable license to use the Python-based software on a single MT4/MT5 account.
                   </p>
                   <div className="bg-gray-800/50 p-6 rounded-lg">
                     <h3 className="text-xl font-semibold text-white mb-4">License Restrictions:</h3>
                     <ul className="space-y-2 list-disc list-inside">
-                      <li>One license per MT4/MT5 account</li>
+                      <li>One license per MT4/MT5 account only</li>
                       <li>No sharing, reselling, or redistribution of the software</li>
-                      <li>No reverse engineering or modification of the source code</li>
+                      <li>No reverse engineering or unauthorized modification</li>
                       <li>No use on multiple accounts without additional licenses</li>
-                      <li>License is bound to the account number provided during purchase</li>
+                      <li>License is bound to the specific account number provided</li>
+                      <li>Source code is provided but remains our intellectual property</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Regulatory Compliance */}
+              <div>
+                <h2 className="text-3xl font-bold text-white mb-6">Regulatory Compliance</h2>
+                <div className="space-y-4 text-gray-300">
+                  <p>
+                    Our services comply with applicable regulations in major jurisdictions:
+                  </p>
+                  
+                  <div className="bg-gray-800/50 p-6 rounded-lg">
+                    <h3 className="text-xl font-semibold text-white mb-4">United States (USA):</h3>
+                    <ul className="space-y-2 list-disc list-inside">
+                      <li>Compliance with CFTC regulations for automated trading</li>
+                      <li>Adherence to SEC guidelines for financial software</li>
+                      <li>GDPR compliance for EU users</li>
+                      <li>State-specific regulations where applicable</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-gray-800/50 p-6 rounded-lg">
+                    <h3 className="text-xl font-semibold text-white mb-4">European Union (EU):</h3>
+                    <ul className="space-y-2 list-disc list-inside">
+                      <li>GDPR compliance for data protection</li>
+                      <li>MiFID II compliance for financial instruments</li>
+                      <li>ePrivacy Directive compliance</li>
+                      <li>Country-specific financial regulations</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-gray-800/50 p-6 rounded-lg">
+                    <h3 className="text-xl font-semibold text-white mb-4">Other Jurisdictions:</h3>
+                    <ul className="space-y-2 list-disc list-inside">
+                      <li>UK: FCA regulations and data protection laws</li>
+                      <li>Canada: PIPEDA and provincial regulations</li>
+                      <li>Australia: Privacy Act and ASIC regulations</li>
+                      <li>Singapore: PDPA and MAS regulations</li>
+                      <li>Japan: APPI and financial services regulations</li>
                     </ul>
                   </div>
                 </div>
@@ -47,7 +120,7 @@ export default function TermsPage() {
                 <h2 className="text-3xl font-bold text-white mb-6">Usage Terms</h2>
                 <div className="space-y-4 text-gray-300">
                   <p>
-                    Our trading bots and indicators are designed for educational and trading purposes. 
+                    Our Python-based trading bots are designed for educational and trading purposes. 
                     Users are responsible for their own trading decisions and risk management.
                   </p>
                   <div className="bg-gray-800/50 p-6 rounded-lg">
@@ -57,7 +130,9 @@ export default function TermsPage() {
                       <li>Understand the risks involved in automated trading</li>
                       <li>Monitor bot performance and adjust settings as needed</li>
                       <li>Ensure proper risk management and position sizing</li>
-                      <li>Keep software updated to the latest version</li>
+                      <li>Keep Python environment and dependencies updated</li>
+                      <li>Comply with local trading regulations and broker terms</li>
+                      <li>Maintain secure API credentials and access</li>
                     </ul>
                   </div>
                 </div>
@@ -79,6 +154,7 @@ export default function TermsPage() {
                       <li>License delivery occurs after payment confirmation</li>
                       <li>No recurring fees or subscriptions</li>
                       <li>Refunds available within 7 days for unused licenses</li>
+                      <li>Tax obligations are the responsibility of the user</li>
                     </ul>
                   </div>
                 </div>
@@ -99,6 +175,7 @@ export default function TermsPage() {
                       <li>Technical issues that cannot be resolved by our support team</li>
                       <li>No refunds for indicators or used licenses</li>
                       <li>Refunds processed in the original payment method</li>
+                      <li>Processing time: 3-5 business days</li>
                     </ul>
                   </div>
                 </div>
@@ -110,16 +187,37 @@ export default function TermsPage() {
                 <div className="space-y-4 text-gray-300">
                   <p>
                     We provide technical support for installation, configuration, and troubleshooting 
-                    of our products during the license period.
+                    of our Python-based products during the license period.
                   </p>
                   <div className="bg-gray-800/50 p-6 rounded-lg">
                     <h3 className="text-xl font-semibold text-white mb-4">Support Includes:</h3>
                     <ul className="space-y-2 list-disc list-inside">
-                      <li>Installation and setup assistance</li>
-                      <li>Configuration and parameter optimization</li>
+                      <li>Python environment setup assistance</li>
+                      <li>MT4/MT5 API integration help</li>
+                      <li>Telegram bot configuration</li>
                       <li>Bug fixes and compatibility updates</li>
                       <li>Email support with 24-hour response time</li>
                       <li>Access to knowledge base and documentation</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Intellectual Property */}
+              <div>
+                <h2 className="text-3xl font-bold text-white mb-6">Intellectual Property</h2>
+                <div className="space-y-4 text-gray-300">
+                  <p>
+                    All software, documentation, and related materials remain our intellectual property.
+                  </p>
+                  <div className="bg-gray-800/50 p-6 rounded-lg">
+                    <h3 className="text-xl font-semibold text-white mb-4">IP Rights:</h3>
+                    <ul className="space-y-2 list-disc list-inside">
+                      <li>Source code remains our property</li>
+                      <li>No redistribution or resale rights</li>
+                      <li>Custom modifications are permitted for personal use</li>
+                      <li>Trademarks and branding are protected</li>
+                      <li>Documentation and guides are copyrighted</li>
                     </ul>
                   </div>
                 </div>
@@ -137,18 +235,40 @@ export default function TermsPage() {
                       <li>Automated trading systems can result in losses</li>
                       <li>We are not responsible for trading losses or financial damages</li>
                       <li>Users should always test on demo accounts first</li>
+                      <li>API connectivity issues are beyond our control</li>
+                      <li>Market conditions may affect bot performance</li>
                     </ul>
                   </div>
                 </div>
               </div>
 
-              {/* Legal */}
+              {/* Limitation of Liability */}
               <div>
-                <h2 className="text-3xl font-bold text-white mb-6">Legal Terms</h2>
+                <h2 className="text-3xl font-bold text-white mb-6">Limitation of Liability</h2>
                 <div className="space-y-4 text-gray-300">
                   <p>
-                    These terms are governed by applicable laws. Any disputes will be resolved 
-                    through arbitration or in the appropriate jurisdiction.
+                    Our liability is limited to the amount paid for the software license.
+                  </p>
+                  <div className="bg-gray-800/50 p-6 rounded-lg">
+                    <h3 className="text-xl font-semibold text-white mb-4">Liability Limits:</h3>
+                    <ul className="space-y-2 list-disc list-inside">
+                      <li>Maximum liability: Purchase price of the license</li>
+                      <li>No consequential or indirect damages</li>
+                      <li>No liability for trading losses</li>
+                      <li>No liability for data loss or corruption</li>
+                      <li>Force majeure events excluded</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Governing Law */}
+              <div>
+                <h2 className="text-3xl font-bold text-white mb-6">Governing Law</h2>
+                <div className="space-y-4 text-gray-300">
+                  <p>
+                    These Terms are governed by applicable laws in your jurisdiction. 
+                    Any disputes will be resolved through appropriate legal channels.
                   </p>
                   <div className="bg-gray-800/50 p-6 rounded-lg">
                     <h3 className="text-xl font-semibold text-white mb-4">Legal Information:</h3>
@@ -158,6 +278,7 @@ export default function TermsPage() {
                       <li>Severability clause applies to all terms</li>
                       <li>Force majeure events may affect service delivery</li>
                       <li>Contact us for questions about these terms</li>
+                      <li>Dispute resolution through arbitration or local courts</li>
                     </ul>
                   </div>
                 </div>
@@ -167,7 +288,7 @@ export default function TermsPage() {
               <div className="text-center p-8 rounded-lg bg-gradient-to-r from-blue-900/50 to-purple-900/50">
                 <h3 className="text-2xl font-bold text-white mb-4">Questions About These Terms?</h3>
                 <p className="text-gray-300 mb-6">
-                  If you have any questions about these terms of service, please contact our support team.
+                  If you have any questions about these terms and conditions, please contact our support team.
                 </p>
                 <a
                   href="/contact"
