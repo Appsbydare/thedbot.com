@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #0f0f0f;
-  --primary: #2563eb;
+  --primary: #3b82f6;
   --primary-foreground: #ffffff;
   --secondary: #f1f5f9;
   --secondary-foreground: #334155;
@@ -24,10 +24,10 @@
   --primary-foreground: #ffffff;
   --secondary: #1a1a1a;
   --secondary-foreground: #e5e5e5;
-  --accent: #2563eb;
+  --accent: #3b82f6;
   --accent-foreground: #ffffff;
   --muted: #141414;
-  --muted-foreground: #171717; 
+  --muted-foreground: #a3a3a3;
   --border: #262626;
   --input: #171717;
   --card: #0f0f0f;
@@ -86,7 +86,7 @@ html {
 
 /* Professional gradient text utility */
 .gradient-text {
-  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 50%, #1d4ed8 100%);
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 50%, #2563eb 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

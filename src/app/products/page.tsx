@@ -92,11 +92,11 @@ export default function ProductsPage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-indigo-900/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-blue-800/20 to-indigo-900/20"></div>
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="text-center space-y-8">
-            <h1 className="text-5xl sm:text-7xl font-bold tracking-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Trading <span className="text-blue-400">Products</span>
+            <h1 className="text-5xl sm:text-7xl font-bold tracking-tight">
+              <span className="text-white dark:text-white">Trading</span> <span className="text-accent">Products</span>
             </h1>
             <p className="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Professional automated trading solutions for every market condition

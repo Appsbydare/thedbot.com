@@ -6,12 +6,12 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-indigo-900/20 dark:from-blue-900/20 dark:via-purple-900/20 dark:to-indigo-900/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-blue-800/20 to-indigo-900/20 dark:from-blue-900/20 dark:via-blue-800/20 dark:to-indigo-900/20"></div>
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="text-center space-y-8">
             <div className="space-y-4">
-              <h1 className="text-5xl sm:text-7xl font-bold tracking-tight gradient-text">
-                Automated Trading
+              <h1 className="text-5xl sm:text-7xl font-bold tracking-tight">
+                <span className="text-white dark:text-white">Automated Trading</span>
                 <br />
                 <span className="text-accent">Made Simple</span>
               </h1>

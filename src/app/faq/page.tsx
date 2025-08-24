@@ -84,11 +84,11 @@ export default function FAQPage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-indigo-900/20"></div>
+                 <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-blue-800/20 to-indigo-900/20"></div>
         <div className="relative mx-auto max-w-4xl px-4">
           <div className="text-center space-y-8">
-                         <h1 className="text-5xl sm:text-7xl font-bold tracking-tight gradient-text">
-               Frequently Asked <span className="text-accent">Questions</span>
+                         <h1 className="text-5xl sm:text-7xl font-bold tracking-tight">
+               <span className="text-white dark:text-white">Frequently Asked</span> <span className="text-accent">Questions</span>
              </h1>
              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                Find answers to common questions about our trading bots, licensing, payments, and support
