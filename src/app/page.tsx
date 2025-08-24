@@ -6,7 +6,7 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-indigo-900/20 dark:from-blue-900/20 dark:via-purple-900/20 dark:to-indigo-900/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-indigo-900/20"></div>
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="text-center space-y-8">
             <div className="space-y-4">
@@ -54,33 +54,33 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center space-y-4 p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 hover:bg-white/70 dark:hover:bg-gray-800/70 transition-all duration-300 border border-gray-200 dark:border-gray-700">
+            <div className="text-center space-y-4 p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 hover:bg-white/70 dark:hover:bg-gray-800/70 transition-all duration-300">
               <div className="w-16 h-16 mx-auto bg-blue-600/20 rounded-full flex items-center justify-center">
-                <Zap className="size-8 text-blue-600 dark:text-blue-400" />
+                <Zap className="size-8 text-blue-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Instant Setup</h3>
               <p className="text-gray-600 dark:text-gray-300">Download and install in minutes. No complex configuration required.</p>
             </div>
 
-            <div className="text-center space-y-4 p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 hover:bg-white/70 dark:hover:bg-gray-800/70 transition-all duration-300 border border-gray-200 dark:border-gray-700">
+            <div className="text-center space-y-4 p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 hover:bg-white/70 dark:hover:bg-gray-800/70 transition-all duration-300">
               <div className="w-16 h-16 mx-auto bg-green-600/20 rounded-full flex items-center justify-center">
-                <Shield className="size-8 text-green-600 dark:text-green-400" />
+                <Shield className="size-8 text-green-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Secure Licensing</h3>
               <p className="text-gray-600 dark:text-gray-300">One license per account. Advanced protection against unauthorized use.</p>
             </div>
 
-            <div className="text-center space-y-4 p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 hover:bg-white/70 dark:hover:bg-gray-800/70 transition-all duration-300 border border-gray-200 dark:border-gray-700">
+            <div className="text-center space-y-4 p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 hover:bg-white/70 dark:hover:bg-gray-800/70 transition-all duration-300">
               <div className="w-16 h-16 mx-auto bg-purple-600/20 rounded-full flex items-center justify-center">
-                <TrendingUp className="size-8 text-purple-600 dark:text-purple-400" />
+                <TrendingUp className="size-8 text-purple-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Proven Results</h3>
               <p className="text-gray-600 dark:text-gray-300">Backtested strategies with real market performance data.</p>
             </div>
 
-            <div className="text-center space-y-4 p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 hover:bg-white/70 dark:hover:bg-gray-800/70 transition-all duration-300 border border-gray-200 dark:border-gray-700">
+            <div className="text-center space-y-4 p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 hover:bg-white/70 dark:hover:bg-gray-800/70 transition-all duration-300">
               <div className="w-16 h-16 mx-auto bg-orange-600/20 rounded-full flex items-center justify-center">
-                <Globe className="size-8 text-orange-600 dark:text-orange-400" />
+                <Globe className="size-8 text-orange-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Global Support</h3>
               <p className="text-gray-600 dark:text-gray-300">24/7 customer support and regular updates for all platforms.</p>

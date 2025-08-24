@@ -107,7 +107,7 @@ export default function FAQPage() {
           </div>
           
           {/* Contact Support */}
-                     <div className="mt-16 text-center p-8 rounded-2xl bg-gray-100/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700">
+                     <div className="mt-16 text-center p-8 rounded-2xl bg-gray-100/50 dark:bg-gray-800/50">
              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                Still Have Questions?
              </h3>

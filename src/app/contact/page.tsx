@@ -120,9 +120,9 @@ export default function ContactPage() {
                </div>
               
               <div className="space-y-6">
-                                 <div className="flex items-start space-x-4 p-6 rounded-lg bg-gray-100/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700">
+                                 <div className="flex items-start space-x-4 p-6 rounded-lg bg-gray-100/50 dark:bg-gray-800/50">
                    <div className="w-12 h-12 bg-blue-600/20 rounded-full flex items-center justify-center flex-shrink-0">
-                     <Mail className="size-6 text-blue-600 dark:text-blue-400" />
+                     <Mail className="size-6 text-blue-400" />
                    </div>
                    <div>
                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Email Support</h3>
@@ -131,9 +131,9 @@ export default function ContactPage() {
                    </div>
                  </div>
                 
-                                 <div className="flex items-start space-x-4 p-6 rounded-lg bg-gray-100/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700">
+                                 <div className="flex items-start space-x-4 p-6 rounded-lg bg-gray-100/50 dark:bg-gray-800/50">
                    <div className="w-12 h-12 bg-green-600/20 rounded-full flex items-center justify-center flex-shrink-0">
-                     <MessageSquare className="size-6 text-green-600 dark:text-green-400" />
+                     <MessageSquare className="size-6 text-green-400" />
                    </div>
                    <div>
                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Live Chat</h3>
@@ -142,9 +142,9 @@ export default function ContactPage() {
                    </div>
                  </div>
                  
-                 <div className="flex items-start space-x-4 p-6 rounded-lg bg-gray-100/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700">
+                 <div className="flex items-start space-x-4 p-6 rounded-lg bg-gray-100/50 dark:bg-gray-800/50">
                    <div className="w-12 h-12 bg-purple-600/20 rounded-full flex items-center justify-center flex-shrink-0">
-                     <Clock className="size-6 text-purple-600 dark:text-purple-400" />
+                     <Clock className="size-6 text-purple-400" />
                    </div>
                    <div>
                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Support Hours</h3>
@@ -153,9 +153,9 @@ export default function ContactPage() {
                    </div>
                  </div>
                  
-                 <div className="flex items-start space-x-4 p-6 rounded-lg bg-gray-100/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700">
+                 <div className="flex items-start space-x-4 p-6 rounded-lg bg-gray-100/50 dark:bg-gray-800/50">
                    <div className="w-12 h-12 bg-orange-600/20 rounded-full flex items-center justify-center flex-shrink-0">
-                     <MapPin className="size-6 text-orange-600 dark:text-orange-400" />
+                     <MapPin className="size-6 text-orange-400" />
                    </div>
                    <div>
                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Office</h3>
@@ -166,19 +166,19 @@ export default function ContactPage() {
               </div>
               
                              {/* Quick Links */}
-               <div className="p-6 rounded-lg bg-gradient-to-r from-blue-100/50 to-purple-100/50 dark:from-blue-900/50 dark:to-purple-900/50 border border-gray-200 dark:border-gray-700">
+               <div className="p-6 rounded-lg bg-gradient-to-r from-blue-100/50 to-purple-100/50 dark:from-blue-900/50 dark:to-purple-900/50">
                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Quick Links</h3>
                  <div className="space-y-3">
-                   <Link href="/faq" className="block text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
+                   <Link href="/faq" className="block text-blue-400 hover:text-blue-300 transition-colors">
                      → Frequently Asked Questions
                    </Link>
-                   <Link href="/products" className="block text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
+                   <Link href="/products" className="block text-blue-400 hover:text-blue-300 transition-colors">
                      → Browse Products
                    </Link>
-                   <Link href="/terms" className="block text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
+                   <Link href="/terms" className="block text-blue-400 hover:text-blue-300 transition-colors">
                      → Terms of Service
                    </Link>
-                   <Link href="/privacy" className="block text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
+                   <Link href="/privacy" className="block text-blue-400 hover:text-blue-300 transition-colors">
                      → Privacy Policy
                    </Link>
                  </div>
