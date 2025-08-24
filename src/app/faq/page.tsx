@@ -1,3 +1,5 @@
+"use client";
+
 import { ChevronDown } from "@/components/icons";
 import { useState } from "react";
 
@@ -102,7 +104,7 @@ export default function FAQPage() {
               Still Have Questions?
             </h3>
             <p className="text-gray-300 mb-6">
-              Can't find what you're looking for? Our support team is here to help.
+              Can&apos;t find what you&apos;re looking for? Our support team is here to help.
             </p>
             <a
               href="/contact"

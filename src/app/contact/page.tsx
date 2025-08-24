@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Mail, MessageSquare, Clock, MapPin } from "@/components/icons";
 
 export default function ContactPage() {
@@ -12,7 +13,7 @@ export default function ContactPage() {
               Get in <span className="text-blue-400">Touch</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Have questions about our products? Need technical support? We're here to help.
+              Have questions about our products? Need technical support? We&apos;re here to help.
             </p>
           </div>
         </div>
@@ -26,7 +27,7 @@ export default function ContactPage() {
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl font-bold text-white mb-4">Send us a Message</h2>
-                <p className="text-gray-300">Fill out the form below and we'll get back to you within 24 hours.</p>
+                <p className="text-gray-300">Fill out the form below and we&apos;ll get back to you within 24 hours.</p>
               </div>
               
               <form className="space-y-6">
@@ -168,18 +169,18 @@ export default function ContactPage() {
               <div className="p-6 rounded-lg bg-gradient-to-r from-blue-900/50 to-purple-900/50">
                 <h3 className="text-xl font-bold text-white mb-4">Quick Links</h3>
                 <div className="space-y-3">
-                  <a href="/faq" className="block text-blue-400 hover:text-blue-300 transition-colors">
+                  <Link href="/faq" className="block text-blue-400 hover:text-blue-300 transition-colors">
                     → Frequently Asked Questions
-                  </a>
-                  <a href="/products" className="block text-blue-400 hover:text-blue-300 transition-colors">
+                  </Link>
+                  <Link href="/products" className="block text-blue-400 hover:text-blue-300 transition-colors">
                     → Browse Products
-                  </a>
-                  <a href="/terms" className="block text-blue-400 hover:text-blue-300 transition-colors">
+                  </Link>
+                  <Link href="/terms" className="block text-blue-400 hover:text-blue-300 transition-colors">
                     → Terms of Service
-                  </a>
-                  <a href="/privacy" className="block text-blue-400 hover:text-blue-300 transition-colors">
+                  </Link>
+                  <Link href="/privacy" className="block text-blue-400 hover:text-blue-300 transition-colors">
                     → Privacy Policy
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

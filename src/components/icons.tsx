@@ -21,6 +21,25 @@ export function ArrowRight(props: IconProps) {
   );
 }
 
+export function ArrowLeft(props: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={props.className}
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M19 12H5" />
+      <path d="m12 19-7-7 7-7" />
+    </svg>
+  );
+}
+
 export function Zap(props: IconProps) {
   return (
     <svg
@@ -290,8 +309,9 @@ export function CheckCircle(props: IconProps) {
   );
 }
 
-export default {
+const Icons = {
   ArrowRight,
+  ArrowLeft,
   Zap,
   Shield,
   TrendingUp,
@@ -307,5 +327,7 @@ export default {
   Moon,
   CheckCircle,
 };
+
+export default Icons;
 
 
