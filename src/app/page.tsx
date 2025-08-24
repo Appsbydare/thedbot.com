@@ -6,19 +6,19 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-indigo-900/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-indigo-900/20 dark:from-blue-900/20 dark:via-purple-900/20 dark:to-indigo-900/20"></div>
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="text-center space-y-8">
             <div className="space-y-4">
-              <h1 className="text-5xl sm:text-7xl font-bold tracking-tight bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+              <h1 className="text-5xl sm:text-7xl font-bold tracking-tight gradient-text">
                 Automated Trading
                 <br />
-                <span className="text-blue-600 dark:text-blue-400">Made Simple</span>
+                <span className="text-accent">Made Simple</span>
               </h1>
-              <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 Professional trading bots, signal executors, and indicators for MT4/MT5 & TradingView.
                 <br />
-                <span className="text-blue-600 dark:text-blue-400 font-semibold">Crypto payments • Instant delivery • Secure licensing</span>
+                <span className="text-accent font-semibold">Crypto payments • Instant delivery • Secure licensing</span>
               </p>
             </div>
             
@@ -32,7 +32,7 @@ export default function Home() {
               </Link>
               <Link 
                 href="/faq" 
-                className="text-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
+                className="text-lg text-muted-foreground hover:text-foreground transition-colors duration-300"
               >
                 Learn More →
               </Link>
@@ -42,48 +42,48 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gray-100/50 dark:bg-gray-900/50">
+      <section className="py-20 bg-secondary">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Why Choose <span className="text-blue-600 dark:text-blue-400">theDBot</span>
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
+              Why Choose <span className="text-accent">theDBot</span>
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Professional-grade trading automation with enterprise-level security and support
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center space-y-4 p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 hover:bg-white/70 dark:hover:bg-gray-800/70 transition-all duration-300">
-              <div className="w-16 h-16 mx-auto bg-blue-600/20 rounded-full flex items-center justify-center">
-                <Zap className="size-8 text-blue-400" />
+            <div className="text-center space-y-4 p-6 rounded-2xl card hover-lift">
+              <div className="w-16 h-16 mx-auto bg-accent/20 rounded-full flex items-center justify-center">
+                <Zap className="size-8 text-accent" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Instant Setup</h3>
-              <p className="text-gray-600 dark:text-gray-300">Download and install in minutes. No complex configuration required.</p>
+              <h3 className="text-xl font-semibold text-foreground">Instant Setup</h3>
+              <p className="text-muted-foreground">Download and install in minutes. No complex configuration required.</p>
             </div>
 
-            <div className="text-center space-y-4 p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 hover:bg-white/70 dark:hover:bg-gray-800/70 transition-all duration-300">
-              <div className="w-16 h-16 mx-auto bg-green-600/20 rounded-full flex items-center justify-center">
-                <Shield className="size-8 text-green-400" />
+            <div className="text-center space-y-4 p-6 rounded-2xl card hover-lift">
+              <div className="w-16 h-16 mx-auto bg-accent/20 rounded-full flex items-center justify-center">
+                <Shield className="size-8 text-accent" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Secure Licensing</h3>
-              <p className="text-gray-600 dark:text-gray-300">One license per account. Advanced protection against unauthorized use.</p>
+              <h3 className="text-xl font-semibold text-foreground">Secure Licensing</h3>
+              <p className="text-muted-foreground">One license per account. Advanced protection against unauthorized use.</p>
             </div>
 
-            <div className="text-center space-y-4 p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 hover:bg-white/70 dark:hover:bg-gray-800/70 transition-all duration-300">
-              <div className="w-16 h-16 mx-auto bg-purple-600/20 rounded-full flex items-center justify-center">
-                <TrendingUp className="size-8 text-purple-400" />
+            <div className="text-center space-y-4 p-6 rounded-2xl card hover-lift">
+              <div className="w-16 h-16 mx-auto bg-accent/20 rounded-full flex items-center justify-center">
+                <TrendingUp className="size-8 text-accent" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Proven Results</h3>
-              <p className="text-gray-600 dark:text-gray-300">Backtested strategies with real market performance data.</p>
+              <h3 className="text-xl font-semibold text-foreground">Proven Results</h3>
+              <p className="text-muted-foreground">Backtested strategies with real market performance data.</p>
             </div>
 
-            <div className="text-center space-y-4 p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 hover:bg-white/70 dark:hover:bg-gray-800/70 transition-all duration-300">
-              <div className="w-16 h-16 mx-auto bg-orange-600/20 rounded-full flex items-center justify-center">
-                <Globe className="size-8 text-orange-400" />
+            <div className="text-center space-y-4 p-6 rounded-2xl card hover-lift">
+              <div className="w-16 h-16 mx-auto bg-accent/20 rounded-full flex items-center justify-center">
+                <Globe className="size-8 text-accent" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Global Support</h3>
-              <p className="text-gray-600 dark:text-gray-300">24/7 customer support and regular updates for all platforms.</p>
+              <h3 className="text-xl font-semibold text-foreground">Global Support</h3>
+              <p className="text-muted-foreground">24/7 customer support and regular updates for all platforms.</p>
             </div>
           </div>
         </div>
@@ -93,10 +93,10 @@ export default function Home() {
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Trading <span className="text-blue-600 dark:text-blue-400">Categories</span>
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
+              Trading <span className="text-accent">Categories</span>
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Choose from our comprehensive range of automated trading solutions
             </p>
           </div>
@@ -154,12 +154,12 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-100/50 to-purple-100/50 dark:from-blue-900/50 dark:to-purple-900/50">
+      <section className="py-20 bg-secondary">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Ready to Start <span className="text-blue-600 dark:text-blue-400">Automated Trading</span>?
+          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+            Ready to Start <span className="text-accent">Automated Trading</span>?
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Join thousands of traders who trust theDBot for their automated trading needs. 
             Start with a free demo or purchase your first bot today.
           </p>
@@ -173,7 +173,7 @@ export default function Home() {
             </Link>
             <Link 
               href="/contact" 
-              className="text-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
+              className="text-lg text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               Contact Support →
             </Link>

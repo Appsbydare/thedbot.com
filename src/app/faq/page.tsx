@@ -63,7 +63,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
         className="flex justify-between items-center w-full py-6 text-left focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
       >
-                 <span className="text-lg font-semibold text-gray-900 dark:text-white">{question}</span>
+                 <span className="text-lg font-semibold text-foreground">{question}</span>
         <ChevronDown 
           className={`size-5 text-gray-400 transition-transform duration-200 ${
             isOpen ? 'rotate-180' : ''
@@ -72,7 +72,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
       </button>
       {isOpen && (
         <div className="pb-6">
-                     <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{answer}</p>
+                     <p className="text-muted-foreground leading-relaxed">{answer}</p>
         </div>
       )}
     </div>
@@ -87,12 +87,12 @@ export default function FAQPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-indigo-900/20"></div>
         <div className="relative mx-auto max-w-4xl px-4">
           <div className="text-center space-y-8">
-            <h1 className="text-5xl sm:text-7xl font-bold tracking-tight bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
-              Frequently Asked <span className="text-blue-600 dark:text-blue-400">Questions</span>
-            </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Find answers to common questions about our trading bots, licensing, payments, and support
-            </p>
+                         <h1 className="text-5xl sm:text-7xl font-bold tracking-tight gradient-text">
+               Frequently Asked <span className="text-accent">Questions</span>
+             </h1>
+             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+               Find answers to common questions about our trading bots, licensing, payments, and support
+             </p>
           </div>
         </div>
       </section>
@@ -107,11 +107,11 @@ export default function FAQPage() {
           </div>
           
           {/* Contact Support */}
-                     <div className="mt-16 text-center p-8 rounded-2xl bg-gray-100/50 dark:bg-gray-800/50">
-             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                     <div className="mt-16 text-center p-8 rounded-2xl card">
+             <h3 className="text-2xl font-bold text-foreground mb-4">
                Still Have Questions?
              </h3>
-             <p className="text-gray-600 dark:text-gray-300 mb-6">
+             <p className="text-muted-foreground mb-6">
                Can&apos;t find what you&apos;re looking for? Our support team is here to help.
              </p>
             <a
