@@ -16,7 +16,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 dark:bg-black/20 border-b border-gray-200 dark:border-white/10">
+    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-white/90 dark:bg-gray-900/95 border-b border-gray-200 dark:border-gray-700">
       <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <Image src="/db-logo.png" alt="theDBot Logo" width={32} height={32} className="w-8 h-8" />
