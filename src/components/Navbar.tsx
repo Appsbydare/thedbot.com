@@ -16,13 +16,17 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-md glass border-b border-border">
+    <header className="sticky top-0 z-50 w-full backdrop-blur-md border-b border-border/20" 
+            style={{
+              background: 'rgba(10, 10, 10, 0.9)',
+              borderBottomColor: 'rgba(59, 130, 246, 0.2)'
+            }}>
       <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <Image src="/db-logo.png" alt="theDBot Logo" width={32} height={32} className="w-8 h-8" />
-                     <span className="text-xl font-bold text-foreground">theDBot</span>
+          <span className="text-xl font-bold text-white">theDBot</span>
         </Link>
-        
+
         <nav className="hidden md:flex items-center gap-8 text-sm">
           {links.map(({ href, label }) => {
             const isActive = pathname === href;
@@ -30,18 +34,18 @@ export default function Navbar() {
               <Link
                 key={href}
                 href={href}
-                                                   className={
-                    "transition-all duration-300 hover:text-accent relative " +
-                    (isActive 
-                      ? "text-accent font-semibold" 
-                      : "text-muted-foreground hover:text-foreground"
-                    )
-                  }
+                className={
+                  "transition-all duration-300 hover:text-accent relative " +
+                  (isActive
+                    ? "text-accent font-semibold"
+                    : "text-gray-300 hover:text-white"
+                  )
+                }
               >
                 {label}
-                                 {isActive && (
-                   <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full"></div>
-                 )}
+                {isActive && (
+                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full"></div>
+                )}
               </Link>
             );
           })}
@@ -51,7 +55,7 @@ export default function Navbar() {
           <ThemeToggle />
           
           {/* Mobile menu button */}
-                     <button className="md:hidden text-foreground p-2">
+          <button className="md:hidden text-white p-2 hover:text-accent transition-colors">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -61,5 +65,3 @@ export default function Navbar() {
     </header>
   );
 }
-
-
