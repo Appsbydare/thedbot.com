@@ -6,7 +6,7 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-blue-800/20 to-indigo-900/20 dark:from-blue-900/20 dark:via-blue-800/20 dark:to-indigo-900/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white-900/20 via-white-800/20 to-white-900/20 dark:from-blue-900/20 dark:via-blue-800/20 dark:to-indigo-900/20"></div>
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="text-center space-y-8">
             <div className="space-y-4">

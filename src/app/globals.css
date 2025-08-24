@@ -3,14 +3,14 @@
 :root {
   --background: #ffffff;
   --foreground: #0f0f0f;
-  --primary: #3b82f6;
+  --primary: #00112c;
   --primary-foreground: #ffffff;
   --secondary: #f1f5f9;
   --secondary-foreground: #334155;
-  --accent: #3b82f6;
+  --accent: #00112e;
   --accent-foreground: #ffffff;
   --muted: #f8fafc;
-  --muted-foreground: #64748b;
+  --muted-foreground: #001533;
   --border: #e2e8f0;
   --input: #ffffff;
   --card: #ffffff;
