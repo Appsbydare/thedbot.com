@@ -16,10 +16,10 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-md glass border-b border-border dark:bg-black/70 dark:border-blue-500/20">
+    <header className="sticky top-0 z-50 w-full backdrop-blur-md glass border-b border-border dark:bg-black/50 dark:border-blue-500/20">
       <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          <Image src="/db-logo.png" alt="theDBot Logo" width={32} height={32} className="w-8 h-8" />
+          <Image src="/db-logo.png" alt="theDBot Logo" width={48} height={48} className="w-8 h-8" />
           <span className="text-xl font-bold text-foreground dark:text-white">theDBot</span>
         </Link>
 
@@ -47,7 +47,7 @@ export default function Navbar() {
           })}
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-5">
           <ThemeToggle />
           
           {/* Mobile menu button */}
