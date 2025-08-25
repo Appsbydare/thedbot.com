@@ -107,6 +107,15 @@ html {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
+/* Hero section gradient backgrounds */
+.hero-gradient {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 50%, #e0e7ff 100%);
+}
+
+:root[class~="dark"] .hero-gradient {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.4) 0%, rgba(30, 64, 175, 0.8) 50%, rgba(30, 58, 138, 0.4) 100%);
+}
+
 /* Animation utilities */
 @keyframes fadeInUp {
   from {

@@ -3,7 +3,7 @@ export default function PrivacyPage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-blue-100 to-indigo-50 dark:from-blue-900/20 dark:via-purple-900/20 dark:to-indigo-900/20"></div>
+        <div className="absolute inset-0 hero-gradient"></div>
         <div className="relative mx-auto max-w-4xl px-4">
           <div className="text-center space-y-8">
             <h1 className="text-5xl sm:text-7xl font-bold tracking-tight">
