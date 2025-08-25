@@ -2,19 +2,19 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #020034;
-  --primary: #00102b;
+  --foreground: #0f172a;
+  --primary: #1e40af;
   --primary-foreground: #ffffff;
-  --secondary: #f1f5f9;
-  --secondary-foreground: #334155;
-  --accent: #0000ef;
+  --secondary: #f8fafc;
+  --secondary-foreground: #475569;
+  --accent: #3b82f6;
   --accent-foreground: #ffffff;
-  --muted: #f8fafc;
-  --muted-foreground: #030060;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
   --border: #e2e8f0;
   --input: #ffffff;
   --card: #ffffff;
-  --card-foreground: #0f0f0f;
+  --card-foreground: #0f172a;
 }
 
 :root[class~="dark"] {

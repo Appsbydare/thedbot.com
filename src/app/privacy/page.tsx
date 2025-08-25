@@ -3,13 +3,13 @@ export default function PrivacyPage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-indigo-900/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-blue-100 to-indigo-50 dark:from-blue-900/20 dark:via-purple-900/20 dark:to-indigo-900/20"></div>
         <div className="relative mx-auto max-w-4xl px-4">
           <div className="text-center space-y-8">
-            <h1 className="text-5xl sm:text-7xl font-bold tracking-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Privacy <span className="text-blue-400">Policy</span>
+            <h1 className="text-5xl sm:text-7xl font-bold tracking-tight">
+              Privacy <span className="text-accent">Policy</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               How we collect, use, and protect your personal information
             </p>
           </div>
@@ -19,7 +19,7 @@ export default function PrivacyPage() {
       {/* Privacy Content */}
       <section className="py-20">
         <div className="mx-auto max-w-4xl px-4">
-          <div className="prose prose-invert max-w-none">
+          <div className="prose max-w-none">
             <div className="space-y-12">
               {/* Introduction */}
               <div>
@@ -222,24 +222,24 @@ export default function PrivacyPage() {
                 </div>
               </div>
 
-              {/* Contact */}
-              <div className="text-center p-8 rounded-lg bg-gradient-to-r from-blue-900/50 to-purple-900/50">
-                <h3 className="text-2xl font-bold text-white mb-4">Questions About Privacy?</h3>
-                <p className="text-gray-300 mb-6">
-                  If you have any questions about this Privacy Policy or our data practices, please contact us.
-                </p>
-                <a
-                  href="/contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 font-semibold transition-all duration-300"
-                >
-                  Contact Us
-                </a>
-              </div>
+                             {/* Contact */}
+               <div className="text-center p-8 rounded-lg bg-secondary">
+                 <h3 className="text-2xl font-bold text-foreground mb-4">Questions About Privacy?</h3>
+                 <p className="text-muted-foreground mb-6">
+                   If you have any questions about this Privacy Policy or our data practices, please contact us.
+                 </p>
+                 <a
+                   href="/contact"
+                   className="inline-flex items-center gap-2 rounded-full bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-3 font-semibold transition-all duration-300"
+                 >
+                   Contact Us
+                 </a>
+               </div>
 
-              {/* Last Updated */}
-              <div className="text-center text-gray-400 text-sm">
-                <p>Last Updated: December 2024</p>
-              </div>
+                             {/* Last Updated */}
+               <div className="text-center text-muted-foreground text-sm">
+                 <p>Last Updated: December 2024</p>
+               </div>
             </div>
           </div>
         </div>

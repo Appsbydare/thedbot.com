@@ -58,17 +58,17 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-b border-gray-700">
+         <div className="border-b border-border">
       <button
         className="flex justify-between items-center w-full py-6 text-left focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
       >
                  <span className="text-lg font-semibold text-foreground">{question}</span>
-        <ChevronDown 
-          className={`size-5 text-gray-400 transition-transform duration-200 ${
-            isOpen ? 'rotate-180' : ''
-          }`} 
-        />
+                 <ChevronDown 
+           className={`size-5 text-muted-foreground transition-transform duration-200 ${
+             isOpen ? 'rotate-180' : ''
+           }`} 
+         />
       </button>
       {isOpen && (
         <div className="pb-6">
@@ -84,15 +84,15 @@ export default function FAQPage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 sm:py-32 overflow-hidden">
-                 <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-blue-800/20 to-indigo-900/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-blue-100 to-indigo-50 dark:from-blue-900/20 dark:via-blue-800/20 dark:to-indigo-900/20"></div>
         <div className="relative mx-auto max-w-4xl px-4">
           <div className="text-center space-y-8">
-                         <h1 className="text-5xl sm:text-7xl font-bold tracking-tight">
-               <span className="text-white dark:text-white">Frequently Asked</span> <span className="text-accent">Questions</span>
-             </h1>
-             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-               Find answers to common questions about our trading bots, licensing, payments, and support
-             </p>
+            <h1 className="text-5xl sm:text-7xl font-bold tracking-tight">
+              <span className="text-foreground dark:text-white">Frequently Asked</span> <span className="text-accent">Questions</span>
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Find answers to common questions about our trading bots, licensing, payments, and support
+            </p>
           </div>
         </div>
       </section>
@@ -114,12 +114,12 @@ export default function FAQPage() {
              <p className="text-muted-foreground mb-6">
                Can&apos;t find what you&apos;re looking for? Our support team is here to help.
              </p>
-            <a
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 font-semibold transition-all duration-300"
-            >
-              Contact Support
-            </a>
+                         <a
+               href="/contact"
+               className="inline-flex items-center gap-2 rounded-full bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-3 font-semibold transition-all duration-300"
+             >
+               Contact Support
+             </a>
           </div>
         </div>
       </section>

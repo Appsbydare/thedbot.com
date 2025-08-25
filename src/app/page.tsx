@@ -6,12 +6,12 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br navy-white-900/40 via-navy-800/80 to-white-900/40 dark:from-blue-900/20 dark:via-blue-800/20 dark:to-indigo-900/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-blue-100 to-indigo-50 dark:from-blue-900/20 dark:via-blue-800/20 dark:to-indigo-900/20"></div>
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="text-center space-y-8">
             <div className="space-y-4">
               <h1 className="text-5xl sm:text-7xl font-bold tracking-tight">
-                <span className="text-white dark:text-white">Automated Trading</span>
+                <span className="text-foreground dark:text-white">Automated Trading</span>
                 <br />
                 <span className="text-accent">Made Simple</span>
               </h1>
@@ -25,7 +25,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
               <Link
                 href="/products"
-                className="group inline-flex items-center gap-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                className="group inline-flex items-center gap-3 rounded-full bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105"
               >
                 Explore Products
                 <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
@@ -103,14 +103,14 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Link href="/products?category=forex" className="group">
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600/20 to-blue-800/20 p-8 h-80 hover:from-blue-600/30 hover:to-blue-800/30 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-600/20 dark:to-blue-800/20 p-8 h-80 hover:from-blue-200 hover:to-blue-300 dark:hover:from-blue-600/30 dark:hover:to-blue-800/30 transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent dark:from-black/60 dark:to-transparent"></div>
                 <div className="relative z-10 h-full flex flex-col justify-end">
-                  <h3 className="text-3xl font-bold text-white mb-4">Forex Bots</h3>
-                  <p className="text-gray-300 mb-6">
+                  <h3 className="text-3xl font-bold text-foreground dark:text-white mb-4">Forex Bots</h3>
+                  <p className="text-muted-foreground dark:text-gray-300 mb-6">
                     Advanced currency trading automation with multi-pair support and risk management
                   </p>
-                  <div className="flex items-center text-blue-400 group-hover:text-blue-300 transition-colors">
+                  <div className="flex items-center text-accent group-hover:text-accent/80 transition-colors">
                     <span className="font-semibold">Explore Forex</span>
                     <ArrowRight className="size-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -119,14 +119,14 @@ export default function Home() {
             </Link>
 
             <Link href="/products?category=crypto" className="group">
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-600/20 to-green-800/20 p-8 h-80 hover:from-green-600/30 hover:to-green-800/30 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-100 to-green-200 dark:from-green-600/20 dark:to-green-800/20 p-8 h-80 hover:from-green-200 hover:to-green-300 dark:hover:from-green-600/30 dark:hover:to-green-800/30 transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent dark:from-black/60 dark:to-transparent"></div>
                 <div className="relative z-10 h-full flex flex-col justify-end">
-                  <h3 className="text-3xl font-bold text-white mb-4">Crypto Bots</h3>
-                  <p className="text-gray-300 mb-6">
+                  <h3 className="text-3xl font-bold text-foreground dark:text-white mb-4">Crypto Bots</h3>
+                  <p className="text-muted-foreground dark:text-gray-300 mb-6">
                     High-frequency cryptocurrency trading with advanced market analysis algorithms
                   </p>
-                  <div className="flex items-center text-green-400 group-hover:text-green-300 transition-colors">
+                  <div className="flex items-center text-accent group-hover:text-accent/80 transition-colors">
                     <span className="font-semibold">Explore Crypto</span>
                     <ArrowRight className="size-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -135,14 +135,14 @@ export default function Home() {
             </Link>
 
             <Link href="/products?category=indicators" className="group">
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-600/20 to-purple-800/20 p-8 h-80 hover:from-purple-600/30 hover:to-purple-800/30 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-600/20 dark:to-purple-800/20 p-8 h-80 hover:from-purple-200 hover:to-purple-300 dark:hover:from-purple-600/30 dark:hover:to-purple-800/30 transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent dark:from-black/60 dark:to-transparent"></div>
                 <div className="relative z-10 h-full flex flex-col justify-end">
-                  <h3 className="text-3xl font-bold text-white mb-4">Indicators</h3>
-                  <p className="text-gray-300 mb-6">
+                  <h3 className="text-3xl font-bold text-foreground dark:text-white mb-4">Indicators</h3>
+                  <p className="text-muted-foreground dark:text-gray-300 mb-6">
                     Custom Pine Script indicators for TradingView with real-time alerts and signals
                   </p>
-                  <div className="flex items-center text-purple-400 group-hover:text-purple-300 transition-colors">
+                  <div className="flex items-center text-accent group-hover:text-accent/80 transition-colors">
                     <span className="font-semibold">Explore Indicators</span>
                     <ArrowRight className="size-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -166,7 +166,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
             <Link
               href="/products"
-              className="inline-flex items-center gap-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center gap-3 rounded-full bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105"
             >
               Browse All Products
               <ArrowRight className="size-5" />
