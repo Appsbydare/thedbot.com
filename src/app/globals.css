@@ -84,7 +84,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Professional gradient text utility */
+/* Professional gradient text utility - Updated for light theme compatibility */
 .gradient-text {
   background: linear-gradient(135deg, #3b82f6 0%, #1e40af 50%, #2563eb 100%);
   -webkit-background-clip: text;
