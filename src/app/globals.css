@@ -113,7 +113,7 @@ html {
 }
 
 :root[class~="dark"] .hero-gradient {
-  background: linear-gradient(135deg, rgba(30, 58, 138, 0.4) 0%, rgba(30, 64, 175, 0.8) 50%, rgba(30, 58, 138, 0.4) 100%);
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.4) 0%, rgba(0, 12, 52, 0.8) 50%, rgba(30, 58, 138, 0.4) 100%);
 }
 
 /* Animation utilities */
