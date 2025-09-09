@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft, Star, Download, Shield, CheckCircle, Zap } from "@/components/icons";
+import BuyWithCryptoButton from "@/components/BuyWithCryptoButton";
 
 // Sample product data - in a real app, this would come from a database
 const products = {
@@ -203,6 +204,11 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                   <Download className="size-5" />
                   Purchase Now
                 </button>
+                <BuyWithCryptoButton
+                  productId={product.id}
+                  amountUSD={product.price}
+                  className="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
+                />
                 {product.demo && (
                   <button className="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
                     Try Demo
@@ -213,7 +219,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               {/* Security Badge */}
               <div className="flex items-center gap-2 text-gray-400">
                 <Shield className="size-4" />
-                <span className="text-sm">Secure Payment • Instant Delivery</span>
+                <span className="text-sm">Secure crypto payment via CoinPayments • Instant Delivery</span>
               </div>
             </div>
           </div>

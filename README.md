@@ -16,6 +16,20 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+### CoinPayments Setup
+
+Add the following env vars to `.env.local`:
+
+```
+SITE_URL=http://localhost:3000
+COINPAYMENTS_PUBLIC_KEY=...
+COINPAYMENTS_PRIVATE_KEY=...
+COINPAYMENTS_MERCHANT_ID=...
+COINPAYMENTS_IPN_SECRET=...
+```
+
+In CoinPayments dashboard, set IPN secret to `COINPAYMENTS_IPN_SECRET` and allow IPN to `SITE_URL/api/coinpayments/ipn`.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
