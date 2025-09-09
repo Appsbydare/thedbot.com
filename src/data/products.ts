@@ -14,6 +14,7 @@ export type Product = {
   deliverableRef: string; // path or SKU
   support?: string;
   demo?: boolean;
+  specifications?: Record<string, string>;
 };
 
 export const products: Product[] = [

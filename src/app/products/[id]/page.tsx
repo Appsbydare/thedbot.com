@@ -150,15 +150,15 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               </div>
 
               {/* Specifications (optional) */}
-              {Boolean((product as any).specifications) && (
+              {Boolean(product.specifications) && (
                 <div>
                   <h2 className="text-3xl font-bold text-white mb-6">Specifications</h2>
                   <div className="bg-gray-800/50 rounded-lg p-6">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {Object.entries((product as any).specifications).map(([key, value]) => (
+                      {Object.entries(product.specifications as Record<string, string>).map(([key, value]) => (
                         <div key={key} className="flex justify-between py-2 border-b border-gray-700 last:border-b-0">
                           <span className="text-gray-400 font-medium">{key}</span>
-                          <span className="text-white">{value as string}</span>
+                          <span className="text-white">{value}</span>
                         </div>
                       ))}
                     </div>

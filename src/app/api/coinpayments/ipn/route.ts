@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verifyIpnSignature } from "@/lib/coinpayments";
-import { OrdersRepo, LicensesRepo } from "@/lib/repos";
+import { OrdersRepo } from "@/lib/repos";
 import { getProductById } from "@/data/products";
 import { sendEmail } from "@/lib/email";
 
