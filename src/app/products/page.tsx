@@ -80,7 +80,7 @@ export default function ProductsPage() {
                         <Star
                           key={i}
                           className={`size-4 ${
-                            i < Math.floor(product.rating)
+                            i < Math.floor(product.rating ?? 0)
                               ? "text-yellow-400 fill-current"
                               : "text-muted-foreground"
                           }`}
@@ -88,7 +88,7 @@ export default function ProductsPage() {
                       ))}
                     </div>
                     <span className="text-muted-foreground text-sm">
-                      {product.rating} ({product.reviews} reviews)
+                      {(product.rating ?? 0)} ({product.reviews ?? 0} reviews)
                     </span>
                   </div>
 
