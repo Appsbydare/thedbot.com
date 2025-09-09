@@ -3,9 +3,8 @@ export default function SuccessPage() {
     <div className="min-h-screen flex items-center justify-center">
       <div className="text-center space-y-4">
         <h1 className="text-3xl font-bold text-white">Payment Initiated</h1>
-        <p className="text-gray-300">
-          Thank you. Once your transaction confirms on-chain, your order will be completed.
-        </p>
+        <p className="text-gray-300">Thanks for your purchase.</p>
+        <p className="text-gray-300">You'll receive an email with your license and download link after confirmation.</p>
       </div>
     </div>
   );

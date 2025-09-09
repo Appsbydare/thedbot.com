@@ -1,84 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Star, Download, Shield } from "@/components/icons";
-
-// Sample product data
-const products = [
-  {
-    id: "forex-ma-bot",
-    name: "Forex MA Bot Pro",
-    category: "forex",
-    description: "Advanced moving average crossover bot with multi-timeframe analysis",
-    price: 299,
-    currency: "USD",
-    features: ["MT4/MT5 Compatible", "Multi-timeframe", "Risk Management", "Backtesting"],
-    rating: 4.8,
-    reviews: 127,
-    image: "/api/placeholder/400/300",
-    badge: "Best Seller"
-  },
-  {
-    id: "crypto-scalper",
-    name: "Crypto Scalper Elite",
-    category: "crypto",
-    description: "High-frequency cryptocurrency scalping bot with advanced algorithms",
-    price: 499,
-    currency: "USD",
-    features: ["24/7 Trading", "Low Latency", "Multi-exchange", "Real-time Alerts"],
-    rating: 4.9,
-    reviews: 89,
-    image: "/api/placeholder/400/300",
-    badge: "New"
-  },
-  {
-    id: "rsi-divergence",
-    name: "RSI Divergence Indicator",
-    category: "indicators",
-    description: "Advanced RSI divergence detection for TradingView with custom alerts",
-    price: 99,
-    currency: "USD",
-    features: ["TradingView Compatible", "Custom Alerts", "Multiple Timeframes", "Visual Signals"],
-    rating: 4.7,
-    reviews: 203,
-    image: "/api/placeholder/400/300",
-    badge: "Popular"
-  },
-  {
-    id: "signal-executor",
-    name: "Signal Executor Pro",
-    category: "forex",
-    description: "Professional signal execution bot with advanced order management",
-    price: 199,
-    currency: "USD",
-    features: ["Signal Integration", "Order Management", "Position Sizing", "Stop Loss"],
-    rating: 4.6,
-    reviews: 156,
-    image: "/api/placeholder/400/300"
-  },
-  {
-    id: "bollinger-bands",
-    name: "Bollinger Bands Pro",
-    category: "indicators",
-    description: "Enhanced Bollinger Bands indicator with breakout detection",
-    price: 79,
-    currency: "USD",
-    features: ["Breakout Detection", "Volume Analysis", "Custom Settings", "Alert System"],
-    rating: 4.5,
-    reviews: 178,
-    image: "/api/placeholder/400/300"
-  },
-  {
-    id: "grid-trading-bot",
-    name: "Grid Trading Bot",
-    category: "crypto",
-    description: "Automated grid trading strategy for cryptocurrency markets",
-    price: 399,
-    currency: "USD",
-    features: ["Grid Strategy", "Market Making", "Risk Control", "Profit Optimization"],
-    rating: 4.8,
-    reviews: 67,
-    image: "/api/placeholder/400/300"
-  }
-];
+import { products as catalog } from "@/data/products";
+const products = catalog;
 
 const categories = [
   { id: "all", name: "All Products", count: products.length },
@@ -185,7 +108,7 @@ export default function ProductsPage() {
                   <div className="flex items-center justify-between pt-4 border-t border-border">
                     <div className="space-y-1">
                       <div className="text-2xl font-bold text-foreground">
-                        ${product.price}
+                        ${product.priceUSD}
                       </div>
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <Shield className="size-4" />

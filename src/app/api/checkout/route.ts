@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createTransaction } from "@/lib/coinpayments";
-import { createOrder, updateOrder } from "@/lib/orders";
+import { OrdersRepo, CustomersRepo, LicensesRepo } from "@/lib/repos";
+import { generateLicenseKey } from "@/lib/license";
+import { getProductById } from "@/data/products";
 import { randomUUID } from "crypto";
 
 export async function POST(req: NextRequest) {
@@ -11,20 +13,43 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { productId, amountUSD, buyerEmail } = body ?? {};
+    const { productId, amountUSD, buyerEmail, buyerName, buyerCountry } = body ?? {};
     if (!productId || !amountUSD) {
       return NextResponse.json({ error: "Missing productId or amountUSD" }, { status: 400 });
     }
 
+    const product = getProductById(productId);
+    if (!product) {
+      return NextResponse.json({ error: "Invalid product" }, { status: 400 });
+    }
+
     const orderId = randomUUID();
 
-    // Create initial order record
-    createOrder({
+    // Create customer and license upfront (license delivered after payment confirm)
+    const customer = buyerEmail ? CustomersRepo.upsertByEmail(buyerName || "Buyer", buyerEmail, buyerCountry || "") : undefined;
+    const licenseKey = generateLicenseKey(productId, buyerEmail || `${orderId}@example.com`);
+
+    OrdersRepo.create({
       id: orderId,
       productId,
       amountUSD: Number(amountUSD),
       currency2: "USDT.TRC20",
       status: "created",
+      buyerEmail,
+      customerId: customer?.id,
+      licenseKey,
+      createdAt: Date.now(),
+      updatedAt: Date.now(),
+    });
+
+    LicensesRepo.create({
+      key: licenseKey,
+      productId,
+      customerId: customer?.id || "",
+      orderId,
+      status: "issued",
+      maxActivations: 1,
+      activations: 0,
       createdAt: Date.now(),
       updatedAt: Date.now(),
     });
@@ -34,7 +59,7 @@ export async function POST(req: NextRequest) {
       currency1: "USD",
       currency2: "USDT.TRC20",
       buyer_email: buyerEmail,
-      item_name: productId,
+      item_name: product.name,
       custom: orderId,
       success_url: `${siteUrl}/checkout/success`,
       cancel_url: `${siteUrl}/checkout/cancel`,
@@ -45,13 +70,14 @@ export async function POST(req: NextRequest) {
     }
 
     if (res.result?.txn_id) {
-      updateOrder(orderId, { txnId: res.result.txn_id, status: "pending" });
+      OrdersRepo.update(orderId, { txnId: res.result.txn_id, status: "pending" });
     }
 
     return NextResponse.json({
       status_url: res.result?.status_url,
       qrcode_url: res.result?.qrcode_url,
       txn_id: res.result?.txn_id,
+      licenseKey,
     });
   } catch (err: any) {
     return NextResponse.json({ error: err.message ?? "Server error" }, { status: 500 });

@@ -1,109 +1,9 @@
 import Link from "next/link";
 import { ArrowLeft, Star, Download, Shield, CheckCircle, Zap } from "@/components/icons";
-import BuyWithCryptoButton from "@/components/BuyWithCryptoButton";
+import PurchaseForm from "@/components/PurchaseForm";
+import { products as catalog } from "@/data/products";
 
-// Sample product data - in a real app, this would come from a database
-const products = {
-  "forex-ma-bot": {
-    id: "forex-ma-bot",
-    name: "Forex MA Bot Pro",
-    category: "forex",
-    description: "Advanced moving average crossover bot with multi-timeframe analysis and intelligent risk management.",
-    longDescription: "The Forex MA Bot Pro is a sophisticated automated trading solution designed for forex markets. It uses advanced moving average crossover strategies combined with multi-timeframe analysis to identify high-probability trading opportunities. The bot includes intelligent risk management features and can adapt to changing market conditions.",
-    price: 299,
-    currency: "USD",
-    features: [
-      "MT4/MT5 Compatible",
-      "Multi-timeframe Analysis",
-      "Advanced Risk Management",
-      "Backtesting Capabilities",
-      "Real-time Alerts",
-      "Customizable Parameters",
-      "24/7 Support",
-      "Free Updates"
-    ],
-    specifications: {
-      "Platform": "MT4, MT5",
-      "Timeframes": "M1, M5, M15, M30, H1, H4, D1",
-      "Pairs": "All Major & Minor",
-      "Strategy": "Moving Average Crossover",
-      "Risk Management": "Stop Loss, Take Profit, Trailing Stop",
-      "Backtesting": "Yes, with detailed reports"
-    },
-    rating: 4.8,
-    reviews: 127,
-    image: "/api/placeholder/600/400",
-    badge: "Best Seller",
-    demo: true,
-    support: "24/7 Email Support"
-  },
-  "crypto-scalper": {
-    id: "crypto-scalper",
-    name: "Crypto Scalper Elite",
-    category: "crypto",
-    description: "High-frequency cryptocurrency scalping bot with advanced algorithms and low latency execution.",
-    longDescription: "The Crypto Scalper Elite is designed for high-frequency trading in cryptocurrency markets. It uses advanced algorithms to identify micro-trends and execute trades with minimal latency. The bot is optimized for scalping strategies and includes sophisticated risk management to protect your capital.",
-    price: 499,
-    currency: "USD",
-    features: [
-      "24/7 Trading",
-      "Low Latency Execution",
-      "Multi-exchange Support",
-      "Real-time Market Analysis",
-      "Advanced Risk Controls",
-      "Performance Analytics",
-      "API Integration",
-      "Priority Support"
-    ],
-    specifications: {
-      "Platform": "Custom API",
-      "Exchanges": "Binance, Coinbase Pro, Kraken",
-      "Strategy": "High-Frequency Scalping",
-      "Execution Speed": "< 100ms",
-      "Risk Management": "Dynamic Position Sizing",
-      "Monitoring": "Real-time Dashboard"
-    },
-    rating: 4.9,
-    reviews: 89,
-    image: "/api/placeholder/600/400",
-    badge: "New",
-    demo: true,
-    support: "Priority Support"
-  },
-  "rsi-divergence": {
-    id: "rsi-divergence",
-    name: "RSI Divergence Indicator",
-    category: "indicators",
-    description: "Advanced RSI divergence detection for TradingView with custom alerts and visual signals.",
-    longDescription: "The RSI Divergence Indicator is a powerful tool for identifying potential trend reversals in TradingView. It automatically detects bullish and bearish divergences between price action and RSI, providing clear visual signals and customizable alerts to help you make informed trading decisions.",
-    price: 99,
-    currency: "USD",
-    features: [
-      "TradingView Compatible",
-      "Custom Alerts",
-      "Multiple Timeframes",
-      "Visual Signals",
-      "Divergence Detection",
-      "Customizable Settings",
-      "Documentation Included",
-      "Email Support"
-    ],
-    specifications: {
-      "Platform": "TradingView",
-      "Timeframes": "All Available",
-      "Indicators": "RSI Divergence",
-      "Alerts": "Customizable",
-      "Visual": "Clear Signals",
-      "Settings": "Fully Customizable"
-    },
-    rating: 4.7,
-    reviews: 203,
-    image: "/api/placeholder/600/400",
-    badge: "Popular",
-    demo: false,
-    support: "Email Support"
-  }
-};
+const products = Object.fromEntries(catalog.map((p) => [p.id, p]));
 
 export default function ProductPage({ params }: { params: { id: string } }) {
   const product = products[params.id as keyof typeof products];
@@ -173,20 +73,18 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                     <Star 
                       key={i} 
                       className={`size-5 ${
-                        i < Math.floor(product.rating) 
+                        i < Math.floor((product.rating ?? 0)) 
                           ? "text-yellow-400 fill-current" 
                           : "text-gray-600"
                       }`} 
                     />
                   ))}
                 </div>
-                <span className="text-gray-300">{product.rating} ({product.reviews} reviews)</span>
+                <span className="text-gray-300">{product.rating ?? 0} ({product.reviews ?? 0} reviews)</span>
               </div>
 
               {/* Price */}
-              <div className="text-3xl font-bold text-white">
-                ${product.price} {product.currency}
-              </div>
+              <div className="text-3xl font-bold text-white">${product.priceUSD} USD</div>
 
               {/* Features Preview */}
               <div className="grid grid-cols-2 gap-3">
@@ -204,11 +102,9 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                   <Download className="size-5" />
                   Purchase Now
                 </button>
-                <BuyWithCryptoButton
-                  productId={product.id}
-                  amountUSD={product.price}
-                  className="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
-                />
+                <div className="flex-1">
+                  <PurchaseForm productId={product.id} amountUSD={product.priceUSD} />
+                </div>
                 {product.demo && (
                   <button className="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
                     Try Demo
@@ -253,20 +149,22 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                 </div>
               </div>
 
-              {/* Specifications */}
-              <div>
-                <h2 className="text-3xl font-bold text-white mb-6">Specifications</h2>
-                <div className="bg-gray-800/50 rounded-lg p-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {Object.entries(product.specifications).map(([key, value]) => (
-                      <div key={key} className="flex justify-between py-2 border-b border-gray-700 last:border-b-0">
-                        <span className="text-gray-400 font-medium">{key}</span>
-                        <span className="text-white">{value}</span>
-                      </div>
-                    ))}
+              {/* Specifications (optional) */}
+              {Boolean((product as any).specifications) && (
+                <div>
+                  <h2 className="text-3xl font-bold text-white mb-6">Specifications</h2>
+                  <div className="bg-gray-800/50 rounded-lg p-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {Object.entries((product as any).specifications).map(([key, value]) => (
+                        <div key={key} className="flex justify-between py-2 border-b border-gray-700 last:border-b-0">
+                          <span className="text-gray-400 font-medium">{key}</span>
+                          <span className="text-white">{value as string}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
 
             {/* Sidebar */}
@@ -276,9 +174,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                 <h3 className="text-2xl font-bold text-white mb-4">Purchase {product.name}</h3>
                 
                 <div className="space-y-4 mb-6">
-                  <div className="text-3xl font-bold text-white">
-                    ${product.price} {product.currency}
-                  </div>
+                  <div className="text-3xl font-bold text-white">${product.priceUSD} USD</div>
                   
                   <div className="space-y-2">
                     <div className="flex items-center gap-2 text-gray-300">

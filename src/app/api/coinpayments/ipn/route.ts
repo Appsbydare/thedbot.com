@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verifyIpnSignature } from "@/lib/coinpayments";
-import { updateOrder, findOrder } from "@/lib/orders";
+import { OrdersRepo, LicensesRepo } from "@/lib/repos";
+import { getProductById } from "@/data/products";
+import { sendEmail } from "@/lib/email";
 
 export async function POST(req: NextRequest) {
   // CoinPayments sends x-www-form-urlencoded and requires raw body for HMAC
@@ -23,7 +25,7 @@ export async function POST(req: NextRequest) {
   const status = Number(params.get("status") || "0");
   const txnId = params.get("txn_id") || undefined;
 
-  const order = findOrder(custom);
+  const order = OrdersRepo.get(custom);
   if (!order) {
     // We still return 200 to avoid retries loop with sensitive info
     return new NextResponse("OK", { status: 200 });
@@ -37,7 +39,21 @@ export async function POST(req: NextRequest) {
   else if (status >= 0) newStatus = "pending";
   else newStatus = "failed";
 
-  updateOrder(custom, { status: newStatus, txnId });
+  OrdersRepo.update(custom, { status: newStatus, txnId });
+
+  if (newStatus === "complete") {
+    const p = getProductById(order.productId);
+    const file = p?.deliverableRef;
+    const license = order.licenseKey;
+    if (order.buyerEmail && license && file) {
+      const downloadUrl = `${process.env.SITE_URL}/api/download?license=${encodeURIComponent(license)}&file=${encodeURIComponent(file)}`;
+      await sendEmail({
+        to: order.buyerEmail,
+        subject: `Your ${p?.name} is ready – License ${license}`,
+        text: `Thank you for your purchase.\n\nLicense Key: ${license}\nDownload: ${downloadUrl}\n\nIf the link expires or you have issues, reply to this email.`,
+      });
+    }
+  }
 
   return new NextResponse("OK", { status: 200 });
 }
