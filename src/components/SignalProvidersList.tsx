@@ -77,7 +77,7 @@ export default function SignalProvidersList({ providers }: SignalProvidersListPr
           <div className="flex flex-wrap gap-2">
             <select
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as any)}
+              onChange={(e) => setSortBy(e.target.value as 'winRate' | 'subscribers' | 'totalProfit' | 'sharpeRatio')}
               className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
             >
               <option value="winRate">Sort by Win Rate</option>
@@ -88,7 +88,7 @@ export default function SignalProvidersList({ providers }: SignalProvidersListPr
 
             <select
               value={filterBy}
-              onChange={(e) => setFilterBy(e.target.value as any)}
+              onChange={(e) => setFilterBy(e.target.value as 'all' | 'crypto' | 'forex' | 'stocks' | 'indices' | 'mixed')}
               className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
             >
               <option value="all">All Specializations</option>
@@ -101,7 +101,7 @@ export default function SignalProvidersList({ providers }: SignalProvidersListPr
 
             <select
               value={riskFilter}
-              onChange={(e) => setRiskFilter(e.target.value as any)}
+              onChange={(e) => setRiskFilter(e.target.value as 'all' | 'low' | 'medium' | 'high')}
               className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
             >
               <option value="all">All Risk Levels</option>

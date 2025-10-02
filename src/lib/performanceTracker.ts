@@ -1,5 +1,5 @@
-import { SignalProvider, DailyPerformance, MonthlyPerformance } from '@/data/signalProviders';
-import { format, subDays, startOfDay } from 'date-fns';
+import { SignalProvider, DailyPerformance } from '@/data/signalProviders';
+import { format, subDays } from 'date-fns';
 
 // Generate realistic daily performance updates
 export function generateDailyPerformanceUpdate(provider: SignalProvider): DailyPerformance {

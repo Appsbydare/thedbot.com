@@ -1,8 +1,8 @@
 'use client';
 
 import { SignalProvider } from '@/data/signalProviders';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from 'recharts';
-import { format, subMonths } from 'date-fns';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { format } from 'date-fns';
 
 interface ProviderDashboardProps {
   provider: SignalProvider;
