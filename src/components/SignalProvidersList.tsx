@@ -1,0 +1,217 @@
+'use client';
+
+import { useState, useMemo } from 'react';
+import Link from 'next/link';
+import { SignalProvider } from '@/data/signalProviders';
+
+interface SignalProvidersListProps {
+  providers: SignalProvider[];
+}
+
+export default function SignalProvidersList({ providers }: SignalProvidersListProps) {
+  const [sortBy, setSortBy] = useState<'winRate' | 'subscribers' | 'totalProfit' | 'sharpeRatio'>('winRate');
+  const [filterBy, setFilterBy] = useState<'all' | 'crypto' | 'forex' | 'stocks' | 'indices' | 'mixed'>('all');
+  const [riskFilter, setRiskFilter] = useState<'all' | 'low' | 'medium' | 'high'>('all');
+
+  const filteredAndSortedProviders = useMemo(() => {
+    let filtered = providers;
+
+    // Filter by specialization
+    if (filterBy !== 'all') {
+      filtered = filtered.filter(provider => provider.specialization === filterBy);
+    }
+
+    // Filter by risk level
+    if (riskFilter !== 'all') {
+      filtered = filtered.filter(provider => provider.riskLevel === riskFilter);
+    }
+
+    // Sort providers
+    return filtered.sort((a, b) => {
+      switch (sortBy) {
+        case 'winRate':
+          return b.winRate - a.winRate;
+        case 'subscribers':
+          return b.subscribers - a.subscribers;
+        case 'totalProfit':
+          return b.totalProfit - a.totalProfit;
+        case 'sharpeRatio':
+          return b.sharpeRatio - a.sharpeRatio;
+        default:
+          return 0;
+      }
+    });
+  }, [providers, sortBy, filterBy, riskFilter]);
+
+  const getRiskBadgeColor = (risk: string) => {
+    switch (risk) {
+      case 'low': return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200';
+      case 'medium': return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200';
+      case 'high': return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200';
+      default: return 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200';
+    }
+  };
+
+  const getSpecializationBadgeColor = (specialization: string) => {
+    switch (specialization) {
+      case 'crypto': return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
+      case 'forex': return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200';
+      case 'stocks': return 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200';
+      case 'indices': return 'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200';
+      case 'mixed': return 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200';
+      default: return 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200';
+    }
+  };
+
+  const formatTradingStyle = (style: string) => {
+    return style.split('-').map(word =>
+      word.charAt(0).toUpperCase() + word.slice(1)
+    ).join(' ');
+  };
+
+  return (
+    <div className="space-y-6">
+      {/* Filters and Sorting */}
+      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
+        <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
+          <div className="flex flex-wrap gap-2">
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as any)}
+              className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+            >
+              <option value="winRate">Sort by Win Rate</option>
+              <option value="subscribers">Sort by Subscribers</option>
+              <option value="totalProfit">Sort by Total Profit</option>
+              <option value="sharpeRatio">Sort by Sharpe Ratio</option>
+            </select>
+
+            <select
+              value={filterBy}
+              onChange={(e) => setFilterBy(e.target.value as any)}
+              className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+            >
+              <option value="all">All Specializations</option>
+              <option value="crypto">Cryptocurrency</option>
+              <option value="forex">Forex</option>
+              <option value="stocks">Stocks</option>
+              <option value="indices">Indices</option>
+              <option value="mixed">Mixed</option>
+            </select>
+
+            <select
+              value={riskFilter}
+              onChange={(e) => setRiskFilter(e.target.value as any)}
+              className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+            >
+              <option value="all">All Risk Levels</option>
+              <option value="low">Low Risk</option>
+              <option value="medium">Medium Risk</option>
+              <option value="high">High Risk</option>
+            </select>
+          </div>
+
+          <div className="text-sm text-gray-600 dark:text-gray-400">
+            Showing {filteredAndSortedProviders.length} of {providers.length} providers
+          </div>
+        </div>
+      </div>
+
+      {/* Providers Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredAndSortedProviders.map((provider) => (
+          <Link
+            key={provider.id}
+            href={`/providers/${provider.slug}`}
+            className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-200 block"
+          >
+            <div className="flex items-start justify-between mb-4">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                  {provider.name}
+                </h3>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className={`px-2 py-1 text-xs font-medium rounded-full ${getSpecializationBadgeColor(provider.specialization)}`}>
+                    {provider.specialization.toUpperCase()}
+                  </span>
+                  <span className={`px-2 py-1 text-xs font-medium rounded-full ${getRiskBadgeColor(provider.riskLevel)}`}>
+                    {provider.riskLevel.toUpperCase()} RISK
+                  </span>
+                </div>
+              </div>
+              {provider.avatar && (
+                <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                  <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                    {provider.name.charAt(0)}
+                  </span>
+                </div>
+              )}
+            </div>
+
+            <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">
+              {provider.description}
+            </p>
+
+            <div className="space-y-3">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <div className="text-lg font-bold text-green-600 dark:text-green-400">
+                    {provider.winRate}%
+                  </div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400">
+                    Win Rate
+                  </div>
+                </div>
+                <div>
+                  <div className="text-lg font-bold text-blue-600 dark:text-blue-400">
+                    {provider.subscribers.toLocaleString()}
+                  </div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400">
+                    Subscribers
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <div className="text-lg font-bold text-purple-600 dark:text-purple-400">
+                    +{provider.totalProfit}%
+                  </div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400">
+                    Total Profit
+                  </div>
+                </div>
+                <div>
+                  <div className="text-lg font-bold text-orange-600 dark:text-orange-400">
+                    {provider.signalsPerWeek}
+                  </div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400">
+                    Signals/Week
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-gray-600 dark:text-gray-400">
+                    Style: {formatTradingStyle(provider.tradingStyle)}
+                  </span>
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">
+                    View Details →
+                  </span>
+                </div>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+
+      {filteredAndSortedProviders.length === 0 && (
+        <div className="text-center py-12">
+          <div className="text-gray-400 dark:text-gray-500 text-lg mb-2">No providers found</div>
+          <div className="text-gray-600 dark:text-gray-400">Try adjusting your filters</div>
+        </div>
+      )}
+    </div>
+  );
+}
