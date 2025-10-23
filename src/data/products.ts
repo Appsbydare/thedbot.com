@@ -6,6 +6,7 @@ export type Product = {
   description: string;
   longDescription?: string;
   priceUSD: number;
+  monthlyPriceUSD?: number;
   features: string[];
   rating?: number;
   reviews?: number;
@@ -39,20 +40,29 @@ export const products: Product[] = [
   {
     id: "crypto-scalper",
     slug: "crypto-scalper",
-    name: "Crypto Scalper Elite",
+    name: "Telegram Trading Bot",
     category: "crypto",
-    description: "High-frequency cryptocurrency scalping bot with advanced algorithms",
+    description: "Automated trading bot that listens to Telegram signals and executes trades in MT5 with hassle-free user experience",
     longDescription:
-      "The Crypto Scalper Elite is designed for high-frequency trading in cryptocurrency markets.",
-    priceUSD: 499,
-    features: ["24/7 Trading", "Low Latency", "Multi-exchange", "Real-time Alerts"],
+      "The Telegram Trading Bot revolutionizes automated trading by seamlessly connecting Telegram signal channels to your MT5 trading platform. This intelligent bot monitors your favorite signal providers and automatically executes trades based on their recommendations, eliminating the need for manual intervention. With its user-friendly interface and robust architecture, you can enjoy 24/7 trading without the stress of monitoring markets constantly. The bot features advanced risk management, customizable position sizing, and real-time performance tracking, making it perfect for both beginners and experienced traders who want to leverage professional signals while maintaining full control over their trading strategy.",
+    priceUSD: 899,
+    monthlyPriceUSD: 99,
+    features: ["Telegram Signal Integration", "MT5 Auto-Trading", "Risk Management", "24/7 Monitoring", "Custom Position Sizing", "Real-time Performance Tracking"],
     rating: 4.9,
-    reviews: 89,
+    reviews: 800,
     badge: "New",
     deliverableType: "file",
-    deliverableRef: "crypto-scalper.txt",
+    deliverableRef: "telegram-trading-bot.txt",
     support: "Priority Support",
     demo: true,
+    specifications: {
+      "Platform": "MT5 Compatible",
+      "Signal Source": "Telegram Channels",
+      "Execution Speed": "< 1 Second",
+      "Supported Assets": "Forex, Crypto, Indices",
+      "Risk Management": "Advanced",
+      "Update Frequency": "Real-time"
+    }
   },
   {
     id: "rsi-divergence",

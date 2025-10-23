@@ -43,7 +43,11 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-24 h-24 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Zap className="size-12 text-blue-400" />
+                    {product.name === "Telegram Trading Bot" ? (
+                      <div className="text-4xl">📱</div>
+                    ) : (
+                      <Zap className="size-12 text-blue-400" />
+                    )}
                   </div>
                   <p className="text-gray-400">Product Preview</p>
                 </div>
@@ -84,7 +88,16 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               </div>
 
               {/* Price */}
-              <div className="text-3xl font-bold text-white">${product.priceUSD} USD</div>
+              <div className="space-y-2">
+                {product.monthlyPriceUSD ? (
+                  <div className="space-y-1">
+                    <div className="text-3xl font-bold text-white">${product.priceUSD} USD/year</div>
+                    <div className="text-xl text-gray-300">or ${product.monthlyPriceUSD} USD/month</div>
+                  </div>
+                ) : (
+                  <div className="text-3xl font-bold text-white">${product.priceUSD} USD</div>
+                )}
+              </div>
 
               {/* Features Preview */}
               <div className="grid grid-cols-2 gap-3">
@@ -97,17 +110,24 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2">
-                  <Download className="size-5" />
-                  Purchase Now
-                </button>
-                <div className="flex-1">
-                  <PurchaseForm productId={product.id} amountUSD={product.priceUSD} />
+              <div className="space-y-4">
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2">
+                    <Download className="size-5" />
+                    Purchase Now
+                  </button>
+                  <div className="flex-1">
+                    <PurchaseForm productId={product.id} amountUSD={product.priceUSD} />
+                  </div>
+                  {product.demo && (
+                    <button className="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
+                      Try Demo
+                    </button>
+                  )}
                 </div>
-                {product.demo && (
-                  <button className="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                    Try Demo
+                {product.specifications && (
+                  <button className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 border border-gray-600">
+                    View Product Specifications
                   </button>
                 )}
               </div>
@@ -174,7 +194,14 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                 <h3 className="text-2xl font-bold text-white mb-4">Purchase {product.name}</h3>
                 
                 <div className="space-y-4 mb-6">
-                  <div className="text-3xl font-bold text-white">${product.priceUSD} USD</div>
+                  {product.monthlyPriceUSD ? (
+                    <div className="space-y-2">
+                      <div className="text-3xl font-bold text-white">${product.priceUSD} USD/year</div>
+                      <div className="text-lg text-gray-300">or ${product.monthlyPriceUSD} USD/month</div>
+                    </div>
+                  ) : (
+                    <div className="text-3xl font-bold text-white">${product.priceUSD} USD</div>
+                  )}
                   
                   <div className="space-y-2">
                     <div className="flex items-center gap-2 text-gray-300">

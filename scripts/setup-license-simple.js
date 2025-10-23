@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * License System Setup Script
- * Run this script to initialize your license management system
+ * Simple License System Setup Script
+ * Compatible with all Node.js versions
  */
 
 const crypto = require('crypto');
@@ -11,12 +11,18 @@ function generateRandomKey(length = 32) {
   return crypto.randomBytes(length).toString('hex');
 }
 
-function encryptData(data, key) {
-  // Simple encryption compatible with the validator
-  const cipher = crypto.createCipher('aes-256-cbc', key);
-  let encrypted = cipher.update(JSON.stringify(data), 'utf8', 'hex');
-  encrypted += cipher.final('hex');
-  return encrypted;
+function simpleEncrypt(data, key) {
+  // Simple XOR encryption for compatibility
+  const dataStr = JSON.stringify(data);
+  const keyBuffer = Buffer.from(key, 'hex');
+  const dataBuffer = Buffer.from(dataStr, 'utf8');
+  const encrypted = Buffer.alloc(dataBuffer.length);
+  
+  for (let i = 0; i < dataBuffer.length; i++) {
+    encrypted[i] = dataBuffer[i] ^ keyBuffer[i % keyBuffer.length];
+  }
+  
+  return encrypted.toString('hex');
 }
 
 function initializeLicenseDatabase(encryptionKey) {
@@ -29,7 +35,7 @@ function initializeLicenseDatabase(encryptionKey) {
     }
   };
 
-  return encryptData(defaultDatabase, encryptionKey);
+  return simpleEncrypt(defaultDatabase, encryptionKey);
 }
 
 function main() {
@@ -78,4 +84,4 @@ if (require.main === module) {
   main();
 }
 
-module.exports = { generateRandomKey, encryptData, initializeLicenseDatabase };
+module.exports = { generateRandomKey, simpleEncrypt, initializeLicenseDatabase };
