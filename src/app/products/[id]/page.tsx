@@ -164,7 +164,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                     <h4 className="text-yellow-400 font-semibold">Important Trading Warning</h4>
                     <div className="text-yellow-200 text-sm space-y-2">
                       <p><strong>Demo Testing Recommended:</strong> We strongly recommend testing this tool with a demo account first to understand the optimal SL and TP settings for your specific signal provider.</p>
-                      <p><strong>Custom Strategy Caution:</strong> If you're using customized TP and SL strategies, ensure you thoroughly understand how they work with your signal provider's trading style.</p>
+                      <p><strong>Custom Strategy Caution:</strong> If you&apos;re using customized TP and SL strategies, ensure you thoroughly understand how they work with your signal provider&apos;s trading style.</p>
                       <p><strong>Financial Disclaimer:</strong> TheDBot.com is a software manufacturing company only. We are NOT financial advisers and do not provide trading advice.</p>
                       <p><strong>Trading Risks:</strong> Trading involves substantial risk of loss. More than 95% of traders lose money due to trading. Please practice with a demo account first and only trade with money you can afford to lose.</p>
                     </div>
