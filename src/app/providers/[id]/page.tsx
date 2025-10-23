@@ -33,3 +33,5 @@ export default async function ProviderDetailPage({ params }: PageProps) {
 
   return <ProviderDashboard provider={provider} />;
 }
+
+
