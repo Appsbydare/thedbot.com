@@ -53,13 +53,13 @@ export type DailyPerformance = {
 // Sample Signal Providers Data
 export const signalProviders: SignalProvider[] = [
   {
-    id: "crypto-scalper-pro",
-    name: "Crypto Scalper Pro",
-    slug: "crypto-scalper-pro",
-    description: "High-frequency crypto scalping signals with 15-30 minute trades. Focus on major pairs like BTC/USDT, ETH/USDT.",
-    telegramChannel: "https://t.me/cryptoscalperpro",
-    telegramUsername: "@cryptoscalperpro",
-    avatar: "/avatars/crypto-scalper.jpg",
+    id: "telegram-trading-signals",
+    name: "Telegram Trading Signals",
+    slug: "telegram-trading-signals",
+    description: "Professional trading signals via Telegram with multi-asset support. Focus on Forex, Gold, and Crypto markets.",
+    telegramChannel: "https://t.me/telegramtradingsignals",
+    telegramUsername: "@telegramtradingsignals",
+    avatar: "/avatars/telegram-trading.jpg",
     registeredDate: "2024-01-15",
     isActive: true,
     tradingStyle: 'scalping',
