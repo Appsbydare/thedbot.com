@@ -42,12 +42,12 @@ export const products: Product[] = [
     slug: "crypto-scalper",
     name: "Telegram Trading Bot",
     category: "crypto",
-    description: "Automated trading bot that listens to Telegram signals and executes trades in MT5 with hassle-free user experience",
+    description: "Professional automated trading bot that monitors Telegram signals and executes trades in MetaTrader 5 with advanced strategy management",
     longDescription:
-      "The Telegram Trading Bot revolutionizes automated trading by seamlessly connecting Telegram signal channels to your MT5 trading platform. This intelligent bot monitors your favorite signal providers and automatically executes trades based on their recommendations, eliminating the need for manual intervention. With its user-friendly interface and robust architecture, you can enjoy 24/7 trading without the stress of monitoring markets constantly. The bot features advanced risk management, customizable position sizing, and real-time performance tracking, making it perfect for both beginners and experienced traders who want to leverage professional signals while maintaining full control over their trading strategy.",
+      "The Telegram Trading Bot (AutoTrader Gold V8) is a sophisticated automated trading solution that bridges Telegram signal channels with MetaTrader 5. This professional-grade bot features dual Telegram client support (Pyrogram & Telethon), advanced signal parsing with 35+ regex patterns, and comprehensive strategy management including Multi-Take Profit and Trailing Stop strategies. The bot includes a modern PyQt5 GUI, real-time position monitoring, automatic risk management, and supports multiple asset classes including Forex, Gold, and Cryptocurrencies. With features like breakeven management, customizable lot sizing, and comprehensive logging, it provides institutional-quality automation for both retail and professional traders.",
     priceUSD: 899,
     monthlyPriceUSD: 99,
-    features: ["Telegram Signal Integration", "MT5 Auto-Trading", "Risk Management", "24/7 Monitoring", "Custom Position Sizing", "Real-time Performance Tracking"],
+    features: ["Dual Telegram Client Support", "Advanced Signal Parsing (35+ Patterns)", "Multi-TP Strategy Management", "Trailing Stop Automation", "Real-time Position Monitoring", "Breakeven Management", "Custom Symbol Mapping", "Professional PyQt5 GUI", "Comprehensive Risk Management", "Multi-Asset Support (Forex/Gold/Crypto)", "SQLite Database Integration", "Automatic MT5 Integration"],
     rating: 4.9,
     reviews: 800,
     badge: "New",
@@ -56,12 +56,18 @@ export const products: Product[] = [
     support: "Priority Support",
     demo: true,
     specifications: {
-      "Platform": "MT5 Compatible",
-      "Signal Source": "Telegram Channels",
+      "Platform": "Windows 10/11 (64-bit)",
+      "MT5 Integration": "Native API Support",
+      "Telegram Clients": "Pyrogram & Telethon",
+      "Signal Patterns": "35+ Regex Patterns",
       "Execution Speed": "< 1 Second",
-      "Supported Assets": "Forex, Crypto, Indices",
-      "Risk Management": "Advanced",
-      "Update Frequency": "Real-time"
+      "Supported Assets": "Forex, Gold, Crypto, Indices",
+      "Strategies": "Multi-TP & Trailing Stop",
+      "Database": "SQLite Integration",
+      "GUI Framework": "PyQt5 Professional",
+      "Risk Management": "Advanced with Breakeven",
+      "Update Frequency": "Real-time Monitoring",
+      "License System": "Hardware Fingerprinting"
     }
   },
   {

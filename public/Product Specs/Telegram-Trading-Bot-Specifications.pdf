@@ -1,0 +1,176 @@
+# Telegram Trading Bot - Product Specifications
+
+## Product Overview
+**Product Name:** Telegram Trading Bot (AutoTrader Gold V8)  
+**Version:** 8.2.11  
+**Category:** Automated Trading Software  
+**Platform:** Windows (MetaTrader 5 Compatible)
+
+## Core Features
+
+### 1. Telegram Signal Integration
+- **Dual Client Support:** Pyrogram and Telethon clients for maximum compatibility
+- **Real-time Signal Monitoring:** Continuous monitoring of Telegram channels
+- **Multi-Channel Support:** Can monitor multiple signal channels simultaneously
+- **Session Management:** Secure session handling with automatic reconnection
+- **Message Parsing:** Advanced regex-based signal parsing with customizable patterns
+
+### 2. MetaTrader 5 Integration
+- **Direct MT5 API Integration:** Native MetaTrader5 Python API support
+- **Auto-Trading Management:** Automatic enabling of MT5 Algo Trading
+- **Symbol Validation:** Automatic symbol detection and validation
+- **Account Management:** Full account information and balance tracking
+- **Position Management:** Real-time position monitoring and management
+
+### 3. Advanced Signal Processing
+- **Multi-Format Support:** Handles various signal formats including:
+  - Standard format: BUY XAUUSD @ 2145.67 SL 2140.00 TP 2155.00
+  - Range entry: SELL GOLD ENTER IN = 3119 -3122 SL = 3123 TP1 = 3117
+  - Casual format: BUY GOLD NOW SL 2140 TP 2155
+- **Symbol Normalization:** Automatic symbol mapping for different brokers
+- **Price Range Detection:** Support for entry price ranges with configurable selection
+- **Multi-TP Extraction:** Automatic detection of multiple take profit levels
+- **Stop Loss Keywords:** Customizable stop loss keyword detection
+
+### 4. Trading Strategies
+
+#### Multi-Take Profit Strategy
+- **Multiple TP Levels:** Support for up to 6 take profit levels
+- **Customizable Lot Sizes:** Different lot sizes for each TP level
+- **Trailing Stop Integration:** Advanced trailing stop management
+- **Magic Number Management:** Unique magic numbers for strategy identification
+
+#### Trailing Stop Strategy
+- **Dynamic Thresholds:** Configurable profit thresholds for trailing stop activation
+- **Multi-Level SL:** Progressive stop loss levels based on profit
+- **Breakeven Management:** Automatic move to breakeven functionality
+- **Real-time Monitoring:** Continuous position monitoring and updates
+
+### 5. Risk Management
+- **Position Sizing:** Configurable lot sizes with risk management
+- **Stop Loss Management:** Automatic and manual stop loss handling
+- **Breakeven Protection:** Move to breakeven with configurable offset
+- **Account Protection:** Balance and equity monitoring
+- **Drawdown Calculation:** Maximum drawdown tracking and reporting
+
+### 6. User Interface
+- **Modern GUI:** PyQt5-based professional interface
+- **Dashboard Tab:** Real-time trading statistics and account information
+- **Strategy Tab:** Strategy creation and management interface
+- **Settings Tab:** Comprehensive configuration options
+- **Logs Tab:** Detailed logging and monitoring
+- **Theme Support:** Customizable themes and appearance
+
+### 7. Configuration Management
+- **Environment Variables:** Secure credential management via .env files
+- **Asset Symbol Mapping:** Customizable symbol mappings for different brokers
+- **Strategy Persistence:** Database-stored strategy configurations
+- **User Preferences:** Persistent user settings and preferences
+- **Theme Management:** Customizable UI themes and colors
+
+### 8. Database Integration
+- **SQLite Database:** Local database for trade history and strategies
+- **Trade Recording:** Automatic trade history recording
+- **Strategy Storage:** Persistent strategy configurations
+- **Performance Tracking:** Historical performance analysis
+- **Data Export:** Excel report generation capabilities
+
+### 9. Logging and Monitoring
+- **Comprehensive Logging:** Detailed logging with Loguru integration
+- **Real-time Updates:** Live log streaming to GUI
+- **Error Handling:** Robust error handling and recovery
+- **Performance Monitoring:** System performance tracking
+- **Debug Information:** Detailed debug information for troubleshooting
+
+### 10. Security Features
+- **Session Security:** Secure Telegram session management
+- **Credential Protection:** Encrypted credential storage
+- **API Key Management:** Secure API key handling
+- **Hardware Fingerprinting:** License validation system
+- **Access Control:** User authentication and authorization
+
+## Technical Specifications
+
+### System Requirements
+- **Operating System:** Windows 10/11 (64-bit)
+- **Python Version:** 3.8 or higher
+- **MetaTrader 5:** Latest version with API support
+- **RAM:** Minimum 4GB, Recommended 8GB
+- **Storage:** 500MB free space
+- **Internet:** Stable internet connection for Telegram and MT5
+
+### Dependencies
+- **MetaTrader5:** 5.0.4993
+- **PyQt5:** 5.15.11
+- **Pyrogram:** 2.0.106
+- **Telethon:** 1.40.0
+- **Loguru:** 0.7.3
+- **Matplotlib:** 3.10.1
+- **NumPy:** 2.2.5
+
+### Supported Assets
+- **Forex Pairs:** All major and minor pairs
+- **Precious Metals:** Gold (XAUUSD), Silver
+- **Cryptocurrencies:** Bitcoin (BTCUSD), Ethereum (ETHUSD)
+- **Indices:** Major stock indices
+- **Commodities:** Oil, Gas, and other commodities
+
+### Broker Compatibility
+- **MT5 Brokers:** All MetaTrader 5 compatible brokers
+- **Symbol Mapping:** Customizable symbol mappings
+- **Execution Modes:** Market, Limit, and Stop orders
+- **Filling Modes:** IOC, FOK, and Return modes
+
+## Performance Features
+
+### Execution Speed
+- **Signal Processing:** < 1 second from signal to execution
+- **Order Execution:** Real-time order placement
+- **Position Updates:** Continuous position monitoring
+- **Data Processing:** High-frequency data processing
+
+### Reliability
+- **Auto-Reconnection:** Automatic reconnection on connection loss
+- **Error Recovery:** Robust error handling and recovery
+- **Session Persistence:** Persistent session management
+- **Data Backup:** Automatic data backup and recovery
+
+### Scalability
+- **Multi-Strategy:** Support for multiple concurrent strategies
+- **Multi-Account:** Support for multiple MT5 accounts
+- **Multi-Channel:** Support for multiple Telegram channels
+- **Performance Optimization:** Optimized for high-frequency trading
+
+## Support and Documentation
+
+### Documentation
+- **Installation Guide:** Step-by-step installation instructions
+- **User Manual:** Comprehensive user guide
+- **API Documentation:** Technical API documentation
+- **Troubleshooting Guide:** Common issues and solutions
+
+### Support
+- **Email Support:** Priority email support
+- **Documentation:** Comprehensive documentation
+- **Updates:** Regular software updates
+- **Community:** User community and forums
+
+## Legal and Compliance
+
+### License
+- **Software License:** Commercial license included
+- **Usage Rights:** Single user license
+- **Redistribution:** Not allowed without permission
+- **Modification:** Source code modification not permitted
+
+### Disclaimer
+- **Trading Risks:** Trading involves substantial risk of loss
+- **No Guarantees:** No guarantee of profits or performance
+- **User Responsibility:** User responsible for trading decisions
+- **Compliance:** User must comply with local regulations
+
+---
+
+**Document Version:** 1.0  
+**Last Updated:** October 2025  
+**Product Version:** 8.2.11

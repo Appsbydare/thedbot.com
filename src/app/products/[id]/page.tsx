@@ -126,9 +126,27 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                   )}
                 </div>
                 {product.specifications && (
-                  <button className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 border border-gray-600">
-                    View Product Specifications
-                  </button>
+                  <div className="space-y-2">
+                    <button className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 border border-gray-600">
+                      View Product Specifications
+                    </button>
+                    <div className="flex gap-2">
+                      <a 
+                        href="/Product Specs/Telegram-Trading-Bot-Specifications.pdf" 
+                        download
+                        className="flex-1 bg-blue-800 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-center text-sm"
+                      >
+                        Download Specs
+                      </a>
+                      <a 
+                        href="/Product Specs/Telegram-Trading-Bot-Technical-Specs.pdf" 
+                        download
+                        className="flex-1 bg-green-800 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-center text-sm"
+                      >
+                        Technical Docs
+                      </a>
+                    </div>
+                  </div>
                 )}
               </div>
 
@@ -226,6 +244,25 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                 <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 mb-4">
                   Purchase Now
                 </button>
+                
+                {product.specifications && (
+                  <div className="space-y-2 mb-4">
+                    <a 
+                      href="/Product Specs/Telegram-Trading-Bot-Specifications.pdf" 
+                      download
+                      className="block w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-center text-sm"
+                    >
+                      📄 Download Specifications
+                    </a>
+                    <a 
+                      href="/Product Specs/Telegram-Trading-Bot-Technical-Specs.pdf" 
+                      download
+                      className="block w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-center text-sm"
+                    >
+                      🔧 Technical Documentation
+                    </a>
+                  </div>
+                )}
                 
                 <p className="text-xs text-gray-400 text-center">
                   Secure payment via cryptocurrency. 7-day money-back guarantee.

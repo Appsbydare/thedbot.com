@@ -1,0 +1,282 @@
+# Telegram Trading Bot - Technical Specifications
+
+## Architecture Overview
+
+### Core Components
+1. **Telegram Client Module** (`core/telegram_client.py`)
+   - Dual client support (Pyrogram & Telethon)
+   - Session management and authentication
+   - Message monitoring and parsing
+   - Connection health monitoring
+
+2. **MT5 Trader Module** (`core/mt5_trader.py`)
+   - MetaTrader 5 API integration
+   - Order execution and management
+   - Position monitoring and control
+   - Account information retrieval
+
+3. **Signal Parser Module** (`core/signal_parser.py`)
+   - Advanced regex-based signal parsing
+   - Multi-format signal support
+   - Symbol normalization and validation
+   - Price range detection and processing
+
+4. **Strategy Handler Module** (`strategies/strategy_handler.py`)
+   - Strategy management and execution
+   - Multi-TP strategy implementation
+   - Trailing stop strategy implementation
+   - Position management and monitoring
+
+5. **GUI Application** (`gui/app.py`)
+   - PyQt5-based user interface
+   - Real-time data visualization
+   - Configuration management
+   - Logging and monitoring interface
+
+## Signal Processing Engine
+
+### Supported Signal Formats
+
+#### Standard Format
+```
+BUY XAUUSD @ 2145.67 SL 2140.00 TP 2155.00
+SELL GOLD @ 2140.50 SL 2145.00 TP 2135.00
+```
+
+#### Range Entry Format
+```
+BUY GOLD ENTER IN = 2140 - 2145 SL = 2140 TP1 = 2150
+SELL XAUUSD ENTER IN = 2145 - 2140 SL = 2150 TP1 = 2135
+```
+
+#### Casual Format
+```
+BUY GOLD NOW SL 2140 TP 2155
+SELL XAUUSD QUICK SL 2145 TP 2135
+```
+
+#### Multi-TP Format
+```
+BUY GOLD @ 2140 SL 2135 TP1 2145 TP2 2150 TP3 2155
+SELL XAUUSD @ 2145 SL 2150 TP1 2140 TP2 2135 TP3 2130
+```
+
+### Signal Parsing Features
+- **Regex Pattern Matching:** 35+ predefined patterns for signal detection
+- **Symbol Normalization:** Automatic symbol mapping for different brokers
+- **Price Validation:** Real-time price validation and range checking
+- **Multi-Language Support:** Unicode support for international characters
+- **Error Recovery:** Graceful handling of malformed signals
+
+## Trading Strategy Implementation
+
+### Multi-Take Profit Strategy
+```python
+# Configuration Example
+{
+    "name": "Multi-TP Strategy",
+    "num_trades": 3,
+    "tp_levels": [100, 200, 300],
+    "tp_lot_sizes": [0.5, 0.3, 0.2],
+    "default_sl": 50,
+    "magic_number": 10001
+}
+```
+
+**Features:**
+- Multiple position creation with different TP levels
+- Customizable lot sizes for each TP level
+- Integrated trailing stop management
+- Automatic position monitoring and updates
+
+### Trailing Stop Strategy
+```python
+# Configuration Example
+{
+    "name": "Trailing Stop Strategy",
+    "ts_thresholds": [200, 500, 1000],
+    "ts_sl_levels": [50, 200, 500],
+    "ts_dynamic_increment": 400,
+    "move_to_breakeven": true,
+    "breakeven_pips": 30
+}
+```
+
+**Features:**
+- Dynamic trailing stop activation
+- Progressive stop loss levels
+- Breakeven management
+- Real-time position monitoring
+
+## Database Schema
+
+### Strategies Table
+```sql
+CREATE TABLE strategies (
+    id INTEGER PRIMARY KEY,
+    name TEXT UNIQUE NOT NULL,
+    settings TEXT NOT NULL,
+    description TEXT,
+    channel_id TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+### Trades Table
+```sql
+CREATE TABLE trades (
+    id INTEGER PRIMARY KEY,
+    ticket INTEGER NOT NULL,
+    symbol TEXT NOT NULL,
+    type TEXT NOT NULL,
+    open_time TIMESTAMP NOT NULL,
+    close_time TIMESTAMP,
+    open_price REAL NOT NULL,
+    close_price REAL,
+    volume REAL NOT NULL,
+    profit REAL,
+    pips REAL,
+    strategy TEXT,
+    magic_number INTEGER
+);
+```
+
+## Configuration Management
+
+### Environment Variables
+```env
+# Telegram Configuration
+API_ID=your_api_id
+API_HASH=your_api_hash
+CHANNEL_ID=your_channel_id
+CLIENT_TYPE=pyrogram
+SESSION_NAME=AutoTraderGold_V8
+
+# MT5 Configuration
+MT5_LOGIN=your_mt5_login
+MT5_PASSWORD=your_mt5_password
+MT5_SERVER=your_mt5_server
+MT5_TERMINAL_PATH=C:\Program Files\MetaTrader 5\terminal64.exe
+
+# Trading Configuration
+LOT_SIZE=0.01
+MAX_SLIPPAGE=100
+GOLD_SYMBOL=XAUUSDm
+BTC_SYMBOL=BTCUSDm
+```
+
+### Asset Symbol Mapping
+```json
+{
+    "asset_symbols": [
+        {
+            "signal_keyword": "GOLD",
+            "broker_symbol": "XAUUSDm",
+            "description": "Gold vs USD"
+        },
+        {
+            "signal_keyword": "BTC",
+            "broker_symbol": "BTCUSDm",
+            "description": "Bitcoin vs USD"
+        }
+    ]
+}
+```
+
+## API Integration
+
+### MetaTrader 5 API
+- **Connection Management:** Automatic connection and reconnection
+- **Order Execution:** Market, limit, and stop orders
+- **Position Management:** Real-time position monitoring
+- **Account Information:** Balance, equity, and margin data
+- **Symbol Information:** Symbol specifications and trading conditions
+
+### Telegram API
+- **Pyrogram Integration:** Modern async Telegram client
+- **Telethon Integration:** Alternative Telegram client
+- **Message Handling:** Real-time message processing
+- **Session Management:** Secure session storage and management
+- **Channel Monitoring:** Multi-channel signal monitoring
+
+## Performance Optimization
+
+### Asynchronous Processing
+- **Async/Await:** Full async implementation for non-blocking operations
+- **Event Loop:** QEventLoop integration for GUI responsiveness
+- **Concurrent Processing:** Parallel signal processing and execution
+- **Background Tasks:** Non-blocking background operations
+
+### Memory Management
+- **Efficient Data Structures:** Optimized data structures for high-frequency operations
+- **Garbage Collection:** Automatic memory cleanup
+- **Resource Pooling:** Connection and resource pooling
+- **Cache Management:** Intelligent caching for frequently accessed data
+
+### Error Handling
+- **Exception Management:** Comprehensive exception handling
+- **Retry Logic:** Automatic retry for failed operations
+- **Fallback Mechanisms:** Graceful degradation on errors
+- **Logging Integration:** Detailed error logging and reporting
+
+## Security Features
+
+### Authentication
+- **Two-Factor Authentication:** Support for 2FA-enabled Telegram accounts
+- **Session Security:** Encrypted session storage
+- **API Key Protection:** Secure API key management
+- **Hardware Fingerprinting:** License validation system
+
+### Data Protection
+- **Encrypted Storage:** Sensitive data encryption
+- **Secure Communication:** Encrypted communication channels
+- **Access Control:** User authentication and authorization
+- **Audit Logging:** Comprehensive audit trail
+
+## Monitoring and Logging
+
+### Logging System
+- **Loguru Integration:** Advanced logging with Loguru
+- **Multiple Log Levels:** DEBUG, INFO, WARNING, ERROR, CRITICAL
+- **Log Rotation:** Automatic log file rotation
+- **Real-time Streaming:** Live log streaming to GUI
+
+### Performance Monitoring
+- **Execution Metrics:** Trade execution timing and performance
+- **System Metrics:** CPU, memory, and network usage
+- **Error Tracking:** Error frequency and patterns
+- **Performance Analytics:** Historical performance analysis
+
+## Deployment and Distribution
+
+### Build System
+- **PyInstaller:** Executable generation for Windows
+- **Dependency Management:** Automatic dependency resolution
+- **Resource Bundling:** Resource file bundling
+- **Version Management:** Automatic version tracking
+
+### Installation
+- **One-Click Install:** Simple installation process
+- **Dependency Installation:** Automatic dependency installation
+- **Configuration Setup:** Guided configuration setup
+- **License Activation:** Automatic license validation
+
+## Testing and Quality Assurance
+
+### Unit Testing
+- **Test Coverage:** Comprehensive unit test coverage
+- **Mock Objects:** Mock objects for external dependencies
+- **Test Automation:** Automated test execution
+- **Continuous Integration:** CI/CD pipeline integration
+
+### Integration Testing
+- **API Testing:** MT5 and Telegram API integration testing
+- **End-to-End Testing:** Complete workflow testing
+- **Performance Testing:** Load and stress testing
+- **Compatibility Testing:** Multi-broker compatibility testing
+
+---
+
+**Document Version:** 1.0  
+**Last Updated:** October 2025  
+**Technical Review:** Completed
