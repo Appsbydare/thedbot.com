@@ -52,10 +52,32 @@ export class LicenseValidator {
    */
   private decryptLicenseData(encryptedData: string): LicenseDatabase | null {
     try {
-      const decipher = crypto.createDecipher('aes-256-cbc', this.encryptionKey);
-      let decrypted = decipher.update(encryptedData, 'hex', 'utf8');
-      decrypted += decipher.final('utf8');
-      return JSON.parse(decrypted);
+      // Handle both old format (without IV) and new format (with IV)
+      if (encryptedData.includes(':')) {
+        // New format with IV
+        const textParts = encryptedData.split(':');
+        if (textParts.length !== 2) {
+          throw new Error("Invalid encrypted data format");
+        }
+        const iv = Buffer.from(textParts[0], 'hex');
+        const encryptedText = textParts[1];
+        const keyBuffer = crypto.scryptSync(this.encryptionKey, 'salt', 32);
+        const decipher = crypto.createDecipheriv('aes-256-cbc', keyBuffer, iv);
+        let decrypted = decipher.update(encryptedText, 'hex', 'utf8');
+        decrypted += decipher.final('utf8');
+        return JSON.parse(decrypted);
+      } else {
+        // Old format without IV - use simple XOR decryption
+        const keyBuffer = Buffer.from(this.encryptionKey, 'hex');
+        const dataBuffer = Buffer.from(encryptedData, 'hex');
+        const decrypted = Buffer.alloc(dataBuffer.length);
+        
+        for (let i = 0; i < dataBuffer.length; i++) {
+          decrypted[i] = dataBuffer[i] ^ keyBuffer[i % keyBuffer.length];
+        }
+        
+        return JSON.parse(decrypted.toString('utf8'));
+      }
     } catch (error) {
       console.error('Failed to decrypt license data:', error);
       return null;
@@ -66,10 +88,17 @@ export class LicenseValidator {
    * Encrypt license data for storage
    */
   private encryptLicenseData(data: LicenseDatabase): string {
-    const cipher = crypto.createCipher('aes-256-cbc', this.encryptionKey);
-    let encrypted = cipher.update(JSON.stringify(data), 'utf8', 'hex');
-    encrypted += cipher.final('hex');
-    return encrypted;
+    // Use simple XOR encryption to match the setup script
+    const dataStr = JSON.stringify(data);
+    const keyBuffer = Buffer.from(this.encryptionKey, 'hex');
+    const dataBuffer = Buffer.from(dataStr, 'utf8');
+    const encrypted = Buffer.alloc(dataBuffer.length);
+    
+    for (let i = 0; i < dataBuffer.length; i++) {
+      encrypted[i] = dataBuffer[i] ^ keyBuffer[i % keyBuffer.length];
+    }
+    
+    return encrypted.toString('hex');
   }
 
   /**
