@@ -155,6 +155,22 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                 <Shield className="size-4" />
                 <span className="text-sm">Secure crypto payment via CoinPayments • Instant Delivery</span>
               </div>
+
+              {/* Important Warning */}
+              <div className="bg-yellow-900/20 border border-yellow-600/30 rounded-lg p-4 mt-6">
+                <div className="flex items-start gap-3">
+                  <div className="text-yellow-400 text-xl">⚠️</div>
+                  <div className="space-y-2">
+                    <h4 className="text-yellow-400 font-semibold">Important Trading Warning</h4>
+                    <div className="text-yellow-200 text-sm space-y-2">
+                      <p><strong>Demo Testing Recommended:</strong> We strongly recommend testing this tool with a demo account first to understand the optimal SL and TP settings for your specific signal provider.</p>
+                      <p><strong>Custom Strategy Caution:</strong> If you're using customized TP and SL strategies, ensure you thoroughly understand how they work with your signal provider's trading style.</p>
+                      <p><strong>Financial Disclaimer:</strong> TheDBot.com is a software manufacturing company only. We are NOT financial advisers and do not provide trading advice.</p>
+                      <p><strong>Trading Risks:</strong> Trading involves substantial risk of loss. More than 95% of traders lose money due to trading. Please practice with a demo account first and only trade with money you can afford to lose.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -267,6 +283,18 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                 <p className="text-xs text-gray-400 text-center">
                   Secure payment via cryptocurrency. 7-day money-back guarantee.
                 </p>
+              </div>
+
+              {/* Trading Warning */}
+              <div className="bg-yellow-900/20 border border-yellow-600/30 rounded-2xl p-6">
+                <h3 className="text-xl font-bold text-yellow-400 mb-4 flex items-center gap-2">
+                  ⚠️ Important Warning
+                </h3>
+                <div className="text-yellow-200 text-sm space-y-3">
+                  <p><strong>Demo First:</strong> Test with demo account to understand SL/TP settings for your signal provider.</p>
+                  <p><strong>Not Financial Advice:</strong> TheDBot.com is a software company, not financial advisers.</p>
+                  <p><strong>High Risk:</strong> 95%+ of traders lose money. Practice with demo first!</p>
+                </div>
               </div>
 
               {/* Support */}
