@@ -38,8 +38,8 @@ export const products: Product[] = [
     demo: true,
   },
   {
-    id: "crypto-scalper",
-    slug: "crypto-scalper",
+    id: "telegram-trading-bot",
+    slug: "telegram-trading-bot",
     name: "Telegram Trading Bot",
     category: "crypto",
     description: "Professional automated trading bot that monitors Telegram signals and executes trades in MetaTrader 5 with advanced strategy management",

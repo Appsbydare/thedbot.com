@@ -203,7 +203,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                 )}
                 
                 <p className="text-xs text-gray-400 text-center">
-                  Secure payment via cryptocurrency. 7-day money-back guarantee.
+                  Secure payment via cryptocurrency.
                 </p>
               </div>
 
