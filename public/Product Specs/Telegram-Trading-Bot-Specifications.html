@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Trading Bot - Product Specifications</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #555;
+            margin-top: 25px;
+        }
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .feature-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+        }
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .specs-table th, .specs-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .specs-table th {
+            background: #667eea;
+            color: white;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .warning strong {
+            color: #856404;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #6c757d;
+            color: white;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Telegram Trading Bot</h1>
+        <p>Product Specifications v8.2.11</p>
+    </div>
+
+    <div class="section">
+        <h2>Product Overview</h2>
+        <p><strong>Product Name:</strong> Telegram Trading Bot (AutoTrader Gold V8)</p>
+        <p><strong>Version:</strong> 8.2.11</p>
+        <p><strong>Category:</strong> Automated Trading Software</p>
+        <p><strong>Platform:</strong> Windows (MetaTrader 5 Compatible)</p>
+    </div>
+
+    <div class="section">
+        <h2>Core Features</h2>
+        
+        <h3>1. Telegram Signal Integration</h3>
+        <div class="feature-list">
+            <div class="feature-item">Dual Client Support: Pyrogram and Telethon clients for maximum compatibility</div>
+            <div class="feature-item">Real-time Signal Monitoring: Continuous monitoring of Telegram channels</div>
+            <div class="feature-item">Multi-Channel Support: Can monitor multiple signal channels simultaneously</div>
+            <div class="feature-item">Session Management: Secure session handling with automatic reconnection</div>
+            <div class="feature-item">Message Parsing: Advanced regex-based signal parsing with customizable patterns</div>
+        </div>
+
+        <h3>2. MetaTrader 5 Integration</h3>
+        <div class="feature-list">
+            <div class="feature-item">Direct MT5 API Integration: Native MetaTrader5 Python API support</div>
+            <div class="feature-item">Auto-Trading Management: Automatic enabling of MT5 Algo Trading</div>
+            <div class="feature-item">Symbol Validation: Automatic symbol detection and validation</div>
+            <div class="feature-item">Account Management: Full account information and balance tracking</div>
+            <div class="feature-item">Position Management: Real-time position monitoring and management</div>
+        </div>
+
+        <h3>3. Advanced Signal Processing</h3>
+        <div class="feature-list">
+            <div class="feature-item">Multi-Format Support: Handles various signal formats including standard, range entry, and casual formats</div>
+            <div class="feature-item">Symbol Normalization: Automatic symbol mapping for different brokers</div>
+            <div class="feature-item">Price Range Detection: Support for entry price ranges with configurable selection</div>
+            <div class="feature-item">Multi-TP Extraction: Automatic detection of multiple take profit levels</div>
+            <div class="feature-item">Stop Loss Keywords: Customizable stop loss keyword detection</div>
+        </div>
+
+        <h3>4. Trading Strategies</h3>
+        <div class="feature-list">
+            <div class="feature-item">Multi-Take Profit Strategy: Support for up to 6 take profit levels with customizable lot sizes</div>
+            <div class="feature-item">Trailing Stop Strategy: Dynamic thresholds and progressive stop loss levels</div>
+            <div class="feature-item">Breakeven Management: Automatic move to breakeven functionality</div>
+            <div class="feature-item">Real-time Monitoring: Continuous position monitoring and updates</div>
+        </div>
+
+        <h3>5. Risk Management</h3>
+        <div class="feature-list">
+            <div class="feature-item">Position Sizing: Configurable lot sizes with risk management</div>
+            <div class="feature-item">Stop Loss Management: Automatic and manual stop loss handling</div>
+            <div class="feature-item">Breakeven Protection: Move to breakeven with configurable offset</div>
+            <div class="feature-item">Account Protection: Balance and equity monitoring</div>
+            <div class="feature-item">Drawdown Calculation: Maximum drawdown tracking and reporting</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Technical Specifications</h2>
+        <table class="specs-table">
+            <tr>
+                <th>Specification</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+                <td>Platform</td>
+                <td>Windows 10/11 (64-bit)</td>
+            </tr>
+            <tr>
+                <td>MT5 Integration</td>
+                <td>Native API Support</td>
+            </tr>
+            <tr>
+                <td>Telegram Clients</td>
+                <td>Pyrogram & Telethon</td>
+            </tr>
+            <tr>
+                <td>Signal Patterns</td>
+                <td>35+ Regex Patterns</td>
+            </tr>
+            <tr>
+                <td>Execution Speed</td>
+                <td>&lt; 1 Second</td>
+            </tr>
+            <tr>
+                <td>Supported Assets</td>
+                <td>Forex, Gold, Crypto, Indices</td>
+            </tr>
+            <tr>
+                <td>Strategies</td>
+                <td>Multi-TP & Trailing Stop</td>
+            </tr>
+            <tr>
+                <td>Database</td>
+                <td>SQLite Integration</td>
+            </tr>
+            <tr>
+                <td>GUI Framework</td>
+                <td>PyQt5 Professional</td>
+            </tr>
+            <tr>
+                <td>Risk Management</td>
+                <td>Advanced with Breakeven</td>
+            </tr>
+            <tr>
+                <td>Update Frequency</td>
+                <td>Real-time Monitoring</td>
+            </tr>
+            <tr>
+                <td>License System</td>
+                <td>Hardware Fingerprinting</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>System Requirements</h2>
+        <ul>
+            <li><strong>Operating System:</strong> Windows 10/11 (64-bit)</li>
+            <li><strong>Python Version:</strong> 3.8 or higher</li>
+            <li><strong>MetaTrader 5:</strong> Latest version with API support</li>
+            <li><strong>RAM:</strong> Minimum 4GB, Recommended 8GB</li>
+            <li><strong>Storage:</strong> 500MB free space</li>
+            <li><strong>Internet:</strong> Stable internet connection for Telegram and MT5</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Supported Assets</h2>
+        <ul>
+            <li><strong>Forex Pairs:</strong> All major and minor pairs</li>
+            <li><strong>Precious Metals:</strong> Gold (XAUUSD), Silver</li>
+            <li><strong>Cryptocurrencies:</strong> Bitcoin (BTCUSD), Ethereum (ETHUSD)</li>
+            <li><strong>Indices:</strong> Major stock indices</li>
+            <li><strong>Commodities:</strong> Oil, Gas, and other commodities</li>
+        </ul>
+    </div>
+
+    <div class="warning">
+        <h3>⚠️ Important Trading Warning</h3>
+        <p><strong>Demo Testing Recommended:</strong> We strongly recommend testing this tool with a demo account first to understand the optimal SL and TP settings for your specific signal provider.</p>
+        <p><strong>Custom Strategy Caution:</strong> If you're using customized TP and SL strategies, ensure you thoroughly understand how they work with your signal provider's trading style.</p>
+        <p><strong>Financial Disclaimer:</strong> TheDBot.com is a software manufacturing company only. We are NOT financial advisers and do not provide trading advice.</p>
+        <p><strong>Trading Risks:</strong> Trading involves substantial risk of loss. More than 95% of traders lose money due to trading. Please practice with a demo account first and only trade with money you can afford to lose.</p>
+    </div>
+
+    <div class="footer">
+        <p><strong>Document Version:</strong> 1.0 | <strong>Last Updated:</strong> October 2025 | <strong>Product Version:</strong> 8.2.11</p>
+        <p>© 2025 TheDBot.com - Software Manufacturing Company</p>
+    </div>
+</body>
+</html>
