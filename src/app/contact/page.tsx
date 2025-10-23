@@ -9,7 +9,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 hero-gradient"></div>
         <div className="relative mx-auto max-w-4xl px-4">
           <div className="text-center space-y-8">
-            <h1 className="text-5xl sm:text-7xl font-bold tracking-tight">
+            <h1 className="text-5xl sm:text-7xl font-heading tracking-tight">
               <span className="text-foreground dark:text-white">Get in</span> <span className="text-accent">Touch</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">

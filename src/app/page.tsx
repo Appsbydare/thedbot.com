@@ -10,7 +10,7 @@ export default function Home() {
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="text-center space-y-8">
             <div className="space-y-4">
-              <h1 className="text-5xl sm:text-7xl font-bold tracking-tight">
+              <h1 className="text-5xl sm:text-7xl font-heading tracking-tight">
                 <span className="text-foreground dark:text-white">Automated Trading</span>
                 <br />
                 <span className="text-accent">Made Simple</span>

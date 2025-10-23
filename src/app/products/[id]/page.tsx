@@ -68,7 +68,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                     <span className="text-gray-300">{product.rating ?? 0} ({product.reviews ?? 0} reviews)</span>
                   </div>
                   
-                  <h1 className="text-4xl font-bold text-white mb-4">
+                  <h1 className="text-4xl font-heading text-white mb-4">
                     {product.name}
                   </h1>
                   
@@ -104,7 +104,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
             {/* Description */}
             <div className="bg-gray-800 rounded-2xl p-8">
-              <h2 className="text-2xl font-bold text-white mb-6">Description</h2>
+              <h2 className="text-2xl font-heading text-white mb-6">Description</h2>
               <p className="text-gray-300 leading-relaxed">
                 {product.longDescription}
               </p>
@@ -112,7 +112,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
             {/* Features */}
             <div className="bg-gray-800 rounded-2xl p-8">
-              <h2 className="text-2xl font-bold text-white mb-6">Features</h2>
+              <h2 className="text-2xl font-heading text-white mb-6">Features</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {product.features.map((feature, index) => (
                   <div key={index} className="flex items-center gap-3 p-4 bg-gray-700/50 rounded-lg">
@@ -126,7 +126,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             {/* Specifications */}
             {product.specifications && (
               <div className="bg-gray-800 rounded-2xl p-8">
-                <h2 className="text-2xl font-bold text-white mb-6">Specifications</h2>
+                <h2 className="text-2xl font-heading text-white mb-6">Specifications</h2>
                 <div className="bg-gray-700/50 rounded-lg p-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {Object.entries(product.specifications).map(([key, value]) => (
@@ -147,7 +147,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               
               {/* Purchase Card */}
               <div className="bg-gray-800 rounded-2xl p-6 border border-gray-700">
-                <h3 className="text-2xl font-bold text-white mb-4">Purchase {product.name}</h3>
+                <h3 className="text-2xl font-heading text-white mb-4">Purchase {product.name}</h3>
                 
                 <div className="space-y-4 mb-6">
                   {product.monthlyPriceUSD ? (
@@ -209,7 +209,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
               {/* Trading Warning */}
               <div className="bg-yellow-900/20 border border-yellow-600/30 rounded-2xl p-6">
-                <h3 className="text-xl font-bold text-yellow-400 mb-4 flex items-center gap-2">
+                <h3 className="text-xl font-heading text-yellow-400 mb-4 flex items-center gap-2">
                   ⚠️ Important Warning
                 </h3>
                 <div className="text-yellow-200 text-sm space-y-3">
@@ -221,7 +221,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
               {/* Support */}
               <div className="bg-gray-800 rounded-2xl p-6 border border-gray-700">
-                <h3 className="text-xl font-bold text-white mb-4">Need Help?</h3>
+                <h3 className="text-xl font-heading text-white mb-4">Need Help?</h3>
                 <p className="text-gray-300 mb-4">
                   Our support team is here to help you get started.
                 </p>
