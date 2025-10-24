@@ -2,15 +2,17 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Star, CheckCircle, Zap } from "@/components/icons";
+import { ArrowLeft, Star, CheckCircle, Zap, Download } from "@/components/icons";
 import PaymentModal from "@/components/PaymentModal";
 import { products as catalog } from "@/data/products";
+import { getProductDownload } from "@/data/downloads";
 
 const products = Object.fromEntries(catalog.map((p) => [p.id, p]));
 
 export default function ProductPage({ params }: { params: { id: string } }) {
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const product = products[params.id as keyof typeof products];
+  const downloadInfo = getProductDownload(params.id);
 
   if (!product) {
     return (
@@ -185,10 +187,22 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
                 <button 
                   onClick={() => setIsPaymentModalOpen(true)}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 mb-4"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 mb-3"
                 >
                   Purchase Now
                 </button>
+
+                {downloadInfo && (
+                  <Link
+                    href={`/download/${params.id}`}
+                    className="block w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 text-center mb-4"
+                  >
+                    <span className="inline-flex items-center gap-2">
+                      <Download className="size-5" />
+                      Download Application
+                    </span>
+                  </Link>
+                )}
 
                 {product.specifications && (
                   <div className="space-y-2 mb-4">
