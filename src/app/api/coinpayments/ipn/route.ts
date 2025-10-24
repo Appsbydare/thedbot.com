@@ -47,10 +47,44 @@ export async function POST(req: NextRequest) {
     const license = order.licenseKey;
     if (order.buyerEmail && license && file) {
       const downloadUrl = `${process.env.SITE_URL}/api/download?license=${encodeURIComponent(license)}&file=${encodeURIComponent(file)}`;
+      
+      // Get license details for hardware fingerprint
+      const licenseDetails = LicensesRepo.get(license);
+      const hardwareFP = licenseDetails?.hardwareFingerprint || "N/A";
+      
       await sendEmail({
         to: order.buyerEmail,
-        subject: `Your ${p?.name} is ready – License ${license}`,
-        text: `Thank you for your purchase.\n\nLicense Key: ${license}\nDownload: ${downloadUrl}\n\nIf the link expires or you have issues, reply to this email.`,
+        subject: `Your ${p?.name} is ready – License Key Included`,
+        text: `Thank you for purchasing ${p?.name}!
+
+🔑 LICENSE INFORMATION:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+License Key: ${license}
+Hardware Fingerprint: ${hardwareFP}
+Valid Until: ${new Date(licenseDetails?.expiresAt || Date.now()).toLocaleDateString()}
+
+📥 DOWNLOAD & ACTIVATION:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Download the application: ${downloadUrl}
+2. Install and run the application
+3. Enter your license key when prompted
+4. The app will validate your license automatically
+
+⚠️ IMPORTANT NOTES:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Your license is bound to the hardware fingerprint: ${hardwareFP}
+• This prevents unauthorized sharing and ensures security
+• You can only use this license on the computer with the matching hardware fingerprint
+• If you need to transfer your license to a new computer, contact our support
+
+📧 SUPPORT:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+If you have any questions or issues:
+• Reply to this email
+• Visit our support page at ${process.env.SITE_URL}/contact
+
+Thank you for your business!
+TheDBot Team`,
       });
     }
   }

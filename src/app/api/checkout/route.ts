@@ -13,9 +13,13 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { productId, amountUSD, buyerEmail, buyerName, buyerCountry } = body ?? {};
+    const { productId, amountUSD, buyerEmail, buyerName, buyerCountry, hardwareFingerprint } = body ?? {};
     if (!productId || !amountUSD) {
       return NextResponse.json({ error: "Missing productId or amountUSD" }, { status: 400 });
+    }
+
+    if (!hardwareFingerprint) {
+      return NextResponse.json({ error: "Hardware fingerprint is required" }, { status: 400 });
     }
 
     const product = getProductById(productId);
@@ -42,16 +46,21 @@ export async function POST(req: NextRequest) {
       updatedAt: Date.now(),
     });
 
+    // Calculate expiration (1 year from now for this product)
+    const oneYearFromNow = Date.now() + (365 * 24 * 60 * 60 * 1000);
+
     LicensesRepo.create({
       key: licenseKey,
       productId,
       customerId: customer?.id || "",
       orderId,
+      hardwareFingerprint,
       status: "issued",
       maxActivations: 1,
       activations: 0,
       createdAt: Date.now(),
       updatedAt: Date.now(),
+      expiresAt: oneYearFromNow,
     });
 
     const res = await createTransaction({

@@ -11,11 +11,13 @@ export type License = {
   productId: string;
   customerId: string;
   orderId: string;
+  hardwareFingerprint?: string;
   status: "issued" | "activated" | "revoked";
   maxActivations: number;
   activations: number;
   createdAt: number;
   updatedAt: number;
+  expiresAt?: number;
 };
 
 export type OrderRecord = {

@@ -15,6 +15,7 @@ export default function PaymentModal({ productId, productName, amountUSD, isOpen
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [country, setCountry] = useState('')
+  const [hardwareFingerprint, setHardwareFingerprint] = useState('')
   const [agreedToTerms, setAgreedToTerms] = useState(false)
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<string>('')
   const [isProcessing, setIsProcessing] = useState(false)
@@ -37,6 +38,11 @@ export default function PaymentModal({ productId, productName, amountUSD, isOpen
   const handlePayment = async () => {
     if (!name || !email || !country) {
       alert('Please fill in all fields')
+      return
+    }
+
+    if (!hardwareFingerprint) {
+      alert('Please enter your Hardware Fingerprint. This is required to bind your license to your computer.')
       return
     }
 
@@ -66,7 +72,8 @@ export default function PaymentModal({ productId, productName, amountUSD, isOpen
           amountUSD, 
           buyerName: name, 
           buyerEmail: email, 
-          buyerCountry: country 
+          buyerCountry: country,
+          hardwareFingerprint: hardwareFingerprint 
         }),
       })
       
@@ -152,6 +159,47 @@ export default function PaymentModal({ productId, productName, amountUSD, isOpen
                   disabled={isProcessing}
                 />
               </div>
+            </div>
+          </div>
+
+          {/* Hardware Fingerprint Section */}
+          <div className="bg-blue-900/20 border border-blue-600/30 rounded-lg p-4">
+            <div className="flex items-start gap-3 mb-3">
+              <div className="text-2xl">🔐</div>
+              <div>
+                <h4 className="text-white font-semibold mb-1">Hardware Fingerprint Required</h4>
+                <p className="text-sm text-gray-300 mb-2">
+                  Your license will be bound to your computer to prevent unauthorized sharing. 
+                  Please download and run the app to get your hardware fingerprint.
+                </p>
+                <div className="space-y-2">
+                  <p className="text-xs text-blue-300">
+                    📥 <strong>Step 1:</strong> Download the trading bot application
+                  </p>
+                  <p className="text-xs text-blue-300">
+                    ▶️ <strong>Step 2:</strong> Run the application - it will show your Hardware Fingerprint
+                  </p>
+                  <p className="text-xs text-blue-300">
+                    📋 <strong>Step 3:</strong> Copy and paste it below
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <label className="block text-sm text-gray-300 mb-1">Hardware Fingerprint *</label>
+              <input 
+                type="text"
+                value={hardwareFingerprint} 
+                onChange={e => setHardwareFingerprint(e.target.value.toUpperCase())} 
+                placeholder="e.g., D4A04F41A74CF788" 
+                className="w-full bg-gray-700 text-white rounded-lg px-4 py-3 border border-gray-600 focus:border-blue-500 focus:outline-none font-mono"
+                disabled={isProcessing}
+                maxLength={16}
+              />
+              <p className="text-xs text-gray-400 mt-1">
+                16-character hexadecimal code shown when you run the app
+              </p>
             </div>
           </div>
 
