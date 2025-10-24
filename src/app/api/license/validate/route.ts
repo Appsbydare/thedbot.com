@@ -1,46 +1,90 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { LicenseValidator, ValidationRequest } from '@/lib/license/validator';
+import { LicensesRepo } from '@/lib/repos';
 
 export async function POST(request: NextRequest) {
   try {
-    const body: ValidationRequest = await request.json();
-    
+    const body = await request.json();
+    const { licenseKey, hardwareFingerprint, appVersion, clientTimestamp } = body;
+
     // Validate required fields
-    if (!body.licenseKey || !body.hardwareFingerprint || !body.appVersion) {
+    if (!licenseKey || !hardwareFingerprint) {
       return NextResponse.json({
         success: false,
-        message: 'Missing required fields',
-        error: 'INVALID_REQUEST'
+        message: 'Missing required fields: licenseKey, hardwareFingerprint',
+        data: {}
       }, { status: 400 });
     }
 
-    // Initialize validator
-    const encryptionKey = process.env.LICENSE_ENCRYPTION_KEY;
-    if (!encryptionKey) {
-      console.error('LICENSE_ENCRYPTION_KEY environment variable not set');
+    // Get license from database
+    const license = LicensesRepo.get(licenseKey);
+
+    if (!license) {
       return NextResponse.json({
         success: false,
-        message: 'License service configuration error',
-        error: 'CONFIG_ERROR'
-      }, { status: 500 });
+        message: 'License not found',
+        data: {}
+      }, { status: 404 });
     }
 
-    const validator = new LicenseValidator(encryptionKey);
-    
-    // Validate license
-    const result = await validator.validateLicense(body);
-    
-    // Return appropriate status code
-    const statusCode = result.success ? 200 : 400;
-    
-    return NextResponse.json(result, { status: statusCode });
+    // Check if license is revoked
+    if (license.status === 'revoked') {
+      return NextResponse.json({
+        success: false,
+        message: 'License has been revoked',
+        data: {}
+      }, { status: 403 });
+    }
+
+    // Check hardware fingerprint match
+    if (license.hardwareFingerprint && license.hardwareFingerprint !== hardwareFingerprint) {
+      return NextResponse.json({
+        success: false,
+        message: 'Hardware fingerprint mismatch. This license is bound to a different computer.',
+        data: {
+          expectedFingerprint: license.hardwareFingerprint,
+          providedFingerprint: hardwareFingerprint
+        }
+      }, { status: 403 });
+    }
+
+    // Check expiration
+    const now = Date.now();
+    if (license.expiresAt && license.expiresAt < now) {
+      return NextResponse.json({
+        success: false,
+        message: 'License has expired',
+        data: {
+          expiresAt: new Date(license.expiresAt).toISOString(),
+          expiredDaysAgo: Math.floor((now - license.expiresAt) / (1000 * 60 * 60 * 24))
+        }
+      }, { status: 403 });
+    }
+
+    // Calculate days remaining
+    const daysRemaining = license.expiresAt 
+      ? Math.floor((license.expiresAt - now) / (1000 * 60 * 60 * 24))
+      : 999999; // Lifetime license
+
+    // License is valid!
+    return NextResponse.json({
+      success: true,
+      message: 'License valid',
+      data: {
+        licenseKey: license.key,
+        status: license.status,
+        expiresAt: license.expiresAt ? new Date(license.expiresAt).toISOString() : null,
+        daysRemaining,
+        productId: license.productId,
+        hardwareFingerprint: license.hardwareFingerprint
+      }
+    });
 
   } catch (error) {
-    console.error('License validation API error:', error);
+    console.error('License validation error:', error);
     return NextResponse.json({
       success: false,
       message: 'Internal server error',
-      error: 'INTERNAL_ERROR'
+      data: {}
     }, { status: 500 });
   }
 }
@@ -52,7 +96,7 @@ export async function OPTIONS() {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     },
   });
 }

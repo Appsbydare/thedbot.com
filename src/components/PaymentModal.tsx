@@ -166,23 +166,19 @@ export default function PaymentModal({ productId, productName, amountUSD, isOpen
           <div className="bg-blue-900/20 border border-blue-600/30 rounded-lg p-4">
             <div className="flex items-start gap-3 mb-3">
               <div className="text-2xl">🔐</div>
-              <div>
+              <div className="flex-1">
                 <h4 className="text-white font-semibold mb-1">Hardware Fingerprint Required</h4>
                 <p className="text-sm text-gray-300 mb-2">
                   Your license will be bound to your computer to prevent unauthorized sharing. 
                   Please download and run the app to get your hardware fingerprint.
                 </p>
-                <div className="space-y-2">
-                  <p className="text-xs text-blue-300">
-                    📥 <strong>Step 1:</strong> Download the trading bot application
-                  </p>
-                  <p className="text-xs text-blue-300">
-                    ▶️ <strong>Step 2:</strong> Run the application - it will show your Hardware Fingerprint
-                  </p>
-                  <p className="text-xs text-blue-300">
-                    📋 <strong>Step 3:</strong> Copy and paste it below
-                  </p>
-                </div>
+                <a 
+                  href="/get-fingerprint" 
+                  target="_blank"
+                  className="inline-flex items-center gap-1 text-sm text-blue-400 hover:text-blue-300 underline"
+                >
+                  📖 How to get your hardware fingerprint?
+                </a>
               </div>
             </div>
             
