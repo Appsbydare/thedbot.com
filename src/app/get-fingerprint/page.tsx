@@ -82,10 +82,10 @@ export default function GetFingerprintPage() {
                   <p className="text-sm text-gray-400 mb-2">Example Hardware Fingerprint:</p>
                   <div className="flex items-center gap-3">
                     <code className="flex-1 bg-gray-900 text-green-400 px-4 py-2 rounded font-mono text-lg">
-                      D4A04F41A74CF788
+                      A1B2C3D4E5F6G7H8
                     </code>
                     <button
-                      onClick={() => handleCopy('D4A04F41A74CF788')}
+                      onClick={() => handleCopy('A1B2C3D4E5F6G7H8')}
                       className="bg-gray-600 hover:bg-gray-500 text-white px-4 py-2 rounded transition-colors text-sm"
                     >
                       {copied ? 'Copied!' : 'Copy'}

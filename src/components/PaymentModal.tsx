@@ -164,18 +164,19 @@ export default function PaymentModal({ productId, productName, amountUSD, isOpen
 
           {/* Hardware Fingerprint Section */}
           <div className="bg-blue-900/20 border border-blue-600/30 rounded-lg p-4">
-            <div className="flex items-start gap-3 mb-3">
-              <div className="text-2xl">🔐</div>
-              <div className="flex-1">
-                <h4 className="text-white font-semibold mb-1">Hardware Fingerprint Required</h4>
-                <p className="text-sm text-gray-300 mb-2">
+            <div className="flex items-start gap-3 mb-4">
+              <div className="text-2xl flex-shrink-0">🔐</div>
+              <div className="flex-1 min-w-0">
+                <h4 className="text-white font-semibold mb-2">Hardware Fingerprint Required</h4>
+                <p className="text-sm text-gray-300 mb-3">
                   Your license will be bound to your computer to prevent unauthorized sharing. 
                   Please download and run the app to get your hardware fingerprint.
                 </p>
                 <a 
                   href="/get-fingerprint" 
                   target="_blank"
-                  className="inline-flex items-center gap-1 text-sm text-blue-400 hover:text-blue-300 underline"
+                  rel="noopener noreferrer"
+                  className="inline-block text-sm text-blue-400 hover:text-blue-300 underline mb-4"
                 >
                   📖 How to get your hardware fingerprint?
                 </a>
@@ -183,17 +184,17 @@ export default function PaymentModal({ productId, productName, amountUSD, isOpen
             </div>
             
             <div>
-              <label className="block text-sm text-gray-300 mb-1">Hardware Fingerprint *</label>
+              <label className="block text-sm text-gray-300 mb-2">Hardware Fingerprint *</label>
               <input 
                 type="text"
                 value={hardwareFingerprint} 
                 onChange={e => setHardwareFingerprint(e.target.value.toUpperCase())} 
-                placeholder="e.g., D4A04F41A74CF788" 
+                placeholder="e.g., A1B2C3D4E5F6G7H8" 
                 className="w-full bg-gray-700 text-white rounded-lg px-4 py-3 border border-gray-600 focus:border-blue-500 focus:outline-none font-mono"
                 disabled={isProcessing}
                 maxLength={16}
               />
-              <p className="text-xs text-gray-400 mt-1">
+              <p className="text-xs text-gray-400 mt-2">
                 16-character hexadecimal code shown when you run the app
               </p>
             </div>
