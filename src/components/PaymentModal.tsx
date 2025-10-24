@@ -85,7 +85,7 @@ export default function PaymentModal({ productId, productName, amountUSD, isOpen
         alert(data?.error || 'Failed to start checkout')
         setIsProcessing(false)
       }
-    } catch (error) {
+    } catch {
       alert('Failed to process payment. Please try again.')
       setIsProcessing(false)
     }

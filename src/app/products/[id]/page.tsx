@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Star, Download, Shield, CheckCircle, Zap } from "@/components/icons";
+import { ArrowLeft, Star, CheckCircle, Zap } from "@/components/icons";
 import PaymentModal from "@/components/PaymentModal";
 import { products as catalog } from "@/data/products";
 
