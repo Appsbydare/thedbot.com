@@ -179,10 +179,8 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                   </div>
                 </div>
 
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 mb-4">
-                  Purchase Now
-                </button>
-                
+                <PurchaseForm productId={product.id} amountUSD={product.priceUSD} />
+
                 {product.specifications && (
                   <div className="space-y-2 mb-4">
                     <a 
