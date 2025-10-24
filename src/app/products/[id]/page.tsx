@@ -1,11 +1,15 @@
+'use client'
+
+import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Star, Download, Shield, CheckCircle, Zap } from "@/components/icons";
-import PurchaseForm from "@/components/PurchaseForm";
+import PaymentModal from "@/components/PaymentModal";
 import { products as catalog } from "@/data/products";
 
 const products = Object.fromEntries(catalog.map((p) => [p.id, p]));
 
 export default function ProductPage({ params }: { params: { id: string } }) {
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const product = products[params.id as keyof typeof products];
 
   if (!product) {
@@ -179,7 +183,12 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                   </div>
                 </div>
 
-                <PurchaseForm productId={product.id} amountUSD={product.priceUSD} />
+                <button 
+                  onClick={() => setIsPaymentModalOpen(true)}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 mb-4"
+                >
+                  Purchase Now
+                </button>
 
                 {product.specifications && (
                   <div className="space-y-2 mb-4">
@@ -234,6 +243,15 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           </div>
         </div>
       </div>
+
+      {/* Payment Modal */}
+      <PaymentModal
+        productId={product.id}
+        productName={product.name}
+        amountUSD={product.priceUSD}
+        isOpen={isPaymentModalOpen}
+        onClose={() => setIsPaymentModalOpen(false)}
+      />
 
     </div>
   );
