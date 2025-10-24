@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { X } from '@/components/icons'
 
 type Props = {
@@ -18,6 +18,19 @@ export default function PaymentModal({ productId, productName, amountUSD, isOpen
   const [agreedToTerms, setAgreedToTerms] = useState(false)
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<string>('')
   const [isProcessing, setIsProcessing] = useState(false)
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
 
   if (!isOpen) return null
 
@@ -72,8 +85,16 @@ export default function PaymentModal({ productId, productName, amountUSD, isOpen
   }
 
   return (
-    <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4 overflow-y-auto">
-      <div className="bg-gray-800 rounded-2xl max-w-2xl w-full my-8 border border-gray-700">
+    <div 
+      className="fixed inset-0 bg-black/70 z-50 overflow-y-auto"
+      onClick={(e) => {
+        if (e.target === e.currentTarget && !isProcessing) {
+          onClose()
+        }
+      }}
+    >
+      <div className="min-h-screen flex items-center justify-center p-4">
+        <div className="bg-gray-800 rounded-2xl max-w-2xl w-full my-8 border border-gray-700 relative">
         
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-700">
@@ -281,6 +302,7 @@ export default function PaymentModal({ productId, productName, amountUSD, isOpen
           </button>
         </div>
 
+        </div>
       </div>
     </div>
   )
