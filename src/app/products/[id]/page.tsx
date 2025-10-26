@@ -86,8 +86,8 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                   <div className="mb-6">
                     {product.monthlyPriceUSD ? (
                       <div className="space-y-1">
-                        <div className="text-3xl font-bold text-white">${product.priceUSD} USD/year</div>
-                        <div className="text-lg text-gray-300">or ${product.monthlyPriceUSD} USD/month</div>
+                        <div className="text-3xl font-bold text-white">${product.priceUSD} USD/month</div>
+                        <div className="text-lg text-gray-300">or ${product.monthlyPriceUSD} USD/year</div>
                       </div>
                     ) : (
                       <div className="text-3xl font-bold text-white">${product.priceUSD} USD</div>
@@ -158,8 +158,8 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                 <div className="space-y-4 mb-6">
                   {product.monthlyPriceUSD ? (
                     <div className="space-y-2">
-                      <div className="text-3xl font-bold text-white">${product.priceUSD} USD/year</div>
-                      <div className="text-lg text-gray-300">or ${product.monthlyPriceUSD} USD/month</div>
+                      <div className="text-3xl font-bold text-white">${product.priceUSD} USD/month</div>
+                      <div className="text-lg text-gray-300">or ${product.monthlyPriceUSD} USD/year</div>
                     </div>
                   ) : (
                     <div className="text-3xl font-bold text-white">${product.priceUSD} USD</div>

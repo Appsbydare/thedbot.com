@@ -108,8 +108,13 @@ export default function ProductsPage() {
                   <div className="flex items-center justify-between pt-4 border-t border-border">
                     <div className="space-y-1">
                       <div className="text-2xl font-bold text-foreground">
-                        ${product.priceUSD}
+                        {product.monthlyPriceUSD ? `$${product.priceUSD}/month` : `$${product.priceUSD}`}
                       </div>
+                      {product.monthlyPriceUSD && (
+                        <div className="text-sm text-muted-foreground">
+                          or ${product.monthlyPriceUSD}/year
+                        </div>
+                      )}
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <Shield className="size-4" />
                         <span>Secure License</span>

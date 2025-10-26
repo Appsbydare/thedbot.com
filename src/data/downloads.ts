@@ -74,3 +74,4 @@ export function getLatestVersion(productId: string): DownloadVersion | undefined
   return product?.versions.find(v => v.isLatest);
 }
 
+

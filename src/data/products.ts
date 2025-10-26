@@ -45,8 +45,8 @@ export const products: Product[] = [
     description: "Professional automated trading bot that monitors Telegram signals and executes trades in MetaTrader 5 with advanced strategy management",
     longDescription:
       "The Telegram Trading Bot (AutoTrader Gold V8) is a sophisticated automated trading solution that bridges Telegram signal channels with MetaTrader 5. This professional-grade bot features dual Telegram client support (Pyrogram & Telethon), advanced signal parsing with 35+ regex patterns, and comprehensive strategy management including Multi-Take Profit and Trailing Stop strategies. The bot includes a modern PyQt5 GUI, real-time position monitoring, automatic risk management, and supports multiple asset classes including Forex, Gold, and Cryptocurrencies. With features like breakeven management, customizable lot sizing, and comprehensive logging, it provides institutional-quality automation for both retail and professional traders.",
-    priceUSD: 899,
-    monthlyPriceUSD: 99,
+    priceUSD: 99,
+    monthlyPriceUSD: 899,
     features: ["Dual Telegram Client Support", "Advanced Signal Parsing (35+ Patterns)", "Multi-TP Strategy Management", "Trailing Stop Automation", "Real-time Position Monitoring", "Breakeven Management", "Custom Symbol Mapping", "Professional PyQt5 GUI", "Comprehensive Risk Management", "Multi-Asset Support (Forex/Gold/Crypto)", "SQLite Database Integration", "Automatic MT5 Integration"],
     rating: 4.9,
     reviews: 800,
