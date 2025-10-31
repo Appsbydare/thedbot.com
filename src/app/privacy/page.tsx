@@ -46,7 +46,8 @@ export default function PrivacyPage() {
                   <div className="bg-gray-800/50 p-6 rounded-lg">
                     <h3 className="text-xl font-semibold text-white mb-4">Personal Information:</h3>
                     <ul className="space-y-2 list-disc list-inside">
-                      <li>Email address for license delivery and support</li>
+                      <li>Name and email address for license delivery and support</li>
+                      <li>Country and phone number for license verification and support</li>
                       <li>MT4/MT5 account number for license binding</li>
                       <li>Payment information (processed securely by payment providers)</li>
                       <li>Support communications and inquiries</li>

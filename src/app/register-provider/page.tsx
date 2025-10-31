@@ -20,6 +20,17 @@ export default function RegisterProviderPage() {
           </p>
         </div>
 
+        {/* Provider Requirements */}
+        <div className="mb-12 rounded-lg border border-border bg-secondary p-6">
+          <h2 className="text-xl font-semibold text-foreground mb-3">Provider Requirements</h2>
+          <ul className="list-disc list-inside text-muted-foreground space-y-1">
+            <li>Provide a verifiable performance track record</li>
+            <li>Comply with Telegram Terms of Service for your channel</li>
+            <li>Acknowledge that you are an independent third party</li>
+            <li>No performance guarantees by theDBot; subscribers assume trading risk</li>
+          </ul>
+        </div>
+
         {/* Registration Form */}
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-8">
           <ProviderRegistrationForm />

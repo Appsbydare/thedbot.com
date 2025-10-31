@@ -116,6 +116,37 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               </p>
             </div>
 
+            {/* Platform Requirements & Legal Notice (Telegram bot only) */}
+            {product.id === "telegram-trading-bot" && (
+              <div className="bg-gray-800 rounded-2xl p-8">
+                <h2 className="text-2xl font-heading text-white mb-6">Platform Requirements & Legal Notice</h2>
+                <div className="space-y-6 text-gray-300">
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-2">Third-Party API Usage</h3>
+                    <p><strong>This software uses the Telegram API and is part of the Telegram ecosystem.</strong> This is an independent third-party application, not affiliated with, endorsed by, or sponsored by Telegram FZ-LLC or MetaQuotes Software Corp.</p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-2">Requirements</h3>
+                    <ul className="list-disc list-inside space-y-2">
+                      <li>Users must obtain their own Telegram API credentials (API ID & Hash) from <a href="https://my.telegram.org" target="_blank" className="underline">my.telegram.org</a></li>
+                      <li>Requires MetaTrader 5 platform (provided by your forex broker)</li>
+                      <li>Windows operating system or VPS recommended for 24/7 operation</li>
+                      <li>Broker must allow Expert Advisors (EAs) and automated trading</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-2">User Responsibilities</h3>
+                    <ul className="list-disc list-inside space-y-2">
+                      <li>Comply with Telegram&apos;s Terms of Service</li>
+                      <li>Comply with your broker&apos;s terms and conditions</li>
+                      <li>Test thoroughly on demo accounts before live trading</li>
+                      <li>Ensure you have proper permissions for automated trading</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Features */}
             <div className="bg-gray-800 rounded-2xl p-8">
               <h2 className="text-2xl font-heading text-white mb-6">Features</h2>

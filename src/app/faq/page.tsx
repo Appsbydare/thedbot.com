@@ -51,6 +51,22 @@ const faqs = [
   {
     question: "Do you provide source code?",
     answer: "Yes, you receive the complete Python source code with your purchase, allowing you to understand how the bot works and make custom modifications if needed."
+  },
+  {
+    question: "Do I need approval from Telegram to use the Telegram Trading Bot?",
+    answer: "No formal approval is needed. You must use your own Telegram API credentials (free from my.telegram.org) and comply with Telegram's Terms of Service."
+  },
+  {
+    question: "Does my broker need to allow automated trading?",
+    answer: "Yes. Many products require Expert Advisors (EAs). Please confirm your broker allows automated trading before purchase."
+  },
+  {
+    question: "What is your refund policy?",
+    answer: "We offer a 7-day money-back guarantee for technical issues we cannot resolve or if the product is not as described. Contact support@thedbot.com with your order number."
+  },
+  {
+    question: "How can I contact support?",
+    answer: "Email support@thedbot.com. We provide installation help and technical assistance during your license period."
   }
 ];
 

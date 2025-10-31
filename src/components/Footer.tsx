@@ -60,6 +60,9 @@ export default function Footer() {
               <Link href="/privacy" className="block text-muted-foreground hover:text-foreground transition-colors text-sm">
                 Privacy Policy
               </Link>
+              <Link href="/refund" className="block text-muted-foreground hover:text-foreground transition-colors text-sm">
+                Refund Policy
+              </Link>
             </nav>
           </div>
         </div>
@@ -68,8 +71,8 @@ export default function Footer() {
           <p className="text-muted-foreground text-sm">
             © {new Date().getFullYear()} theDBot. All rights reserved.
           </p>
-          <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-            <span>Made with ❤️ for traders</span>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-sm text-muted-foreground text-center sm:text-right">
+            <span>MetaTrader, MT4, and MT5 are trademarks of MetaQuotes Software Corp. Telegram is a trademark of Telegram FZ-LLC. TradingView is a trademark of TradingView, Inc. theDBot is an independent third-party application not affiliated with, endorsed by, or sponsored by these companies.</span>
           </div>
         </div>
       </div>

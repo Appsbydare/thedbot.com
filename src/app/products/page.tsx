@@ -28,6 +28,21 @@ export default function ProductsPage() {
         </div>
       </section>
 
+      {/* Platform Compatibility Notice */}
+      <section className="py-8 bg-secondary border-t border-border">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="rounded-xl p-6 bg-card border border-border">
+            <h2 className="text-xl font-semibold text-foreground mb-2">Platform Compatibility</h2>
+            <p className="text-sm text-muted-foreground mb-3">
+              All our products are designed to work with MetaTrader 4/5 platforms (provided by your broker). Some products integrate with Telegram (signal bots) or TradingView (indicators).
+            </p>
+            <p className="text-sm text-muted-foreground">
+              <strong>Broker Compatibility:</strong> Most products require your broker to allow Expert Advisors (EAs) and automated trading. Please verify with your broker before purchase.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Category Filter */}
       <section className="py-12 bg-secondary">
         <div className="mx-auto max-w-6xl px-4">
