@@ -6,31 +6,29 @@ type RobotState = "running" | "idle";
 
 export default function RobotCursor() {
   const robotRef = useRef<HTMLDivElement>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | undefined>(undefined);
   const [robotState, setRobotState] = useState<RobotState>("idle");
   const [mouseX, setMouseX] = useState(0);
   const [mouseY, setMouseY] = useState(0);
   const [robotX, setRobotX] = useState(0);
   const [robotY, setRobotY] = useState(0);
   const lastMoveTimeRef = useRef<number>(Date.now());
-  const throttleTimerRef = useRef<NodeJS.Timeout>();
+  const throttleTimerRef = useRef<NodeJS.Timeout | undefined>(undefined);
+  // Use refs to store current values to avoid dependency issues
+  const mousePosRef = useRef({ x: 0, y: 0 });
+  const robotPosRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     const robot = robotRef.current;
     if (!robot) return;
-
-    let currentRobotX = robotX;
-    let currentRobotY = robotY;
-    let currentMouseX = mouseX;
-    let currentMouseY = mouseY;
 
     // Throttle mouse move events for better performance
     const handleMouseMove = (e: MouseEvent) => {
       if (throttleTimerRef.current) return;
       
       throttleTimerRef.current = setTimeout(() => {
-        currentMouseX = e.clientX;
-        currentMouseY = e.clientY;
+        mousePosRef.current.x = e.clientX;
+        mousePosRef.current.y = e.clientY;
         setMouseX(e.clientX);
         setMouseY(e.clientY);
         lastMoveTimeRef.current = Date.now();
@@ -51,16 +49,16 @@ export default function RobotCursor() {
 
       // Smooth easing for robot position (follows mouse)
       const easing = 0.15;
-      currentRobotX += (currentMouseX - currentRobotX) * easing;
-      currentRobotY += (currentMouseY - currentRobotY) * easing;
-      setRobotX(currentRobotX);
-      setRobotY(currentRobotY);
+      robotPosRef.current.x += (mousePosRef.current.x - robotPosRef.current.x) * easing;
+      robotPosRef.current.y += (mousePosRef.current.y - robotPosRef.current.y) * easing;
+      setRobotX(robotPosRef.current.x);
+      setRobotY(robotPosRef.current.y);
 
       if (robot) {
         // Position robot slightly offset to the right of cursor
         const offsetX = 40;
         const offsetY = 20;
-        robot.style.transform = `translate(${currentRobotX + offsetX}px, ${currentRobotY + offsetY}px)`;
+        robot.style.transform = `translate(${robotPosRef.current.x + offsetX}px, ${robotPosRef.current.y + offsetY}px)`;
       }
 
       animationFrameRef.current = requestAnimationFrame(updateRobot);
