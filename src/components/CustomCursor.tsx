@@ -5,16 +5,14 @@ import { useEffect, useRef } from "react";
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const cursorDotRef = useRef<HTMLDivElement>(null);
-  const cursorInnerRef = useRef<HTMLDivElement>(null);
   const smokeContainerRef = useRef<HTMLDivElement>(null);
   const trailRefs = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
     const cursor = cursorRef.current;
     const cursorDot = cursorDotRef.current;
-    const cursorInner = cursorInnerRef.current;
     const smokeContainer = smokeContainerRef.current;
-    if (!cursor || !cursorDot || !cursorInner || !smokeContainer) return;
+    if (!cursor || !cursorDot || !smokeContainer) return;
 
     // Create smoke trail particles with varying sizes
     const smokeCount = 20;
@@ -69,9 +67,6 @@ export default function CustomCursor() {
       if (cursorDot) {
         cursorDot.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
       }
-      if (cursorInner) {
-        cursorInner.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
-      }
 
       // Update smoke trail positions with organic movement
       let trailPrevX = cursorX;
@@ -118,13 +113,11 @@ export default function CustomCursor() {
     const handleMouseEnter = () => {
       if (cursor) cursor.style.opacity = "1";
       if (cursorDot) cursorDot.style.opacity = "1";
-      if (cursorInner) cursorInner.style.opacity = "1";
     };
 
     const handleMouseLeave = () => {
       if (cursor) cursor.style.opacity = "0";
       if (cursorDot) cursorDot.style.opacity = "0";
-      if (cursorInner) cursorInner.style.opacity = "0";
       trailRefs.current.forEach((smoke) => {
         smoke.style.opacity = "0";
       });
@@ -150,27 +143,15 @@ export default function CustomCursor() {
           cursor.style.width = "300px";
           cursor.style.height = "300px";
         }
-        if (cursorInner) {
-          cursorInner.style.width = "300px";
-          cursorInner.style.height = "300px";
-        }
       } else if (isInteractive) {
         if (cursor) {
           cursor.style.width = "75px";
           cursor.style.height = "75px";
         }
-        if (cursorInner) {
-          cursorInner.style.width = "75px";
-          cursorInner.style.height = "75px";
-        }
       } else {
         if (cursor) {
           cursor.style.width = "60px";
           cursor.style.height = "60px";
-        }
-        if (cursorInner) {
-          cursorInner.style.width = "60px";
-          cursorInner.style.height = "60px";
         }
       }
     };
@@ -199,31 +180,15 @@ export default function CustomCursor() {
       />
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 pointer-events-none z-[9999] will-change-transform"
+        className="fixed top-0 left-0 pointer-events-none z-[9999] will-change-transform cursor-circle"
         style={{
           width: "60px",
           height: "60px",
           borderRadius: "50%",
-          background: "rgba(255, 255, 255, 1)",
+          background: "#ffffff",
           border: "2px solid rgba(255, 255, 255, 0.4)",
-          mixBlendMode: "difference",
           transform: "translate(-50%, -50%)",
           transition: "width 0.3s ease, height 0.3s ease",
-          overflow: "hidden",
-        }}
-      />
-      <div
-        ref={cursorInnerRef}
-        className="fixed top-0 left-0 pointer-events-none z-[9999] will-change-transform"
-        style={{
-          width: "60px",
-          height: "60px",
-          borderRadius: "50%",
-          background: "rgba(255, 255, 255, 1)",
-          mixBlendMode: "difference",
-          transform: "translate(-50%, -50%)",
-          transition: "width 0.3s ease, height 0.3s ease",
-          opacity: "1",
         }}
       />
       <div
@@ -240,6 +205,9 @@ export default function CustomCursor() {
         }}
       />
       <style jsx global>{`
+        .cursor-circle {
+          mix-blend-mode: difference !important;
+        }
         .cursor-smoke {
           position: fixed;
           border-radius: 50%;
