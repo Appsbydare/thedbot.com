@@ -102,13 +102,15 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
           let scale = 1;
           
           if (lineIndex === 0) {
-            // First line: start big, end small
+            // First line: start big, end small - increased perspective
             const progress = charIndex / (totalChars - 1 || 1);
-            scale = 1.15 - (progress * 0.25); // From 1.15 to 0.9
+            scale = 1.35 - (progress * 0.5); // From 1.35 to 0.85 (more dramatic)
+            span.setAttribute("data-line", "first");
           } else if (lineIndex === 1) {
-            // Second line: start small, end big (opposite)
+            // Second line: start small, end big (opposite) - increased perspective
             const progress = charIndex / (totalChars - 1 || 1);
-            scale = 0.9 + (progress * 0.25); // From 0.9 to 1.15
+            scale = 0.85 + (progress * 0.5); // From 0.85 to 1.35 (more dramatic)
+            span.setAttribute("data-line", "second");
           }
           
           span.style.transform = `scaleY(${scale})`;

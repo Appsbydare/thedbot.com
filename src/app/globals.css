@@ -242,13 +242,27 @@ html {
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover state: Same weight but transparent fill with colored stroke */
+/* Hover state: Only first line inverts, second line stays solid */
 .cursor-heading.heading-hover {
-  color: transparent;
-  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
+  -webkit-text-stroke: 0px;
   font-weight: 900;
   text-shadow: none;
   transform: perspective(500px) rotateX(0deg);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* First line: invert colors (transparent fill with stroke) */
+.cursor-heading.heading-hover span[data-line="first"] {
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Second line: stay solid (normal filled) */
+.cursor-heading.heading-hover span[data-line="second"] {
+  color: rgba(255, 255, 255, 0.95);
+  -webkit-text-stroke: 0px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -266,5 +280,15 @@ html {
 }
 
 :root:not([class~="dark"]) .cursor-heading.heading-hover {
-  -webkit-text-stroke: 1.5px rgba(15, 23, 42, 0.9);
+  color: rgba(15, 23, 42, 0.95);
+}
+
+:root:not([class~="dark"]) .cursor-heading.heading-hover span[data-line="first"] {
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(15, 23, 42, 0.9);
+}
+
+:root:not([class~="dark"]) .cursor-heading.heading-hover span[data-line="second"] {
+  color: rgba(15, 23, 42, 0.95);
+  -webkit-text-stroke: 0px;
 }
