@@ -202,7 +202,7 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
         
         gsap.to(span, {
           scaleY: 1,
-          fontSize: isFirstLine ? "1.56em" : "1.0em",
+          fontSize: isFirstLine ? "1.3em" : "1.0em",
           duration: 0.4,
           ease: "power2.out",
         });
