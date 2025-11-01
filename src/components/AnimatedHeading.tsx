@@ -119,7 +119,11 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
       });
     });
 
-    // Initial scroll-triggered animation
+    // Group spans by line for entrance animations
+    const firstLineSpans = lines[0] || [];
+    const secondLineSpans = lines[1] || [];
+
+    // Initial scroll-triggered animation with entrance from sides
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: heading,
@@ -130,22 +134,50 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
       },
     });
 
-    charSpans.forEach((span, index) => {
+    // First line: animate from left
+    firstLineSpans.forEach((span, index) => {
       const text = span.textContent || "";
       if (text.trim() !== "" && text !== "\u00A0") {
         const initialScale = parseFloat(span.getAttribute("data-default-scale") || "1");
         span.style.opacity = "0";
-        span.style.transform = `scaleY(${initialScale}) translateY(30px)`;
+        gsap.set(span, {
+          scaleY: initialScale,
+          x: -200,
+        });
         
         tl.to(
           span,
           {
             opacity: 1,
-            y: 0,
-            duration: 0.6,
+            x: 0,
+            duration: 0.8,
             ease: "power3.out",
           },
-          index * 0.03
+          index * 0.02
+        );
+      }
+    });
+
+    // Second line: animate from right
+    secondLineSpans.forEach((span, index) => {
+      const text = span.textContent || "";
+      if (text.trim() !== "" && text !== "\u00A0") {
+        const initialScale = parseFloat(span.getAttribute("data-default-scale") || "1");
+        span.style.opacity = "0";
+        gsap.set(span, {
+          scaleY: initialScale,
+          x: 200,
+        });
+        
+        tl.to(
+          span,
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: "power3.out",
+          },
+          (firstLineSpans.length * 0.02) + (index * 0.02)
         );
       }
     });
@@ -203,12 +235,74 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
         duration: 0.3,
         ease: "power2.out",
       });
+
+      // Animate lines: first line slightly right, second line slightly left, then center both
+      const firstLineContainer = heading.querySelector(".line-first") || firstLineSpans[0]?.parentElement;
+      const secondLineContainer = heading.querySelector(".line-second") || secondLineSpans[0]?.parentElement;
+      
+      // Remove 3D perspective from all spans
+      charSpans.forEach((span) => {
+        const defaultScale = parseFloat(span.getAttribute("data-default-scale") || "1");
+        gsap.to(span, {
+          scaleY: 1,
+          duration: 0.4,
+          ease: "power2.out",
+        });
+      });
+
+      // Shift first line slightly right, then center
+      firstLineSpans.forEach((span) => {
+        gsap.to(span, {
+          x: 30,
+          duration: 0.3,
+          ease: "power2.out",
+          onComplete: () => {
+            gsap.to(span, {
+              x: 0,
+              duration: 0.3,
+              ease: "power2.out",
+            });
+          },
+        });
+      });
+
+      // Shift second line slightly left, then center
+      secondLineSpans.forEach((span) => {
+        gsap.to(span, {
+          x: -30,
+          duration: 0.3,
+          ease: "power2.out",
+          onComplete: () => {
+            gsap.to(span, {
+              x: 0,
+              duration: 0.3,
+              ease: "power2.out",
+            });
+          },
+        });
+      });
     };
 
     const handleMouseLeave = () => {
       isHovering = false;
       heading.classList.remove("heading-hover");
       heading.classList.add("heading-default");
+
+      // Restore 3D perspective to all spans
+      charSpans.forEach((span) => {
+        const defaultScale = parseFloat(span.getAttribute("data-default-scale") || "1");
+        gsap.to(span, {
+          scaleY: defaultScale,
+          duration: 0.4,
+          ease: "power2.out",
+        });
+        // Reset x position
+        gsap.to(span, {
+          x: 0,
+          duration: 0.4,
+          ease: "power2.out",
+        });
+      });
     };
 
     // Initially set to default state
