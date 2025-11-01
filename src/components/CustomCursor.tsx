@@ -204,11 +204,12 @@ export default function CustomCursor() {
           width: "60px",
           height: "60px",
           borderRadius: "50%",
-          background: "transparent",
+          background: "rgba(255, 255, 255, 0.8)",
           border: "2px solid rgba(255, 255, 255, 0.4)",
           mixBlendMode: "difference",
           transform: "translate(-50%, -50%)",
           transition: "width 0.3s ease, height 0.3s ease",
+          overflow: "hidden",
         }}
       />
       <div
@@ -218,7 +219,7 @@ export default function CustomCursor() {
           width: "60px",
           height: "60px",
           borderRadius: "50%",
-          background: "transparent",
+          background: "rgba(255, 255, 255, 0.9)",
           mixBlendMode: "difference",
           transform: "translate(-50%, -50%)",
           transition: "width 0.3s ease, height 0.3s ease",
