@@ -250,9 +250,20 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
           duration: 0.4,
           ease: "power2.out",
         });
-        // Reset x position
+      });
+
+      // Restore default positioning: first line left, second line right
+      firstLineSpans.forEach((span) => {
         gsap.to(span, {
-          x: 0,
+          x: -80,
+          duration: 0.4,
+          ease: "power2.out",
+        });
+      });
+
+      secondLineSpans.forEach((span) => {
+        gsap.to(span, {
+          x: 80,
           duration: 0.4,
           ease: "power2.out",
         });
@@ -261,6 +272,19 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
 
     // Initially set to default state
     heading.classList.add("heading-default");
+
+    // Apply default positioning: first line left, second line right
+    firstLineSpans.forEach((span) => {
+      gsap.set(span, {
+        x: -80,
+      });
+    });
+
+    secondLineSpans.forEach((span) => {
+      gsap.set(span, {
+        x: 80,
+      });
+    });
 
     containerRef.current?.addEventListener("mouseenter", handleMouseEnter);
     containerRef.current?.addEventListener("mouseleave", handleMouseLeave);

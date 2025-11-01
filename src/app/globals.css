@@ -223,6 +223,13 @@ html {
   position: relative;
   display: inline-block;
   cursor: none;
+  line-height: 1.8;
+}
+
+.heading-container br {
+  display: block;
+  content: "";
+  margin-bottom: 0.8em;
 }
 
 /* Default state: First line inverted, second line solid, with 3D perspective */
