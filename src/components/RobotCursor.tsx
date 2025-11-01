@@ -123,127 +123,311 @@ export default function RobotCursor() {
         data-state={robotState}
       >
         <svg
-          width="60"
-          height="80"
+          width="48"
+          height="64"
           viewBox="0 0 60 80"
           className="robot-svg"
           style={{
             filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))",
           }}
         >
-          {/* Robot body with detail */}
-          <rect
-            x="15"
-            y="25"
-            width="30"
-            height="35"
-            rx="4"
-            fill="currentColor"
-            className="robot-body"
-          />
-          <rect
-            x="18"
-            y="28"
-            width="24"
-            height="12"
-            rx="2"
-            fill="rgba(255, 255, 255, 0.2)"
-          />
+          {/* Futuristic Humanoid Robot */}
           
-          {/* Robot head */}
-          <circle
+          {/* Head with swept-back crest */}
+          <ellipse
             cx="30"
-            cy="15"
-            r="12"
-            fill="currentColor"
+            cy="13"
+            rx="9"
+            ry="10"
+            fill="#f5f5f5"
             className="robot-head"
           />
-          <circle
-            cx="30"
-            cy="12"
-            r="6"
-            fill="rgba(255, 255, 255, 0.15)"
+          <path
+            d="M 25 8 Q 28 4 32 5 Q 35 6 35 8 L 35 10 Q 33 8 30 8 Q 27 8 25 10 Z"
+            fill="#e8e8e8"
+            className="robot-crest"
           />
           
-          {/* Eyes */}
-          <circle cx="25" cy="13" r="2.5" fill="#ffffff" className="robot-eye-left" />
-          <circle cx="35" cy="13" r="2.5" fill="#ffffff" className="robot-eye-right" />
-          <circle cx="25" cy="13" r="1" fill="currentColor" />
-          <circle cx="35" cy="13" r="1" fill="currentColor" />
-          
-          {/* Left arm - tucked when idle, extended when running */}
+          {/* Narrow horizontal eye slits */}
           <rect
-            x="8"
-            y="28"
-            width="8"
-            height="15"
-            rx="2"
-            fill="currentColor"
-            className="robot-arm-left"
+            x="22"
+            y="11.5"
+            width="6"
+            height="1.5"
+            rx="0.75"
+            fill="#ffffff"
+            className="robot-eye-left"
           />
-          
-          {/* Right arm - tucked when idle, extended when running */}
-          <rect
-            x="44"
-            y="28"
-            width="8"
-            height="15"
-            rx="2"
-            fill="currentColor"
-            className="robot-arm-right"
-          />
-          
-          {/* Left leg - wider when idle */}
-          <rect
-            x="18"
-            y="58"
-            width="10"
-            height="20"
-            rx="2"
-            fill="currentColor"
-            className="robot-leg-left"
-          />
-          
-          {/* Right leg - wider when idle */}
           <rect
             x="32"
-            y="58"
-            width="10"
-            height="20"
+            y="11.5"
+            width="6"
+            height="1.5"
+            rx="0.75"
+            fill="#ffffff"
+            className="robot-eye-right"
+          />
+          
+          {/* Neck with segmented design */}
+          <rect
+            x="27"
+            y="20"
+            width="6"
+            height="4"
+            rx="1"
+            fill="#d4af37"
+            opacity="0.8"
+          />
+          
+          {/* Segmented torso - hourglass shape */}
+          {/* Upper chest plate */}
+          <ellipse
+            cx="30"
+            cy="28"
+            rx="12"
+            ry="8"
+            fill="#f5f5f5"
+            className="robot-body"
+          />
+          <ellipse
+            cx="30"
+            cy="28"
+            rx="9"
+            ry="5"
+            fill="#ffffff"
+            opacity="0.3"
+          />
+          
+          {/* Mid torso - segmented plates */}
+          <rect
+            x="20"
+            y="32"
+            width="20"
+            height="6"
             rx="2"
-            fill="currentColor"
+            fill="#f5f5f5"
+          />
+          <path
+            d="M 22 32 L 24 34 L 24 36 L 22 38 Z"
+            fill="#d4af37"
+            opacity="0.6"
+          />
+          <path
+            d="M 38 32 L 36 34 L 36 36 L 38 38 Z"
+            fill="#d4af37"
+            opacity="0.6"
+          />
+          
+          {/* Lower torso - narrow waist */}
+          <ellipse
+            cx="30"
+            cy="42"
+            rx="8"
+            ry="6"
+            fill="#f5f5f5"
+          />
+          
+          {/* Left shoulder joint */}
+          <circle
+            cx="18"
+            cy="28"
+            r="4"
+            fill="#d4af37"
+            opacity="0.8"
+          />
+          
+          {/* Left arm - contoured */}
+          <ellipse
+            cx="14"
+            cy="30"
+            rx="3.5"
+            ry="12"
+            fill="#f5f5f5"
+            className="robot-arm-left"
+          />
+          {/* Left elbow joint */}
+          <circle
+            cx="14"
+            cy="42"
+            r="3"
+            fill="#d4af37"
+            opacity="0.8"
+          />
+          {/* Left forearm */}
+          <ellipse
+            cx="12"
+            cy="48"
+            rx="2.5"
+            ry="8"
+            fill="#f5f5f5"
+          />
+          {/* Left hand */}
+          <ellipse
+            cx="12"
+            cy="56"
+            rx="2.5"
+            ry="3"
+            fill="#f5f5f5"
+          />
+          
+          {/* Right shoulder joint */}
+          <circle
+            cx="42"
+            cy="28"
+            r="4"
+            fill="#d4af37"
+            opacity="0.8"
+          />
+          
+          {/* Right arm - contoured */}
+          <ellipse
+            cx="46"
+            cy="30"
+            rx="3.5"
+            ry="12"
+            fill="#f5f5f5"
+            className="robot-arm-right"
+          />
+          {/* Right elbow joint */}
+          <circle
+            cx="46"
+            cy="42"
+            r="3"
+            fill="#d4af37"
+            opacity="0.8"
+          />
+          {/* Right forearm */}
+          <ellipse
+            cx="48"
+            cy="48"
+            rx="2.5"
+            ry="8"
+            fill="#f5f5f5"
+          />
+          {/* Right hand */}
+          <ellipse
+            cx="48"
+            cy="56"
+            rx="2.5"
+            ry="3"
+            fill="#f5f5f5"
+          />
+          
+          {/* Left hip joint */}
+          <circle
+            cx="22"
+            cy="50"
+            r="3.5"
+            fill="#d4af37"
+            opacity="0.8"
+          />
+          
+          {/* Left leg - contoured thigh */}
+          <ellipse
+            cx="20"
+            cy="56"
+            rx="4"
+            ry="10"
+            fill="#f5f5f5"
+            className="robot-leg-left"
+          />
+          {/* Left knee joint */}
+          <circle
+            cx="20"
+            cy="64"
+            r="3"
+            fill="#d4af37"
+            opacity="0.8"
+          />
+          {/* Left calf */}
+          <ellipse
+            cx="18"
+            cy="70"
+            rx="3"
+            ry="8"
+            fill="#f5f5f5"
+          />
+          {/* Left foot - futuristic shoe design */}
+          <ellipse
+            cx="18"
+            cy="78"
+            rx="4"
+            ry="2"
+            fill="#f5f5f5"
+          />
+          
+          {/* Right hip joint */}
+          <circle
+            cx="38"
+            cy="50"
+            r="3.5"
+            fill="#d4af37"
+            opacity="0.8"
+          />
+          
+          {/* Right leg - contoured thigh */}
+          <ellipse
+            cx="40"
+            cy="56"
+            rx="4"
+            ry="10"
+            fill="#f5f5f5"
             className="robot-leg-right"
+          />
+          {/* Right knee joint */}
+          <circle
+            cx="40"
+            cy="64"
+            r="3"
+            fill="#d4af37"
+            opacity="0.8"
+          />
+          {/* Right calf */}
+          <ellipse
+            cx="42"
+            cy="70"
+            rx="3"
+            ry="8"
+            fill="#f5f5f5"
+          />
+          {/* Right foot - futuristic shoe design */}
+          <ellipse
+            cx="42"
+            cy="78"
+            rx="4"
+            ry="2"
+            fill="#f5f5f5"
           />
         </svg>
       </div>
       
       <style jsx global>{`
         .robot-svg {
-          color: var(--accent, #3b82f6);
+          color: #f5f5f5;
         }
         
         :root[class~="dark"] .robot-svg {
-          color: #60a5fa;
+          color: #f5f5f5;
         }
         
         /* Running animation - arms and legs move */
         [data-state="running"] .robot-arm-left {
-          transform-origin: 12px 28px;
+          transform-origin: 14px 30px;
           animation: armSwingLeft 0.4s ease-in-out infinite;
         }
         
         [data-state="running"] .robot-arm-right {
-          transform-origin: 48px 28px;
+          transform-origin: 46px 30px;
           animation: armSwingRight 0.4s ease-in-out infinite;
         }
         
         [data-state="running"] .robot-leg-left {
-          transform-origin: 23px 58px;
+          transform-origin: 20px 56px;
           animation: legSwingLeft 0.4s ease-in-out infinite;
         }
         
         [data-state="running"] .robot-leg-right {
-          transform-origin: 37px 58px;
+          transform-origin: 40px 56px;
           animation: legSwingRight 0.4s ease-in-out infinite;
         }
         
@@ -257,26 +441,26 @@ export default function RobotCursor() {
         
         /* Idle state - legs spread, arms tucked */
         [data-state="idle"] .robot-leg-left {
-          transform: translateX(-4px) translateY(0px);
-          transform-origin: 23px 58px;
+          transform: translateX(-3px) translateY(0px);
+          transform-origin: 20px 56px;
           transition: transform 0.3s ease;
         }
         
         [data-state="idle"] .robot-leg-right {
-          transform: translateX(4px) translateY(0px);
-          transform-origin: 37px 58px;
+          transform: translateX(3px) translateY(0px);
+          transform-origin: 40px 56px;
           transition: transform 0.3s ease;
         }
         
         [data-state="idle"] .robot-arm-left {
-          transform: translateX(-2px) translateY(5px) rotate(-20deg);
-          transform-origin: 12px 28px;
+          transform: translateX(-2px) translateY(3px) rotate(-15deg);
+          transform-origin: 14px 30px;
           transition: transform 0.3s ease;
         }
         
         [data-state="idle"] .robot-arm-right {
-          transform: translateX(2px) translateY(5px) rotate(20deg);
-          transform-origin: 48px 28px;
+          transform: translateX(2px) translateY(3px) rotate(15deg);
+          transform-origin: 46px 30px;
           transition: transform 0.3s ease;
         }
         
