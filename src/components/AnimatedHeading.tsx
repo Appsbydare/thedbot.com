@@ -24,6 +24,9 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
     const heading = headingRef.current;
     const container = containerRef.current;
     
+    // Track which line we're processing
+    let currentLineIndex = 0;
+    
     // Function to process text nodes and convert characters to spans
     const processTextNode = (node: Node): void => {
       if (node.nodeType === Node.TEXT_NODE) {
@@ -43,6 +46,7 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
             span.style.display = "inline-block";
             span.style.opacity = "0";
             span.style.transform = "translateY(30px)";
+            span.setAttribute("data-line-index", currentLineIndex.toString());
           }
           fragment.appendChild(span);
         });
@@ -51,6 +55,7 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
       } else if (node.nodeType === Node.ELEMENT_NODE) {
         const element = node as Element;
         if (element.tagName === "BR") {
+          currentLineIndex++;
           return;
         }
         const childNodes = Array.from(element.childNodes);
@@ -59,10 +64,58 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
     };
 
     // Process all nodes in the heading
+    currentLineIndex = 0;
     const childNodes = Array.from(heading.childNodes);
     childNodes.forEach(processTextNode);
 
     const charSpans = Array.from(heading.querySelectorAll("span")) as HTMLElement[];
+    
+    // Group characters by line using the data-line-index attribute
+    const lines: HTMLElement[][] = [];
+    const lineMap = new Map<number, HTMLElement[]>();
+    
+    charSpans.forEach((span) => {
+      const text = span.textContent || "";
+      if (text.trim() !== "" && text !== "\u00A0") {
+        const lineIndex = parseInt(span.getAttribute("data-line-index") || "0");
+        if (!lineMap.has(lineIndex)) {
+          lineMap.set(lineIndex, []);
+        }
+        lineMap.get(lineIndex)!.push(span);
+      }
+    });
+    
+    // Sort by line index and push to lines array
+    Array.from(lineMap.keys()).sort().forEach((lineIndex) => {
+      const lineSpans = lineMap.get(lineIndex)!;
+      if (lineSpans.length > 0) {
+        lines.push(lineSpans);
+      }
+    });
+
+    // Apply 3D perspective scaling to letters
+    lines.forEach((line, lineIndex) => {
+      line.forEach((span, charIndex) => {
+        const text = span.textContent || "";
+        if (text.trim() !== "" && text !== "\u00A0") {
+          const totalChars = line.length;
+          let scale = 1;
+          
+          if (lineIndex === 0) {
+            // First line: start big, end small
+            const progress = charIndex / (totalChars - 1 || 1);
+            scale = 1.15 - (progress * 0.25); // From 1.15 to 0.9
+          } else if (lineIndex === 1) {
+            // Second line: start small, end big (opposite)
+            const progress = charIndex / (totalChars - 1 || 1);
+            scale = 0.9 + (progress * 0.25); // From 0.9 to 1.15
+          }
+          
+          span.style.transform = `scaleY(${scale})`;
+          span.setAttribute("data-default-scale", scale.toString());
+        }
+      });
+    });
 
     // Initial scroll-triggered animation
     const tl = gsap.timeline({
@@ -78,6 +131,10 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
     charSpans.forEach((span, index) => {
       const text = span.textContent || "";
       if (text.trim() !== "" && text !== "\u00A0") {
+        const initialScale = parseFloat(span.getAttribute("data-default-scale") || "1");
+        span.style.opacity = "0";
+        span.style.transform = `scaleY(${initialScale}) translateY(30px)`;
+        
         tl.to(
           span,
           {
