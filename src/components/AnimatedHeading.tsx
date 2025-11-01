@@ -102,14 +102,14 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
           let scale = 1;
           
           if (lineIndex === 0) {
-            // First line: start big, end small - increased perspective
+            // First line: start big, end small - increased perspective even more
             const progress = charIndex / (totalChars - 1 || 1);
-            scale = 1.35 - (progress * 0.5); // From 1.35 to 0.85 (more dramatic)
+            scale = 1.5 - (progress * 0.6); // From 1.5 to 0.9 (more dramatic)
             span.setAttribute("data-line", "first");
           } else if (lineIndex === 1) {
-            // Second line: start small, end big (opposite) - increased perspective
+            // Second line: start small, end big (opposite) - increased perspective even more
             const progress = charIndex / (totalChars - 1 || 1);
-            scale = 0.85 + (progress * 0.5); // From 0.85 to 1.35 (more dramatic)
+            scale = 0.9 + (progress * 0.6); // From 0.9 to 1.5 (more dramatic)
             span.setAttribute("data-line", "second");
           }
           
@@ -184,57 +184,11 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
 
     // Mouse interaction states
     let isHovering = false;
-    let mouseX = 0;
-    let mouseY = 0;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      
-      if (!containerRef.current) return;
-      
-      const rect = containerRef.current.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      
-      const deltaX = (mouseX - centerX) / (rect.width / 2);
-      const deltaY = (mouseY - centerY) / (rect.height / 2);
-      const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-      
-      // If mouse is outside heading area, apply movement effect
-      if (!isHovering && distance > 0.3) {
-        const moveX = deltaX * 15;
-        const moveY = deltaY * 15;
-        
-        gsap.to(heading, {
-          x: moveX,
-          y: moveY,
-          duration: 0.5,
-          ease: "power2.out",
-        });
-      } else if (!isHovering) {
-        // Return to center when close
-        gsap.to(heading, {
-          x: 0,
-          y: 0,
-          duration: 0.5,
-          ease: "power2.out",
-        });
-      }
-    };
 
     const handleMouseEnter = () => {
       isHovering = true;
       heading.classList.add("heading-hover");
       heading.classList.remove("heading-default");
-      
-      // Reset position when hovering
-      gsap.to(heading, {
-        x: 0,
-        y: 0,
-        duration: 0.3,
-        ease: "power2.out",
-      });
 
       // Animate lines: first line slightly right, second line slightly left, then center both
       const firstLineContainer = heading.querySelector(".line-first") || firstLineSpans[0]?.parentElement;
@@ -308,7 +262,6 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
     // Initially set to default state
     heading.classList.add("heading-default");
 
-    document.addEventListener("mousemove", handleMouseMove);
     containerRef.current?.addEventListener("mouseenter", handleMouseEnter);
     containerRef.current?.addEventListener("mouseleave", handleMouseLeave);
 
@@ -320,7 +273,6 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
           trigger.kill();
         }
       });
-      document.removeEventListener("mousemove", handleMouseMove);
       containerRef.current?.removeEventListener("mouseenter", handleMouseEnter);
       containerRef.current?.removeEventListener("mouseleave", handleMouseLeave);
     };

@@ -236,10 +236,11 @@ html {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* First line: inverted by default (transparent fill with stroke) */
+/* First line: inverted by default (transparent fill with stroke) - 30% larger font */
 .cursor-heading.heading-default span[data-line="first"] {
   color: transparent;
   -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
+  font-size: 1.3em;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -262,10 +263,11 @@ html {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* First line: stays inverted (colors don't change) */
+/* First line: stays inverted (colors don't change) - 30% larger font */
 .cursor-heading.heading-hover span[data-line="first"] {
   color: transparent;
   -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
+  font-size: 1.3em;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -283,6 +285,7 @@ html {
 /* Light mode adjustments */
 :root:not([class~="dark"]) .cursor-heading.heading-default span[data-line="first"] {
   -webkit-text-stroke: 2px rgba(15, 23, 42, 0.9);
+  font-size: 1.3em;
 }
 
 :root:not([class~="dark"]) .cursor-heading.heading-default span[data-line="second"] {
@@ -295,6 +298,7 @@ html {
 
 :root:not([class~="dark"]) .cursor-heading.heading-hover span[data-line="first"] {
   -webkit-text-stroke: 2px rgba(15, 23, 42, 0.9);
+  font-size: 1.3em;
 }
 
 :root:not([class~="dark"]) .cursor-heading.heading-hover span[data-line="second"] {
