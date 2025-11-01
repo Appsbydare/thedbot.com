@@ -70,7 +70,7 @@ export default function CustomCursor() {
         cursorDot.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
       }
       if (cursorInner) {
-        cursorInner.style.transform = `translate(${cursorX}px, ${cursorY}px) rotate(${(Date.now() / 20) % 360}deg)`;
+        cursorInner.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
       }
 
       // Update smoke trail positions with organic movement
@@ -142,21 +142,21 @@ export default function CustomCursor() {
       
       if (isInteractive) {
         if (cursor) {
-          cursor.style.width = "150px";
-          cursor.style.height = "150px";
+          cursor.style.width = "75px";
+          cursor.style.height = "75px";
         }
         if (cursorInner) {
-          cursorInner.style.width = "150px";
-          cursorInner.style.height = "150px";
+          cursorInner.style.width = "75px";
+          cursorInner.style.height = "75px";
         }
       } else {
         if (cursor) {
-          cursor.style.width = "120px";
-          cursor.style.height = "120px";
+          cursor.style.width = "60px";
+          cursor.style.height = "60px";
         }
         if (cursorInner) {
-          cursorInner.style.width = "120px";
-          cursorInner.style.height = "120px";
+          cursorInner.style.width = "60px";
+          cursorInner.style.height = "60px";
         }
       }
     };
@@ -187,8 +187,8 @@ export default function CustomCursor() {
         ref={cursorRef}
         className="fixed top-0 left-0 pointer-events-none z-[9999] will-change-transform"
         style={{
-          width: "120px",
-          height: "120px",
+          width: "60px",
+          height: "60px",
           borderRadius: "50%",
           background: "rgba(255, 255, 255, 0.15)",
           border: "2px solid rgba(255, 255, 255, 0.4)",
@@ -201,19 +201,10 @@ export default function CustomCursor() {
         ref={cursorInnerRef}
         className="fixed top-0 left-0 pointer-events-none z-[9999] will-change-transform"
         style={{
-          width: "120px",
-          height: "120px",
+          width: "60px",
+          height: "60px",
           borderRadius: "50%",
-          background: `
-            radial-gradient(circle at 25% 25%, rgba(0, 0, 0, 0.9) 0%, transparent 45%),
-            radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.5) 0%, transparent 45%),
-            conic-gradient(from 0deg at 50% 50%, 
-              rgba(0, 0, 0, 0.7) 0deg, 
-              rgba(255, 255, 255, 0.4) 90deg, 
-              rgba(0, 0, 0, 0.7) 180deg, 
-              rgba(255, 255, 255, 0.4) 270deg, 
-              rgba(0, 0, 0, 0.7) 360deg)
-          `,
+          background: "rgba(255, 255, 255, 0.1)",
           mixBlendMode: "difference",
           transform: "translate(-50%, -50%)",
           transition: "width 0.3s ease, height 0.3s ease",
