@@ -40,7 +40,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-white`}
       >
         <CustomCursor />
-        <RobotCursor />
+        {/* <RobotCursor /> */}
         <Navbar />
         <main>
           <PageTransition>{children}</PageTransition>
