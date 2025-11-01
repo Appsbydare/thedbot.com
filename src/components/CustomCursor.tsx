@@ -5,42 +5,63 @@ import { useEffect, useRef } from "react";
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const cursorDotRef = useRef<HTMLDivElement>(null);
+  const cursorInnerRef = useRef<HTMLDivElement>(null);
+  const smokeContainerRef = useRef<HTMLDivElement>(null);
   const trailRefs = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
     const cursor = cursorRef.current;
     const cursorDot = cursorDotRef.current;
-    if (!cursor || !cursorDot) return;
+    const cursorInner = cursorInnerRef.current;
+    const smokeContainer = smokeContainerRef.current;
+    if (!cursor || !cursorDot || !cursorInner || !smokeContainer) return;
 
-    // Create trail elements
-    const trailCount = 8;
+    // Create smoke trail particles with varying sizes
+    const smokeCount = 20;
     trailRefs.current = [];
-    for (let i = 0; i < trailCount; i++) {
-      const trail = document.createElement("div");
-      trail.className = "cursor-trail";
-      trail.style.opacity = `${0.2 - i * 0.02}`;
-      trail.style.transform = "scale(0.3)";
-      document.body.appendChild(trail);
-      trailRefs.current.push(trail);
+    for (let i = 0; i < smokeCount; i++) {
+      const smoke = document.createElement("div");
+      smoke.className = "cursor-smoke";
+      smoke.style.opacity = "0";
+      const size = 40 + Math.random() * 40;
+      smoke.style.width = `${size}px`;
+      smoke.style.height = `${size}px`;
+      smokeContainer.appendChild(smoke);
+      trailRefs.current.push(smoke);
     }
 
     let mouseX = 0;
     let mouseY = 0;
     let cursorX = 0;
     let cursorY = 0;
-    const trailX: number[] = [];
-    const trailY: number[] = [];
+    let prevX = 0;
+    let prevY = 0;
+    let velocity = 0;
+    const smokeX: number[] = [];
+    const smokeY: number[] = [];
+    let lastMoveTime = Date.now();
 
-    // Initialize trail positions
-    for (let i = 0; i < trailCount; i++) {
-      trailX.push(0);
-      trailY.push(0);
+    // Initialize smoke positions
+    for (let i = 0; i < smokeCount; i++) {
+      smokeX.push(0);
+      smokeY.push(0);
     }
 
     const updateCursor = () => {
       // Smooth cursor movement with easing
-      cursorX += (mouseX - cursorX) * 0.15;
-      cursorY += (mouseY - cursorY) * 0.15;
+      cursorX += (mouseX - cursorX) * 0.1;
+      cursorY += (mouseY - cursorY) * 0.1;
+
+      // Calculate velocity
+      const deltaX = mouseX - prevX;
+      const deltaY = mouseY - prevY;
+      velocity = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+      prevX = mouseX;
+      prevY = mouseY;
+
+      // Check if mouse is moving
+      const timeSinceMove = Date.now() - lastMoveTime;
+      const isMoving = velocity > 0.5 && timeSinceMove < 100;
 
       if (cursor) {
         cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
@@ -48,20 +69,41 @@ export default function CustomCursor() {
       if (cursorDot) {
         cursorDot.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
       }
+      if (cursorInner) {
+        cursorInner.style.transform = `translate(${cursorX}px, ${cursorY}px) rotate(${(Date.now() / 20) % 360}deg)`;
+      }
 
-      // Update trail positions with delay
-      let prevX = cursorX;
-      let prevY = cursorY;
+      // Update smoke trail positions with organic movement
+      let trailPrevX = cursorX;
+      let trailPrevY = cursorY;
 
-      trailRefs.current.forEach((trail, index) => {
-        const delay = index * 0.03;
-        trailX[index] += (prevX - trailX[index]) * (0.15 + delay);
-        trailY[index] += (prevY - trailY[index]) * (0.15 + delay);
+      trailRefs.current.forEach((smoke, index) => {
+        const delay = index * 0.08;
+        const ease = 0.15 + delay;
+        
+        smokeX[index] += (trailPrevX - smokeX[index]) * ease;
+        smokeY[index] += (trailPrevY - smokeY[index]) * ease;
 
-        trail.style.transform = `translate(${trailX[index]}px, ${trailY[index]}px) scale(${0.3 + index * 0.05})`;
+        const distance = Math.sqrt(
+          Math.pow(smokeX[index] - trailPrevX, 2) + 
+          Math.pow(smokeY[index] - trailPrevY, 2)
+        );
 
-        prevX = trailX[index];
-        prevY = trailY[index];
+        // Calculate opacity based on velocity and movement
+        let opacity = 0;
+        if (isMoving) {
+          const baseOpacity = Math.min(velocity * 0.02, 0.8);
+          opacity = baseOpacity * (1 - index * 0.06);
+          opacity = Math.max(0, opacity);
+        }
+
+        smoke.style.opacity = opacity.toString();
+        const scale = 0.8 - index * 0.04;
+        smoke.style.transform = `translate(${smokeX[index]}px, ${smokeY[index]}px) scale(${scale}) rotate(${index * 10}deg)`;
+        smoke.style.filter = `blur(${Math.min(index * 3 + 5, 25)}px)`;
+
+        trailPrevX = smokeX[index];
+        trailPrevY = smokeY[index];
       });
 
       requestAnimationFrame(updateCursor);
@@ -70,21 +112,21 @@ export default function CustomCursor() {
     const handleMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
+      lastMoveTime = Date.now();
     };
 
     const handleMouseEnter = () => {
       if (cursor) cursor.style.opacity = "1";
       if (cursorDot) cursorDot.style.opacity = "1";
-      trailRefs.current.forEach((trail) => {
-        trail.style.opacity = "0.3";
-      });
+      if (cursorInner) cursorInner.style.opacity = "1";
     };
 
     const handleMouseLeave = () => {
       if (cursor) cursor.style.opacity = "0";
       if (cursorDot) cursorDot.style.opacity = "0";
-      trailRefs.current.forEach((trail) => {
-        trail.style.opacity = "0";
+      if (cursorInner) cursorInner.style.opacity = "0";
+      trailRefs.current.forEach((smoke) => {
+        smoke.style.opacity = "0";
       });
     };
 
@@ -100,23 +142,21 @@ export default function CustomCursor() {
       
       if (isInteractive) {
         if (cursor) {
-          cursor.style.width = "40px";
-          cursor.style.height = "40px";
-          cursor.style.background = "rgba(59, 130, 246, 0.3)";
+          cursor.style.width = "150px";
+          cursor.style.height = "150px";
         }
-        if (cursorDot) {
-          cursorDot.style.width = "12px";
-          cursorDot.style.height = "12px";
+        if (cursorInner) {
+          cursorInner.style.width = "150px";
+          cursorInner.style.height = "150px";
         }
       } else {
         if (cursor) {
-          cursor.style.width = "20px";
-          cursor.style.height = "20px";
-          cursor.style.background = "rgba(59, 130, 246, 0.5)";
+          cursor.style.width = "120px";
+          cursor.style.height = "120px";
         }
-        if (cursorDot) {
-          cursorDot.style.width = "8px";
-          cursorDot.style.height = "8px";
+        if (cursorInner) {
+          cursorInner.style.width = "120px";
+          cursorInner.style.height = "120px";
         }
       }
     };
@@ -133,57 +173,89 @@ export default function CustomCursor() {
       document.removeEventListener("mouseenter", handleMouseEnter);
       document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mouseover", handleLinkHover);
-      trailRefs.current.forEach((trail) => trail.remove());
     };
   }, []);
 
   return (
     <>
       <div
+        ref={smokeContainerRef}
+        className="fixed top-0 left-0 pointer-events-none z-[9997]"
+        style={{ width: "100%", height: "100%" }}
+      />
+      <div
         ref={cursorRef}
         className="fixed top-0 left-0 pointer-events-none z-[9999] will-change-transform"
         style={{
-          width: "20px",
-          height: "20px",
+          width: "120px",
+          height: "120px",
           borderRadius: "50%",
-          background: "rgba(59, 130, 246, 0.5)",
-          boxShadow: "0 0 20px rgba(59, 130, 246, 0.8), 0 0 40px rgba(59, 130, 246, 0.4)",
-          transform: "translate(-50%, -50%)",
-          transition: "width 0.3s ease, height 0.3s ease, background 0.3s ease",
-        }}
-      />
-      <div
-        ref={cursorDotRef}
-        className="fixed top-0 left-0 pointer-events-none z-[9999] will-change-transform"
-        style={{
-          width: "8px",
-          height: "8px",
-          borderRadius: "50%",
-          background: "rgba(59, 130, 246, 1)",
-          boxShadow: "0 0 10px rgba(59, 130, 246, 1)",
+          background: "rgba(255, 255, 255, 0.15)",
+          border: "2px solid rgba(255, 255, 255, 0.4)",
+          mixBlendMode: "difference",
           transform: "translate(-50%, -50%)",
           transition: "width 0.3s ease, height 0.3s ease",
         }}
       />
+      <div
+        ref={cursorInnerRef}
+        className="fixed top-0 left-0 pointer-events-none z-[9999] will-change-transform"
+        style={{
+          width: "120px",
+          height: "120px",
+          borderRadius: "50%",
+          background: `
+            radial-gradient(circle at 25% 25%, rgba(0, 0, 0, 0.9) 0%, transparent 45%),
+            radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.5) 0%, transparent 45%),
+            conic-gradient(from 0deg at 50% 50%, 
+              rgba(0, 0, 0, 0.7) 0deg, 
+              rgba(255, 255, 255, 0.4) 90deg, 
+              rgba(0, 0, 0, 0.7) 180deg, 
+              rgba(255, 255, 255, 0.4) 270deg, 
+              rgba(0, 0, 0, 0.7) 360deg)
+          `,
+          mixBlendMode: "difference",
+          transform: "translate(-50%, -50%)",
+          transition: "width 0.3s ease, height 0.3s ease",
+          opacity: "1",
+        }}
+      />
+      <div
+        ref={cursorDotRef}
+        className="fixed top-0 left-0 pointer-events-none z-[10000] will-change-transform"
+        style={{
+          width: "6px",
+          height: "6px",
+          borderRadius: "50%",
+          background: "rgba(255, 255, 255, 1)",
+          boxShadow: "0 0 8px rgba(255, 255, 255, 0.8)",
+          transform: "translate(-50%, -50%)",
+          pointerEvents: "none",
+        }}
+      />
       <style jsx global>{`
-        .cursor-trail {
+        .cursor-smoke {
           position: fixed;
-          width: 12px;
-          height: 12px;
           border-radius: 50%;
-          background: rgba(59, 130, 246, 0.6);
-          box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+          background: radial-gradient(
+            ellipse at center,
+            rgba(255, 255, 255, 0.5) 0%,
+            rgba(200, 200, 200, 0.3) 30%,
+            rgba(150, 150, 150, 0.2) 60%,
+            transparent 100%
+          );
           pointer-events: none;
           z-index: 9998;
           transform: translate(-50%, -50%);
-          transition: opacity 0.3s ease;
+          transition: opacity 0.15s ease-out;
         }
         * {
           cursor: none !important;
         }
         @media (max-width: 768px) {
-          .cursor-trail,
-          .fixed.pointer-events-none.z-\\[9999\\] {
+          .cursor-smoke,
+          .fixed.pointer-events-none.z-\\[9999\\],
+          .fixed.pointer-events-none.z-\\[10000\\] {
             display: none !important;
           }
           * {
@@ -194,4 +266,3 @@ export default function CustomCursor() {
     </>
   );
 }
-

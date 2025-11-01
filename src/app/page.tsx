@@ -6,15 +6,15 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 hero-gradient"></div>
+      <section className="relative py-20 sm:py-32 overflow-hidden bg-black dark:bg-black">
+        <div className="absolute inset-0 hero-gradient opacity-30"></div>
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="text-center space-y-8">
             <div className="space-y-4">
-              <AnimatedHeading className="text-5xl sm:text-7xl font-heading tracking-tight">
-                <span className="text-foreground dark:text-white">Automated Trading</span>
+              <AnimatedHeading className="text-7xl sm:text-9xl lg:text-[12rem] font-heading tracking-tight leading-[0.9] uppercase cursor-heading">
+                <span className="text-heading-outline">AUTOMATED TRADING</span>
                 <br />
-                <span className="text-accent">Made Simple</span>
+                <span className="text-heading-outline">MADE SIMPLE</span>
               </AnimatedHeading>
               <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 Professional trading bots, signal executors, and indicators for MT4/MT5 & TradingView.
