@@ -229,7 +229,7 @@ html {
 .heading-container br {
   display: block;
   content: "";
-  margin-bottom: 0.8em;
+  margin-bottom: 1.6em;
 }
 
 /* Default state: First line inverted, second line solid, with 3D perspective */

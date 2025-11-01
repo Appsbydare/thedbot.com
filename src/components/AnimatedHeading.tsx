@@ -194,11 +194,12 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
       const firstLineContainer = heading.querySelector(".line-first") || firstLineSpans[0]?.parentElement;
       const secondLineContainer = heading.querySelector(".line-second") || secondLineSpans[0]?.parentElement;
       
-      // Remove 3D perspective from all spans
+      // Remove 3D perspective from all spans and increase font size by 20%
       charSpans.forEach((span) => {
         const defaultScale = parseFloat(span.getAttribute("data-default-scale") || "1");
         gsap.to(span, {
           scaleY: 1,
+          scale: 1.2,
           duration: 0.4,
           ease: "power2.out",
         });
@@ -242,11 +243,12 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
       heading.classList.remove("heading-hover");
       heading.classList.add("heading-default");
 
-      // Restore 3D perspective to all spans
+      // Restore 3D perspective to all spans and reset font size
       charSpans.forEach((span) => {
         const defaultScale = parseFloat(span.getAttribute("data-default-scale") || "1");
         gsap.to(span, {
           scaleY: defaultScale,
+          scale: 1,
           duration: 0.4,
           ease: "power2.out",
         });
@@ -255,7 +257,7 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
       // Restore default positioning: first line left, second line right
       firstLineSpans.forEach((span) => {
         gsap.to(span, {
-          x: -80,
+          x: -150,
           duration: 0.4,
           ease: "power2.out",
         });
@@ -276,7 +278,7 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
     // Apply default positioning: first line left, second line right
     firstLineSpans.forEach((span) => {
       gsap.set(span, {
-        x: -80,
+        x: -150,
       });
     });
 
