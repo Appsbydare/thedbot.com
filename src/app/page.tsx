@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Zap, Shield, TrendingUp, Globe } from "@/components/icons";
+import AnimatedHeading from "@/components/AnimatedHeading";
 
 export default function Home() {
   return (
@@ -10,11 +11,11 @@ export default function Home() {
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="text-center space-y-8">
             <div className="space-y-4">
-              <h1 className="text-5xl sm:text-7xl font-heading tracking-tight">
+              <AnimatedHeading className="text-5xl sm:text-7xl font-heading tracking-tight">
                 <span className="text-foreground dark:text-white">Automated Trading</span>
                 <br />
                 <span className="text-accent">Made Simple</span>
-              </h1>
+              </AnimatedHeading>
               <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 Professional trading bots, signal executors, and indicators for MT4/MT5 & TradingView.
                 <br />
