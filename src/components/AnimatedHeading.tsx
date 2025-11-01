@@ -194,12 +194,15 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
       const firstLineContainer = heading.querySelector(".line-first") || firstLineSpans[0]?.parentElement;
       const secondLineContainer = heading.querySelector(".line-second") || secondLineSpans[0]?.parentElement;
       
-      // Remove 3D perspective from all spans and increase font size by 20%
+      // Remove 3D perspective from all spans
+      // Increase font size by 20% only for first line
       charSpans.forEach((span) => {
         const defaultScale = parseFloat(span.getAttribute("data-default-scale") || "1");
+        const isFirstLine = span.getAttribute("data-line") === "first";
+        
         gsap.to(span, {
           scaleY: 1,
-          fontSize: "1.2em",
+          fontSize: isFirstLine ? "1.2em" : "1.0em",
           duration: 0.4,
           ease: "power2.out",
         });
@@ -248,7 +251,7 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
         const defaultScale = parseFloat(span.getAttribute("data-default-scale") || "1");
         gsap.to(span, {
           scaleY: defaultScale,
-          fontSize: "1em",
+          fontSize: "",
           duration: 0.4,
           ease: "power2.out",
         });
