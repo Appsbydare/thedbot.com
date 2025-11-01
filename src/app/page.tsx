@@ -11,10 +11,10 @@ export default function Home() {
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="text-center space-y-8">
             <div className="space-y-4">
-              <AnimatedHeading className="text-7xl sm:text-9xl lg:text-[12rem] font-heading tracking-tight leading-[0.9] uppercase cursor-heading">
-                <span className="text-heading-outline">AUTOMATED TRADING</span>
+              <AnimatedHeading className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.95] uppercase cursor-heading">
+                AUTOMATED TRADING
                 <br />
-                <span className="text-heading-outline">MADE SIMPLE</span>
+                MADE SIMPLE
               </AnimatedHeading>
               <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 Professional trading bots, signal executors, and indicators for MT4/MT5 & TradingView.
