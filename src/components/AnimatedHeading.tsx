@@ -199,7 +199,7 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
         const defaultScale = parseFloat(span.getAttribute("data-default-scale") || "1");
         gsap.to(span, {
           scaleY: 1,
-          scale: 1.2,
+          fontSize: "1.2em",
           duration: 0.4,
           ease: "power2.out",
         });
@@ -248,7 +248,7 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
         const defaultScale = parseFloat(span.getAttribute("data-default-scale") || "1");
         gsap.to(span, {
           scaleY: defaultScale,
-          scale: 1,
+          fontSize: "1em",
           duration: 0.4,
           ease: "power2.out",
         });
