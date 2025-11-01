@@ -140,7 +140,21 @@ export default function CustomCursor() {
         target.closest("[role='button']") ||
         window.getComputedStyle(target).cursor === "pointer";
       
-      if (isInteractive) {
+      // Check if hovering over heading lines
+      const headingContainer = document.querySelector(".heading-container");
+      const isOverHeading = headingContainer && headingContainer.contains(target);
+      
+      if (isOverHeading) {
+        // 5x increase: 60px * 5 = 300px
+        if (cursor) {
+          cursor.style.width = "300px";
+          cursor.style.height = "300px";
+        }
+        if (cursorInner) {
+          cursorInner.style.width = "300px";
+          cursorInner.style.height = "300px";
+        }
+      } else if (isInteractive) {
         if (cursor) {
           cursor.style.width = "75px";
           cursor.style.height = "75px";
@@ -190,7 +204,7 @@ export default function CustomCursor() {
           width: "60px",
           height: "60px",
           borderRadius: "50%",
-          background: "rgba(255, 255, 255, 0.15)",
+          background: "transparent",
           border: "2px solid rgba(255, 255, 255, 0.4)",
           mixBlendMode: "difference",
           transform: "translate(-50%, -50%)",
@@ -204,7 +218,7 @@ export default function CustomCursor() {
           width: "60px",
           height: "60px",
           borderRadius: "50%",
-          background: "rgba(255, 255, 255, 0.1)",
+          background: "transparent",
           mixBlendMode: "difference",
           transform: "translate(-50%, -50%)",
           transition: "width 0.3s ease, height 0.3s ease",
