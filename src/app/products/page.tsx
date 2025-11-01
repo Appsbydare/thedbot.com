@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Star, Download, Shield } from "@/components/icons";
 import { products as catalog } from "@/data/products";
+import AnimatedHeading from "@/components/AnimatedHeading";
 const products = catalog;
 
 const categories = [
@@ -14,13 +15,15 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 hero-gradient"></div>
+      <section className="relative py-20 sm:py-32 overflow-hidden bg-black dark:bg-black">
+        <div className="absolute inset-0 hero-gradient opacity-30"></div>
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="text-center space-y-8">
-            <h1 className="text-5xl sm:text-7xl font-heading tracking-tight">
-              <span className="text-foreground dark:text-white">Trading</span> <span className="text-accent">Products</span>
-            </h1>
+            <AnimatedHeading className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.95] uppercase cursor-heading">
+              TRADING
+              <br />
+              PRODUCTS
+            </AnimatedHeading>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Professional automated trading solutions for every market condition
             </p>

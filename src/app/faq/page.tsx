@@ -2,6 +2,7 @@
 
 import { ChevronDown } from "@/components/icons";
 import { useState } from "react";
+import AnimatedHeading from "@/components/AnimatedHeading";
 
 const faqs = [
   {
@@ -99,13 +100,15 @@ export default function FAQPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 hero-gradient"></div>
+      <section className="relative py-20 sm:py-32 overflow-hidden bg-black dark:bg-black">
+        <div className="absolute inset-0 hero-gradient opacity-30"></div>
         <div className="relative mx-auto max-w-4xl px-4">
           <div className="text-center space-y-8">
-            <h1 className="text-5xl sm:text-7xl font-heading tracking-tight">
-              <span className="text-foreground dark:text-white">Frequently Asked</span> <span className="text-accent">Questions</span>
-            </h1>
+            <AnimatedHeading className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.95] uppercase cursor-heading">
+              FREQUENTLY ASKED
+              <br />
+              QUESTIONS
+            </AnimatedHeading>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Find answers to common questions about our trading bots, licensing, payments, and support
             </p>
