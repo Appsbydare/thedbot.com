@@ -15,15 +15,15 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 sm:py-32 overflow-hidden bg-black dark:bg-black">
+      <section className="relative py-20 sm:py-32 overflow-hidden bg-white dark:bg-white">
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="text-center space-y-8">
-            <AnimatedHeading className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.95] uppercase cursor-heading">
+            <AnimatedHeading className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.95] uppercase cursor-heading cursor-heading-why-choose">
               TRADING
               <br />
               PRODUCTS
             </AnimatedHeading>
-            <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl sm:text-2xl text-foreground max-w-3xl mx-auto leading-relaxed">
               Professional automated trading solutions for every market condition
             </p>
           </div>
