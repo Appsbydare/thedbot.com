@@ -331,11 +331,13 @@ html {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* theDBot - solid black (will be detected as second line or as span.text-black) */
+/* theDBot - solid black (will be detected as second line or as span.text-black or span.normal-case) */
 .cursor-heading-why-choose.heading-default span.text-black,
+.cursor-heading-why-choose.heading-default span.normal-case,
 .cursor-heading-why-choose.heading-default span[data-line="second"] {
   color: rgba(0, 0, 0, 0.95) !important;
   -webkit-text-stroke: 0px !important;
+  text-transform: none !important;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -358,9 +360,11 @@ html {
 }
 
 .cursor-heading-why-choose.heading-hover span.text-black,
+.cursor-heading-why-choose.heading-hover span.normal-case,
 .cursor-heading-why-choose.heading-hover span[data-line="second"] {
   color: rgba(0, 0, 0, 0.95) !important;
   -webkit-text-stroke: 0px !important;
+  text-transform: none !important;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 

@@ -58,6 +58,41 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
           currentLineIndex++;
           return;
         }
+        // If it's already a span with classes, preserve it and process its children
+        if (element.tagName === "SPAN" && element.className) {
+          const text = element.textContent || "";
+          if (text.trim()) {
+            const parent = element.parentNode;
+            if (parent) {
+              // Process the text content of this span, preserving the span wrapper
+              const chars = text.split("");
+              const fragment = document.createDocumentFragment();
+              
+              chars.forEach((char) => {
+                const innerSpan = document.createElement("span");
+                if (char === " ") {
+                  innerSpan.innerHTML = "&nbsp;";
+                } else {
+                  innerSpan.textContent = char;
+                  innerSpan.style.display = "inline-block";
+                  innerSpan.style.opacity = "0";
+                  innerSpan.style.transform = "translateY(30px)";
+                  innerSpan.setAttribute("data-line-index", currentLineIndex.toString());
+                  // Preserve the original classes on inner spans
+                  innerSpan.className = element.className;
+                }
+                fragment.appendChild(innerSpan);
+              });
+              
+              // Replace the original span with processed spans, but wrap them in a span with the same class
+              const wrapper = document.createElement("span");
+              wrapper.className = element.className;
+              wrapper.appendChild(fragment);
+              parent.replaceChild(wrapper, element);
+              return;
+            }
+          }
+        }
         const childNodes = Array.from(element.childNodes);
         childNodes.forEach(processTextNode);
       }
