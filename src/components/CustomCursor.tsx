@@ -125,8 +125,6 @@ export default function CustomCursor() {
 
     const handleLinkHover = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (!target) return;
-      
       const isInteractive = 
         target.tagName === "A" || 
         target.tagName === "BUTTON" || 
@@ -135,30 +133,9 @@ export default function CustomCursor() {
         target.closest("[role='button']") ||
         window.getComputedStyle(target).cursor === "pointer";
       
-      // Check if hovering over heading lines - comprehensive detection
-      let isOverHeading = false;
-      
-      // Check if target or any parent has heading-related classes
-      const headingContainer = target.closest(".heading-container");
-      const cursorHeading = target.closest(".cursor-heading");
-      const cursorHeadingWhyChoose = target.closest(".cursor-heading-why-choose");
-      const cursorHeadingCta = target.closest(".cursor-heading-cta");
-      
-      // Check if target or parent has data attributes from AnimatedHeading
-      const hasDataLine = target.hasAttribute("data-line") || target.hasAttribute("data-line-index");
-      const parentHasDataLine = target.closest("[data-line]") || target.closest("[data-line-index]");
-      
-      // Check if inside any heading container
-      const allHeadingContainers = document.querySelectorAll(".heading-container");
-      allHeadingContainers.forEach(container => {
-        if (container.contains(target)) {
-          isOverHeading = true;
-        }
-      });
-      
-      if (headingContainer || cursorHeading || cursorHeadingWhyChoose || cursorHeadingCta || hasDataLine || parentHasDataLine) {
-        isOverHeading = true;
-      }
+      // Check if hovering over heading lines
+      const headingContainer = document.querySelector(".heading-container");
+      const isOverHeading = headingContainer && headingContainer.contains(target);
       
       if (isOverHeading) {
         // 5x increase: 60px * 5 = 300px
@@ -179,12 +156,7 @@ export default function CustomCursor() {
       }
     };
 
-    const mousemoveHandler = (e: MouseEvent) => {
-      handleMouseMove(e);
-      handleLinkHover(e);
-    };
-
-    document.addEventListener("mousemove", mousemoveHandler);
+    document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseenter", handleMouseEnter);
     document.addEventListener("mouseleave", handleMouseLeave);
     document.addEventListener("mouseover", handleLinkHover);
@@ -192,10 +164,11 @@ export default function CustomCursor() {
     updateCursor();
 
     return () => {
-      document.removeEventListener("mousemove", mousemoveHandler);
+      document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseenter", handleMouseEnter);
       document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mouseover", handleLinkHover);
+    };
   }, []);
 
   return (
