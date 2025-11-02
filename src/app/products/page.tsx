@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Star, Download, Shield } from "@/components/icons";
 import { products as catalog } from "@/data/products";
-import AnimatedHeading from "@/components/AnimatedHeading";
+import SimpleSlideHeading from "@/components/SimpleSlideHeading";
 const products = catalog;
 
 const categories = [
@@ -34,9 +34,9 @@ export default function ProductsPage() {
       <section className="py-8 bg-secondary border-t border-border">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center mb-8">
-            <AnimatedHeading className="text-4xl sm:text-5xl lg:text-6xl font-heading tracking-tight leading-[0.95] uppercase text-white">
+            <SimpleSlideHeading className="text-4xl sm:text-5xl lg:text-6xl font-heading tracking-tight leading-[0.95] uppercase text-white">
               PLATFORM COMPATIBILITY
-            </AnimatedHeading>
+            </SimpleSlideHeading>
           </div>
           <div className="rounded-xl p-6 bg-card border border-border">
             <p className="text-sm text-muted-foreground mb-3">
