@@ -179,10 +179,13 @@ export default function CustomCursor() {
       }
     };
 
-    document.addEventListener("mousemove", (e) => {
+
+    const mousemoveHandler = (e: MouseEvent) => {
       handleMouseMove(e);
       handleLinkHover(e);
-    });
+    };
+
+    document.addEventListener("mousemove", mousemoveHandler);
     document.addEventListener("mouseenter", handleMouseEnter);
     document.addEventListener("mouseleave", handleMouseLeave);
     document.addEventListener("mouseover", handleLinkHover);
@@ -190,11 +193,10 @@ export default function CustomCursor() {
     updateCursor();
 
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mousemove", mousemoveHandler);
       document.removeEventListener("mouseenter", handleMouseEnter);
       document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mouseover", handleLinkHover);
-    };
   }, []);
 
   return (
