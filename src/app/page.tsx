@@ -46,12 +46,10 @@ export default function Home() {
       <section className="py-20 bg-secondary">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center mb-16">
-            <AnimatedHeading className="text-4xl sm:text-5xl lg:text-6xl font-heading tracking-tight leading-[0.95] cursor-heading mb-4">
-              WHY CHOOSE
-              <br />
-              theDBot
-            </AnimatedHeading>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mt-4">
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
+              Why Choose <span className="text-accent">theDBot</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Professional-grade trading automation with enterprise-level security and support
             </p>
           </div>
@@ -96,12 +94,10 @@ export default function Home() {
       <section className="py-20 bg-black dark:bg-black">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center mb-16">
-            <AnimatedHeading className="text-4xl sm:text-5xl lg:text-6xl font-heading tracking-tight leading-[0.95] uppercase cursor-heading mb-4">
-              TRADING
-              <br />
-              CATEGORIES
-            </AnimatedHeading>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mt-4">
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
+              Trading <span className="text-accent">Categories</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Choose from our comprehensive range of automated trading solutions
             </p>
           </div>
@@ -161,11 +157,9 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-20 bg-secondary">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <AnimatedHeading className="text-4xl sm:text-5xl lg:text-6xl font-heading tracking-tight leading-[0.95] uppercase cursor-heading mb-6">
-            READY TO START
-            <br />
-            AUTOMATED TRADING
-          </AnimatedHeading>
+          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+            Ready to Start <span className="text-accent">Automated Trading</span>?
+          </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Join thousands of traders who trust theDBot for their automated trading needs. 
             Start with a free demo or purchase your first bot today.
