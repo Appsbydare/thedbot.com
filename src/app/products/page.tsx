@@ -33,8 +33,12 @@ export default function ProductsPage() {
       {/* Platform Compatibility Notice */}
       <section className="py-8 bg-secondary border-t border-border">
         <div className="mx-auto max-w-6xl px-4">
+          <div className="text-center mb-8">
+            <AnimatedHeading className="text-4xl sm:text-5xl lg:text-6xl font-heading tracking-tight leading-[0.95] uppercase text-white">
+              PLATFORM COMPATIBILITY
+            </AnimatedHeading>
+          </div>
           <div className="rounded-xl p-6 bg-card border border-border">
-            <h2 className="text-xl font-semibold text-foreground mb-2">Platform Compatibility</h2>
             <p className="text-sm text-muted-foreground mb-3">
               All our products are designed to work with MetaTrader 4/5 platforms (provided by your broker). Some products integrate with Telegram (signal bots) or TradingView (indicators).
             </p>
