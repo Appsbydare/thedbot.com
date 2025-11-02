@@ -35,9 +35,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                // Force dark mode
+                document.documentElement.classList.add('dark');
+                // Remove any light mode preferences
+                localStorage.removeItem('theme');
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased dark:bg-gray-900 dark:text-white`}
       >
         <CustomCursor />
         {/* <RobotCursor /> */}

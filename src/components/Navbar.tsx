@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ThemeToggle } from "./ThemeToggle";
 
 const links = [
   { href: "/", label: "Home" },
@@ -50,8 +49,6 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-5">
-          <ThemeToggle />
-          
           {/* Mobile menu button */}
           <button className="md:hidden text-foreground p-2 hover:text-accent transition-colors">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
