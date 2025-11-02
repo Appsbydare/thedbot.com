@@ -43,7 +43,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-secondary">
+      <section className="py-20 bg-white dark:bg-white">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
@@ -155,7 +155,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-secondary">
+      <section className="py-20 bg-white dark:bg-white">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
             Ready to Start <span className="text-accent">Automated Trading</span>?
