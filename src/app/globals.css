@@ -370,16 +370,35 @@ html {
 
 /* CTA section - reduce font size to prevent word breaking */
 .cursor-heading-cta.heading-default {
-  font-size: 0.85em; /* Reduce overall size by 15% */
+  font-size: 0.75em !important; /* Reduce overall size by 25% */
+}
+
+.cursor-heading-cta.heading-default span[data-line="first"] {
+  font-size: 0.95em !important; /* Smaller default */
+}
+
+.cursor-heading-cta.heading-default span[data-line="second"],
+.cursor-heading-cta.heading-default span.text-black {
+  font-size: 0.75em !important; /* Smaller default for second line */
+}
+
+.cursor-heading-cta.heading-hover {
+  font-size: 0.75em !important; /* Keep reduced size on hover */
 }
 
 .cursor-heading-cta.heading-hover span[data-line="first"] {
-  font-size: 1.1em !important; /* Reduced from 1.3em to prevent breaking */
+  font-size: 0.95em !important; /* Reduced from 1.3em to prevent breaking */
 }
 
 .cursor-heading-cta.heading-hover span[data-line="second"],
 .cursor-heading-cta.heading-hover span.text-black {
-  font-size: 0.85em !important; /* Explicitly set smaller size for second line */
+  font-size: 0.75em !important; /* Explicitly set smaller size for second line */
+  white-space: nowrap !important; /* Prevent word breaking */
+}
+
+/* Ensure the question mark doesn't break */
+.cursor-heading-cta.heading-hover span:last-child {
+  white-space: nowrap !important;
 }
 
 .cursor-heading-why-choose.heading-hover span {
