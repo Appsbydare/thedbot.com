@@ -93,7 +93,7 @@ export default function Home() {
       </section>
 
       {/* Product Categories */}
-      <section className="py-20 bg-black dark:bg-black">
+      <section className="py-20 bg-black dark:bg-black" data-bg="black">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center mb-16">
             <AnimatedHeading className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.95] cursor-heading cursor-heading-why-choose mb-4">

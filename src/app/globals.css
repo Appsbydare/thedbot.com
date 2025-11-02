@@ -361,26 +361,22 @@ html {
 }
 
 /* Categories section on black background - inverted colors */
-.bg-black .cursor-heading-why-choose.heading-default span[data-line="first"],
-.bg-black.dark\:bg-black .cursor-heading-why-choose.heading-default span[data-line="first"] {
+section[data-bg="black"] .cursor-heading-why-choose.heading-default span[data-line="first"] {
   color: transparent;
   -webkit-text-stroke: 2px rgba(255, 255, 255, 1);
 }
 
-.bg-black .cursor-heading-why-choose.heading-default span[data-line="second"],
-.bg-black.dark\:bg-black .cursor-heading-why-choose.heading-default span[data-line="second"] {
+section[data-bg="black"] .cursor-heading-why-choose.heading-default span[data-line="second"] {
   color: rgba(255, 255, 255, 1);
   -webkit-text-stroke: 0px;
 }
 
-.bg-black .cursor-heading-why-choose.heading-hover span[data-line="first"],
-.bg-black.dark\:bg-black .cursor-heading-why-choose.heading-hover span[data-line="first"] {
+section[data-bg="black"] .cursor-heading-why-choose.heading-hover span[data-line="first"] {
   color: transparent;
   -webkit-text-stroke: 2px rgba(255, 255, 255, 1);
 }
 
-.bg-black .cursor-heading-why-choose.heading-hover span[data-line="second"],
-.bg-black.dark\:bg-black .cursor-heading-why-choose.heading-hover span[data-line="second"] {
+section[data-bg="black"] .cursor-heading-why-choose.heading-hover span[data-line="second"] {
   color: rgba(255, 255, 255, 1);
   -webkit-text-stroke: 0px;
 }
