@@ -24,7 +24,7 @@ export default function ProductsPage() {
               <br />
               PRODUCTS
             </AnimatedHeading>
-            <p className="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Professional automated trading solutions for every market condition
             </p>
           </div>
