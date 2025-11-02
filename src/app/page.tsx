@@ -43,15 +43,15 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white dark:bg-white">
+      <section className="py-20 bg-secondary">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center mb-16">
-            <AnimatedHeading className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.95] cursor-heading-why-choose">
-              <span className="uppercase">WHY CHOOSE</span>
+            <AnimatedHeading className="text-4xl sm:text-5xl lg:text-6xl font-heading tracking-tight leading-[0.95] cursor-heading mb-4">
+              WHY CHOOSE
               <br />
-              <span className="text-black normal-case">theDBot</span>
+              theDBot
             </AnimatedHeading>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mt-8">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mt-4">
               Professional-grade trading automation with enterprise-level security and support
             </p>
           </div>
@@ -93,21 +93,20 @@ export default function Home() {
       </section>
 
       {/* Product Categories */}
-      <section className="py-20 bg-black dark:bg-black">
-        <div className="absolute inset-0 hero-gradient opacity-30"></div>
-        <div className="relative mx-auto max-w-6xl px-4">
+      <section className="py-20">
+        <div className="mx-auto max-w-6xl px-4">
           <div className="text-center mb-16">
-            <AnimatedHeading className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.95] uppercase cursor-heading">
+            <AnimatedHeading className="text-4xl sm:text-5xl lg:text-6xl font-heading tracking-tight leading-[0.95] uppercase cursor-heading mb-4">
               TRADING
               <br />
               CATEGORIES
             </AnimatedHeading>
-            <p className="text-xl sm:text-2xl text-muted-foreground max-w-2xl mx-auto mt-8">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mt-4">
               Choose from our comprehensive range of automated trading solutions
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Link href="/products?category=forex" className="group">
               <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-600/20 dark:to-blue-800/20 p-8 h-80 hover:from-blue-200 hover:to-blue-300 dark:hover:from-blue-600/30 dark:hover:to-blue-800/30 transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent dark:from-black/60 dark:to-transparent"></div>
@@ -160,15 +159,13 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white dark:bg-white">
+      <section className="py-20 bg-secondary">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <div className="mb-8">
-            <AnimatedHeading className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.95] cursor-heading-why-choose cursor-heading-cta">
-              <span className="uppercase">READY TO START</span>
-              <br />
-              <span className="uppercase text-black">AUTOMATED TRADING</span>?
-            </AnimatedHeading>
-          </div>
+          <AnimatedHeading className="text-4xl sm:text-5xl lg:text-6xl font-heading tracking-tight leading-[0.95] uppercase cursor-heading mb-6">
+            READY TO START
+            <br />
+            AUTOMATED TRADING
+          </AnimatedHeading>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Join thousands of traders who trust theDBot for their automated trading needs. 
             Start with a free demo or purchase your first bot today.
