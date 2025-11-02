@@ -46,10 +46,12 @@ export default function Home() {
       <section className="py-20 bg-white dark:bg-white">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
-              Why Choose <span className="text-accent">theDBot</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <AnimatedHeading className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.95] cursor-heading cursor-heading-why-choose mb-4">
+              WHY CHOOSE
+              <br />
+              theDBot
+            </AnimatedHeading>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mt-4">
               Professional-grade trading automation with enterprise-level security and support
             </p>
           </div>

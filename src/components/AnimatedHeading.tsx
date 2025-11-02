@@ -93,7 +93,10 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
       }
     });
 
-    // Apply 3D perspective scaling to letters
+    // Check if this is the why-choose section (no 3D perspective)
+    const isWhyChoose = heading.classList.contains("cursor-heading-why-choose");
+
+    // Apply 3D perspective scaling to letters (skip for why-choose)
     lines.forEach((line, lineIndex) => {
       line.forEach((span, charIndex) => {
         const text = span.textContent || "";
@@ -101,19 +104,29 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
           const totalChars = line.length;
           let scale = 1;
           
-          if (lineIndex === 0) {
-            // First line: start big, end small - increased perspective even more
-            const progress = charIndex / (totalChars - 1 || 1);
-            scale = 1.5 - (progress * 0.6); // From 1.5 to 0.9 (more dramatic)
-            span.setAttribute("data-line", "first");
-          } else if (lineIndex === 1) {
-            // Second line: start small, end big (opposite) - increased perspective even more
-            const progress = charIndex / (totalChars - 1 || 1);
-            scale = 0.9 + (progress * 0.6); // From 0.9 to 1.5 (more dramatic)
-            span.setAttribute("data-line", "second");
+          if (!isWhyChoose) {
+            // Only apply 3D perspective for non-why-choose sections
+            if (lineIndex === 0) {
+              // First line: start big, end small - increased perspective even more
+              const progress = charIndex / (totalChars - 1 || 1);
+              scale = 1.5 - (progress * 0.6); // From 1.5 to 0.9 (more dramatic)
+              span.setAttribute("data-line", "first");
+            } else if (lineIndex === 1) {
+              // Second line: start small, end big (opposite) - increased perspective even more
+              const progress = charIndex / (totalChars - 1 || 1);
+              scale = 0.9 + (progress * 0.6); // From 0.9 to 1.5 (more dramatic)
+              span.setAttribute("data-line", "second");
+            }
+          } else {
+            // For why-choose: no 3D perspective, just set line attribute
+            if (lineIndex === 0) {
+              span.setAttribute("data-line", "first");
+            } else if (lineIndex === 1) {
+              span.setAttribute("data-line", "second");
+            }
           }
           
-          span.style.transform = `scaleY(${scale})`;
+          span.style.transform = isWhyChoose ? "none" : `scaleY(${scale})`;
           span.setAttribute("data-default-scale", scale.toString());
         }
       });
@@ -150,10 +163,10 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
           {
             opacity: 1,
             x: 0,
-            duration: 0.8,
-            ease: "power3.out",
+            duration: isWhyChoose ? 1.2 : 0.8,
+            ease: isWhyChoose ? "power2.out" : "power3.out",
           },
-          index * 0.02
+          index * (isWhyChoose ? 0.03 : 0.02)
         );
       }
     });
@@ -174,10 +187,10 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
           {
             opacity: 1,
             x: 0,
-            duration: 0.8,
-            ease: "power3.out",
+            duration: isWhyChoose ? 1.2 : 0.8,
+            ease: isWhyChoose ? "power2.out" : "power3.out",
           },
-          (firstLineSpans.length * 0.02) + (index * 0.02)
+          (firstLineSpans.length * (isWhyChoose ? 0.03 : 0.02)) + (index * (isWhyChoose ? 0.03 : 0.02))
         );
       }
     });
@@ -186,6 +199,8 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
     let isHovering = false;
 
     const handleMouseEnter = () => {
+      if (isWhyChoose) return; // Skip hover effects for why-choose section
+      
       isHovering = true;
       heading.classList.add("heading-hover");
       heading.classList.remove("heading-default");
@@ -242,6 +257,8 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
     };
 
     const handleMouseLeave = () => {
+      if (isWhyChoose) return; // Skip hover effects for why-choose section
+      
       isHovering = false;
       heading.classList.remove("heading-hover");
       heading.classList.add("heading-default");
@@ -278,18 +295,20 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
     // Initially set to default state
     heading.classList.add("heading-default");
 
-    // Apply default positioning: first line left, second line right
-    firstLineSpans.forEach((span) => {
-      gsap.set(span, {
-        x: -150,
+    // Apply default positioning: first line left, second line right (skip for why-choose)
+    if (!isWhyChoose) {
+      firstLineSpans.forEach((span) => {
+        gsap.set(span, {
+          x: -150,
+        });
       });
-    });
 
-    secondLineSpans.forEach((span) => {
-      gsap.set(span, {
-        x: 80,
+      secondLineSpans.forEach((span) => {
+        gsap.set(span, {
+          x: 80,
+        });
       });
-    });
+    }
 
     containerRef.current?.addEventListener("mouseenter", handleMouseEnter);
     containerRef.current?.addEventListener("mouseleave", handleMouseLeave);
