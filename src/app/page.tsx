@@ -163,7 +163,7 @@ export default function Home() {
       <section className="py-20 bg-white dark:bg-white">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <div className="mb-8">
-            <AnimatedHeading className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.95] cursor-heading-why-choose">
+            <AnimatedHeading className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.95] cursor-heading-why-choose cursor-heading-cta">
               <span className="uppercase">READY TO START</span>
               <br />
               <span className="uppercase text-black">AUTOMATED TRADING</span>?
