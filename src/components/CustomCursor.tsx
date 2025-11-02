@@ -133,10 +133,14 @@ export default function CustomCursor() {
         target.closest("[role='button']") ||
         window.getComputedStyle(target).cursor === "pointer";
       
-      // Check if hovering over heading lines
+      // Check if hovering over heading lines - check multiple ways to ensure detection
       const headingContainer = document.querySelector(".heading-container");
       const cursorHeading = target.closest(".cursor-heading") || target.closest(".heading-container");
-      const isOverHeading = (headingContainer && headingContainer.contains(target)) || cursorHeading !== null;
+      const hasDataLine = target.hasAttribute("data-line") || target.closest("[data-line]");
+      const isOverHeading = 
+        (headingContainer && headingContainer.contains(target)) || 
+        cursorHeading !== null || 
+        hasDataLine !== null;
       
       if (isOverHeading) {
         // 5x increase: 60px * 5 = 300px

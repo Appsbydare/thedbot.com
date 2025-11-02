@@ -368,6 +368,20 @@ html {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* CTA section - reduce font size to prevent word breaking */
+.cursor-heading-why-choose.heading-default {
+  font-size: 0.85em; /* Reduce overall size by 15% */
+}
+
+.cursor-heading-why-choose.heading-hover span[data-line="first"] {
+  font-size: 1.1em; /* Reduced from 1.3em to prevent breaking */
+}
+
+.cursor-heading-why-choose.heading-hover span[data-line="second"],
+.cursor-heading-why-choose.heading-hover span.text-black {
+  font-size: 0.9em; /* Explicitly set smaller size for second line */
+}
+
 .cursor-heading-why-choose.heading-hover span {
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
