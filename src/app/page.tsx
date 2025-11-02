@@ -162,9 +162,13 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-20 bg-white dark:bg-white">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-            Ready to Start <span className="text-accent">Automated Trading</span>?
-          </h2>
+          <div className="mb-8">
+            <AnimatedHeading className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.95] cursor-heading-why-choose">
+              <span className="uppercase">READY TO START</span>
+              <br />
+              <span className="uppercase text-black">AUTOMATED TRADING</span>?
+            </AnimatedHeading>
+          </div>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Join thousands of traders who trust theDBot for their automated trading needs. 
             Start with a free demo or purchase your first bot today.

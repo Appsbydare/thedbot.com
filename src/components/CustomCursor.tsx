@@ -135,7 +135,8 @@ export default function CustomCursor() {
       
       // Check if hovering over heading lines
       const headingContainer = document.querySelector(".heading-container");
-      const isOverHeading = headingContainer && headingContainer.contains(target);
+      const cursorHeading = target.closest(".cursor-heading") || target.closest(".heading-container");
+      const isOverHeading = (headingContainer && headingContainer.contains(target)) || cursorHeading !== null;
       
       if (isOverHeading) {
         // 5x increase: 60px * 5 = 300px
