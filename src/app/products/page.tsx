@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Star, Download, Shield } from "@/components/icons";
 import { products as catalog } from "@/data/products";
+import AnimatedHeading from "@/components/AnimatedHeading";
 import SimpleSlideHeading from "@/components/SimpleSlideHeading";
 const products = catalog;
 
