@@ -179,7 +179,6 @@ export default function CustomCursor() {
       }
     };
 
-
     const mousemoveHandler = (e: MouseEvent) => {
       handleMouseMove(e);
       handleLinkHover(e);
