@@ -46,7 +46,7 @@ export default function Home() {
       <section className="py-20 bg-white dark:bg-white">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center mb-16">
-            <AnimatedHeading className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.95] cursor-heading cursor-heading-why-choose mb-4">
+            <AnimatedHeading className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.95] cursor-heading cursor-heading-why-choose mb-4">
               WHY CHOOSE
               <br />
               theDBot
@@ -96,10 +96,12 @@ export default function Home() {
       <section className="py-20 bg-black dark:bg-black">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
-              Trading <span className="text-accent">Categories</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <AnimatedHeading className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.95] cursor-heading cursor-heading-why-choose mb-4">
+              TRADING
+              <br />
+              CATEGORIES
+            </AnimatedHeading>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mt-4">
               Choose from our comprehensive range of automated trading solutions
             </p>
           </div>
@@ -159,9 +161,11 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-20 bg-white dark:bg-white">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-            Ready to Start <span className="text-accent">Automated Trading</span>?
-          </h2>
+          <AnimatedHeading className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.95] cursor-heading cursor-heading-why-choose mb-6">
+              READY TO START
+              <br />
+              AUTOMATED TRADING
+          </AnimatedHeading>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Join thousands of traders who trust theDBot for their automated trading needs. 
             Start with a free demo or purchase your first bot today.
