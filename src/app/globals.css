@@ -218,6 +218,45 @@ html {
   color: var(--accent-foreground);
 }
 
+/* Hero headings group - coordinated hover */
+.hero-headings-group {
+  position: relative;
+}
+
+.hero-headings-group .hero-line {
+  display: block;
+}
+
+/* Heading container inside hero lines - make it block for margin to work */
+.hero-headings-group .hero-line .heading-container {
+  display: block;
+  width: fit-content;
+  /* Removed CSS margin transitions - GSAP handles all animations now */
+}
+
+/* Left-aligned lines */
+.hero-headings-group .hero-line.hero-line-left .heading-container {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Right-aligned lines */
+.hero-headings-group .hero-line.hero-line-right .heading-container {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* On hover of the group, keep alignment unchanged - GSAP handles centering */
+.hero-headings-group:hover .hero-line.hero-line-left .heading-container {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.hero-headings-group:hover .hero-line.hero-line-right .heading-container {
+  margin-left: auto;
+  margin-right: 0;
+}
+
 /* Heading container */
 .heading-container {
   position: relative;

@@ -25,7 +25,7 @@ export default function CustomCursor() {
         cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
       }
       if (cursorDot) {
-        cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+        cursorDot.style.transform = `translate(${mouseX - 8}px, ${mouseY - 8}px) rotate(-45deg)`;
       }
 
       requestAnimationFrame(updateCursor);
@@ -109,18 +109,19 @@ export default function CustomCursor() {
           transition: "width 0.3s ease, height 0.3s ease",
         }}
       />
-      {/* Arrow head cursor - triangle only */}
+      {/* Arrow head cursor - triangle pointing top-left */}
       <div
         ref={cursorDotRef}
         className="fixed top-0 left-0 pointer-events-none z-[10000] will-change-transform"
         style={{
           width: "0",
           height: "0",
-          borderLeft: "8px solid transparent",
-          borderRight: "8px solid transparent",
-          borderBottom: "14px solid white",
+          borderLeft: "6px solid transparent",
+          borderRight: "6px solid transparent",
+          borderBottom: "12px solid white",
           filter: "drop-shadow(0 0 2px rgba(0, 0, 0, 0.5))",
-          transform: "translate(-8px, -2px) rotate(-45deg)",
+          transform: "translate(-8px, -8px) rotate(-45deg)",
+          transformOrigin: "center",
           pointerEvents: "none",
         }}
       />

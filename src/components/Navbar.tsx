@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useRef } from "react";
+import MatrixBackground from "./MatrixBackground";
 
 const links = [
   { href: "/", label: "Home" },
@@ -13,10 +15,12 @@ const links = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const headerRef = useRef<HTMLElement>(null);
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-md glass border-b border-border">
-      <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
+    <header ref={headerRef} className="sticky top-0 z-50 w-full backdrop-blur-md glass border-b border-border relative overflow-hidden">
+      <MatrixBackground containerRef={headerRef} />
+      <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between relative z-10">
         <Link href="/" className="flex items-center space-x-2">
           <Image src="/db-logo.png" alt="theDBot Logo" width={48} height={48} className="w-8 h-8" />
           <span className="text-xl font-bold text-foreground">theDBot</span>

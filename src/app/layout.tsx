@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 import CustomCursor from "@/components/CustomCursor";
 import RobotCursor from "@/components/RobotCursor";
+import SnowEffect from "@/components/SnowEffect";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,15 +52,18 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased dark:bg-gray-900 dark:text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased dark:bg-gray-900 dark:text-white relative`}
       >
-        <CustomCursor />
-        {/* <RobotCursor /> */}
-        <Navbar />
-        <main>
-          <PageTransition>{children}</PageTransition>
-        </main>
-        <Footer />
+        <div className="relative">
+          <CustomCursor />
+          {/* <RobotCursor /> */}
+          <Navbar />
+          <main>
+            <PageTransition>{children}</PageTransition>
+          </main>
+          <Footer />
+        </div>
+        <SnowEffect />
       </body>
     </html>
   );

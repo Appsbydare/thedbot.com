@@ -10,19 +10,19 @@ export default function Home() {
         <div className="absolute inset-0 hero-gradient opacity-30"></div>
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="text-center space-y-8">
-            <div className="space-y-2">
-              <div className="text-left">
-                <AnimatedHeading enablePerspective={false} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.9] uppercase cursor-heading inline-block">
+            <div className="space-y-2 hero-headings-group">
+              <div className="hero-line hero-line-left">
+                <AnimatedHeading enablePerspective={false} groupHover={true} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.9] uppercase cursor-heading inline-block">
                   AUTOMATED
                 </AnimatedHeading>
               </div>
-              <div className="text-left">
-                <AnimatedHeading enablePerspective={false} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.9] uppercase cursor-heading inline-block">
+              <div className="hero-line hero-line-left">
+                <AnimatedHeading enablePerspective={false} groupHover={true} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.9] uppercase cursor-heading inline-block">
                   EXECUTION
                 </AnimatedHeading>
               </div>
-              <div className="text-right">
-                <AnimatedHeading enablePerspective={false} lineStyle="second" className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.9] uppercase cursor-heading inline-block">
+              <div className="hero-line hero-line-right">
+                <AnimatedHeading enablePerspective={false} groupHover={true} lineStyle="second" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.9] uppercase cursor-heading inline-block">
                   MADE SIMPLE
                 </AnimatedHeading>
               </div>
@@ -117,45 +117,72 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Link href="/products?category=forex" className="group">
-              <div className="category-card relative overflow-hidden rounded-2xl bg-gradient-to-br from-white via-slate-50 to-white p-8 h-80 transition-all duration-500 hover:from-white hover:via-slate-100 hover:to-white">
-                <div className="relative z-10 h-full flex flex-col justify-end">
-                  <h3 className="text-3xl font-bold text-slate-900 mb-4">Forex Automation</h3>
-                  <p className="text-slate-600 mb-6">
-                    Advanced currency automation with multi-pair support and risk management
+            <Link href="/products?category=workflow" className="group">
+              <div className="category-card relative overflow-hidden rounded-2xl bg-gradient-to-br from-white via-slate-50 to-white p-8 h-[480px] transition-all duration-500 hover:from-white hover:via-slate-100 hover:to-white">
+                <div className="relative z-10 h-full flex flex-col">
+                  <div className="mb-4">
+                    <span className="text-4xl">🔁</span>
+                  </div>
+                  <h3 className="text-3xl font-bold text-slate-900 mb-3">Workflow Automator</h3>
+                  <p className="text-slate-600 mb-4 text-sm leading-relaxed">
+                    Trigger automated trading actions via REST APIs, webhook listeners, or custom event pipelines. Ideal for signal providers, bot creators, or platforms needing scalable execution logic.
                   </p>
-                  <div className="flex items-center text-accent group-hover:text-accent/80 transition-colors">
-                    <span className="font-semibold text-blue-700">Explore Forex Automation</span>
+                  <ul className="text-xs text-slate-500 space-y-1.5 mb-4 flex-grow">
+                    <li>• Supports TradingView, Telegram, and custom webhook formats</li>
+                    <li>• JSON-based API with authentication and rate limits</li>
+                    <li>• Includes sandbox mode for testing integrations</li>
+                    <li>• Compatible with MT5, MT4, and custom bots</li>
+                  </ul>
+                  <div className="flex items-center text-accent group-hover:text-accent/80 transition-colors mt-auto">
+                    <span className="font-semibold text-blue-700">Explore Workflow Automator</span>
                     <ArrowRight className="size-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </div>
             </Link>
 
-            <Link href="/products?category=automation" className="group">
-              <div className="category-card relative overflow-hidden rounded-2xl bg-gradient-to-br from-white via-blue-50 to-white p-8 h-80 transition-all duration-500 hover:from-white hover:via-blue-100 hover:to-white">
-                <div className="relative z-10 h-full flex flex-col justify-end">
-                  <h3 className="text-3xl font-bold text-slate-900 mb-4">Signal Executors</h3>
-                  <p className="text-slate-600 mb-6">
-                    Automate execution from Telegram or TradingView signals directly into MT5
+            <Link href="/products?category=strategy" className="group">
+              <div className="category-card relative overflow-hidden rounded-2xl bg-gradient-to-br from-white via-blue-50 to-white p-8 h-[480px] transition-all duration-500 hover:from-white hover:via-blue-100 hover:to-white">
+                <div className="relative z-10 h-full flex flex-col">
+                  <div className="mb-4">
+                    <span className="text-4xl">🧠</span>
+                  </div>
+                  <h3 className="text-3xl font-bold text-slate-900 mb-3">Strategy Engine</h3>
+                  <p className="text-slate-600 mb-4 text-sm leading-relaxed">
+                    Design and deploy rule-based or AI-enhanced trading strategies with modular logic blocks and real-time market feeds.
                   </p>
-                  <div className="flex items-center text-accent group-hover:text-accent/80 transition-colors">
-                    <span className="font-semibold text-indigo-700">Explore Executors</span>
+                  <ul className="text-xs text-slate-500 space-y-1.5 mb-4 flex-grow">
+                    <li>• Drag-and-drop strategy builder or Python scripting</li>
+                    <li>• Supports multi-timeframe analysis and indicator stacking</li>
+                    <li>• Backtest with historical data or simulate live conditions</li>
+                    <li>• Export strategies to MT5 or integrate via API</li>
+                  </ul>
+                  <div className="flex items-center text-accent group-hover:text-accent/80 transition-colors mt-auto">
+                    <span className="font-semibold text-indigo-700">Explore Strategy Engine</span>
                     <ArrowRight className="size-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </div>
             </Link>
 
-            <Link href="/products?category=indicators" className="group">
-              <div className="category-card relative overflow-hidden rounded-2xl bg-gradient-to-br from-white via-indigo-50 to-white p-8 h-80 transition-all duration-500 hover:from-white hover:via-indigo-100 hover:to-white">
-                <div className="relative z-10 h-full flex flex-col justify-end">
-                  <h3 className="text-3xl font-bold text-slate-900 mb-4">Indicators</h3>
-                  <p className="text-slate-600 mb-6">
-                    Custom Pine Script indicators for TradingView with real-time alerts and signals
+            <Link href="/products?category=signal-sync" className="group">
+              <div className="category-card relative overflow-hidden rounded-2xl bg-gradient-to-br from-white via-indigo-50 to-white p-8 h-[480px] transition-all duration-500 hover:from-white hover:via-indigo-100 hover:to-white">
+                <div className="relative z-10 h-full flex flex-col">
+                  <div className="mb-4">
+                    <span className="text-4xl">📡</span>
+                  </div>
+                  <h3 className="text-3xl font-bold text-slate-900 mb-3">Signal Sync Hub</h3>
+                  <p className="text-slate-600 mb-4 text-sm leading-relaxed">
+                    Synchronize signals from multiple sources—Telegram, TradingView, Discord—and route them to your preferred execution platform.
                   </p>
-                  <div className="flex items-center text-accent group-hover:text-accent/80 transition-colors">
-                    <span className="font-semibold text-indigo-700">Explore Indicators</span>
+                  <ul className="text-xs text-slate-500 space-y-1.5 mb-4 flex-grow">
+                    <li>• Real-time parsing of messages, alerts, and webhook payloads</li>
+                    <li>• Signal filtering, delay control, and conditional triggers</li>
+                    <li>• Multi-account routing with license-based access</li>
+                    <li>• MT5, MT4, and Binance execution modules available</li>
+                  </ul>
+                  <div className="flex items-center text-accent group-hover:text-accent/80 transition-colors mt-auto">
+                    <span className="font-semibold text-indigo-700">Explore Signal Sync Hub</span>
                     <ArrowRight className="size-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
@@ -168,7 +195,7 @@ export default function Home() {
       {/* CTA Section - White Background */}
       <section className="py-20 bg-white dark:bg-white relative overflow-hidden">
         <div className="relative mx-auto max-w-4xl px-4 text-center space-y-6">
-          <AnimatedHeading enablePerspective={false} className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-heading tracking-tight leading-[0.95] cursor-heading cursor-heading-why-choose mb-2">
+          <AnimatedHeading enablePerspective={false} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.95] cursor-heading cursor-heading-why-choose mb-2">
               READY TO START
               <br />
               AUTOMATED

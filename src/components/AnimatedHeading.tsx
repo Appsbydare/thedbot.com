@@ -22,9 +22,14 @@ interface AnimatedHeadingProps {
    * "second" = solid text, right-aligned on leave
    */
   lineStyle?: "first" | "second";
+  /**
+   * When true, disables individual hover handling.
+   * Used when multiple headings should be coordinated by a parent group hover.
+   */
+  groupHover?: boolean;
 }
 
-export default function AnimatedHeading({ children, className = "", enablePerspective = true, lineStyle = "first" }: AnimatedHeadingProps) {
+export default function AnimatedHeading({ children, className = "", enablePerspective = true, lineStyle = "first", groupHover = false }: AnimatedHeadingProps) {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const hasAnimated = useRef(false);
@@ -212,35 +217,39 @@ export default function AnimatedHeading({ children, className = "", enablePerspe
     let isHovering = false;
 
     const handleMouseEnter = () => {
-      if (isWhyChoose) return; // Skip hover effects for why-choose section
+      if (isWhyChoose || groupHover) return; // Skip hover effects for why-choose section or when using group hover
       
       isHovering = true;
       heading.classList.add("heading-hover");
       heading.classList.remove("heading-default");
 
-      // For single-line headings, animate based on lineStyle
-      // "first" style (left-aligned) moves right to center
-      // "second" style (right-aligned) moves left to center
-      if (lines.length === 1) {
-        const allSpans = lines[0] || [];
-        const initialShift = lineStyle === "second" ? -50 : 50;
+      // Calculate offset to center the heading
+      const containerRect = container?.getBoundingClientRect();
+      const headingRect = heading.getBoundingClientRect();
+      const parentElement = container?.parentElement;
+      const parentRect = parentElement?.getBoundingClientRect();
+      
+      if (containerRect && parentRect) {
+        // Calculate where center should be relative to parent
+        const parentCenter = parentRect.width / 2;
+        const headingCenter = (headingRect.left - parentRect.left) + (headingRect.width / 2);
+        const centerOffset = parentCenter - headingCenter;
         
-        allSpans.forEach((span) => {
+        // Animate all spans to center position
+        charSpans.forEach((span) => {
           gsap.to(span, {
-            x: initialShift,
-            duration: 0.3,
+            x: centerOffset,
+            duration: 0.5,
             ease: "power2.out",
-            onComplete: () => {
-              gsap.to(span, {
-                x: 0,
-                duration: 0.3,
-                ease: "power2.out",
-              });
-            },
           });
         });
+      }
+
+      // For single-line headings, also apply additional styling
+      if (lines.length === 1) {
+        // No additional effects needed, centering is handled above
       } else {
-        // Multi-line heading logic
+        // Multi-line heading logic - apply font size changes
         charSpans.forEach((span) => {
           const isFirstLine = span.getAttribute("data-line") === "first";
           
@@ -251,43 +260,11 @@ export default function AnimatedHeading({ children, className = "", enablePerspe
             ease: "power2.out",
           });
         });
-
-        // Shift first line slightly right, then center
-        firstLineSpans.forEach((span) => {
-          gsap.to(span, {
-            x: 30,
-            duration: 0.3,
-            ease: "power2.out",
-            onComplete: () => {
-              gsap.to(span, {
-                x: 0,
-                duration: 0.3,
-                ease: "power2.out",
-              });
-            },
-          });
-        });
-
-        // Shift second line slightly left, then center
-        secondLineSpans.forEach((span) => {
-          gsap.to(span, {
-            x: -30,
-            duration: 0.3,
-            ease: "power2.out",
-            onComplete: () => {
-              gsap.to(span, {
-                x: 0,
-                duration: 0.3,
-                ease: "power2.out",
-              });
-            },
-          });
-        });
       }
     };
 
     const handleMouseLeave = () => {
-      if (isWhyChoose) return; // Skip hover effects for why-choose section
+      if (isWhyChoose || groupHover) return; // Skip hover effects for why-choose section or when using group hover
       
       isHovering = false;
       heading.classList.remove("heading-hover");
@@ -304,11 +281,11 @@ export default function AnimatedHeading({ children, className = "", enablePerspe
         });
       });
 
-      // Restore default positioning: return to x: 0 (alignment handled by CSS)
+      // Animate back to original position (x: 0)
       charSpans.forEach((span) => {
         gsap.to(span, {
           x: 0,
-          duration: 0.4,
+          duration: 0.5,
           ease: "power2.out",
         });
       });
@@ -323,6 +300,84 @@ export default function AnimatedHeading({ children, className = "", enablePerspe
     containerRef.current?.addEventListener("mouseenter", handleMouseEnter);
     containerRef.current?.addEventListener("mouseleave", handleMouseLeave);
 
+    // Group hover handling - listen for hover on parent .hero-headings-group
+    let heroGroupParent: HTMLElement | null = null;
+    
+    const handleGroupMouseEnter = () => {
+      heading.classList.add("heading-hover");
+      heading.classList.remove("heading-default");
+      
+      // Calculate offset to center the heading with smooth animation
+      // Find the .hero-headings-group parent for proper centering
+      const heroGroup = container?.closest('.hero-headings-group') as HTMLElement | null;
+      const headingRect = heading.getBoundingClientRect();
+      const heroGroupRect = heroGroup?.getBoundingClientRect();
+      
+      if (heroGroupRect) {
+        // Calculate where center should be relative to hero-headings-group
+        const groupCenter = heroGroupRect.width / 2;
+        const headingCenter = (headingRect.left - heroGroupRect.left) + (headingRect.width / 2);
+        const centerOffset = groupCenter - headingCenter;
+        
+        // Animate all spans to center position with smooth stagger
+        // Using same timing as WHY CHOOSE entrance animation
+        charSpans.forEach((span, index) => {
+          gsap.to(span, {
+            x: centerOffset,
+            duration: 1.2,
+            delay: index * 0.03,
+            ease: "power2.out",
+            overwrite: true, // Smoothly overwrite existing animations
+          });
+        });
+      }
+      
+      // Subtle Y movement for a wave effect
+      charSpans.forEach((span, index) => {
+        gsap.to(span, {
+          y: -3,
+          duration: 0.4,
+          delay: index * 0.02,
+          ease: "power2.out",
+          overwrite: "auto",
+          onComplete: () => {
+            gsap.to(span, {
+              y: 0,
+              duration: 0.5,
+              ease: "power2.inOut",
+            });
+          }
+        });
+      });
+    };
+    
+    const handleGroupMouseLeave = () => {
+      heading.classList.remove("heading-hover");
+      heading.classList.add("heading-default");
+      
+      // Reset to original position smoothly with stagger effect
+      // Using same timing as WHY CHOOSE entrance animation
+      charSpans.forEach((span, index) => {
+        gsap.to(span, {
+          x: 0,
+          y: 0,
+          duration: 1.2,
+          delay: index * 0.03,
+          ease: "power2.out",
+          overwrite: true, // Smoothly overwrite existing animations
+        });
+      });
+    };
+    
+    if (groupHover) {
+      // Find the parent .hero-headings-group element
+      heroGroupParent = container?.closest('.hero-headings-group') as HTMLElement | null;
+      if (heroGroupParent) {
+        heroGroupParent.addEventListener("mouseenter", handleGroupMouseEnter);
+        heroGroupParent.addEventListener("mouseleave", handleGroupMouseLeave);
+      }
+    }
+
     hasAnimated.current = true;
 
     return () => {
@@ -333,8 +388,13 @@ export default function AnimatedHeading({ children, className = "", enablePerspe
       });
       containerRef.current?.removeEventListener("mouseenter", handleMouseEnter);
       containerRef.current?.removeEventListener("mouseleave", handleMouseLeave);
+      
+      if (heroGroupParent) {
+        heroGroupParent.removeEventListener("mouseenter", handleGroupMouseEnter);
+        heroGroupParent.removeEventListener("mouseleave", handleGroupMouseLeave);
+      }
     };
-  }, []);
+  }, [groupHover]);
 
   return (
     <div ref={containerRef} className="heading-container">
