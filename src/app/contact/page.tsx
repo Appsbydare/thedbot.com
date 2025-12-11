@@ -6,7 +6,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-slate-950 text-white">
       {/* Hero Section */}
       <section className="relative py-20 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-70 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.18),transparent_45%),radial-gradient(circle_at_80%_0%,rgba(79,70,229,0.16),transparent_40%)]"></div>
+        <div className="absolute inset-0 opacity-80 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.25),transparent_45%),radial-gradient(circle_at_80%_0%,rgba(79,70,229,0.22),transparent_40%)]"></div>
         <div className="relative mx-auto max-w-4xl px-4">
           <div className="text-center space-y-8">
             <h1 className="text-5xl sm:text-7xl font-heading tracking-tight text-white">
@@ -40,7 +40,7 @@ export default function ContactPage() {
                        type="text"
                        id="firstName"
                        name="firstName"
-                       className="w-full px-4 py-3 input"
+                       className="w-full px-4 py-3 input bg-slate-900 border-slate-800 text-white placeholder:text-slate-500"
                        placeholder="Your first name"
                      />
                   </div>
@@ -52,7 +52,7 @@ export default function ContactPage() {
                         type="text"
                         id="lastName"
                         name="lastName"
-                        className="w-full px-4 py-3 input"
+                        className="w-full px-4 py-3 input bg-slate-900 border-slate-800 text-white placeholder:text-slate-500"
                         placeholder="Your last name"
                       />
                    </div>
@@ -66,7 +66,7 @@ export default function ContactPage() {
                       type="email"
                       id="email"
                       name="email"
-                      className="w-full px-4 py-3 input"
+                      className="w-full px-4 py-3 input bg-slate-900 border-slate-800 text-white placeholder:text-slate-500"
                       placeholder="your.email@example.com"
                     />
                  </div>
@@ -78,7 +78,7 @@ export default function ContactPage() {
                     <select
                       id="subject"
                       name="subject"
-                      className="w-full px-4 py-3 input"
+                      className="w-full px-4 py-3 input bg-slate-900 border-slate-800 text-white"
                     >
                     <option value="">Select a subject</option>
                     <option value="general">General Inquiry</option>
@@ -98,14 +98,14 @@ export default function ContactPage() {
                       id="message"
                       name="message"
                       rows={6}
-                      className="w-full px-4 py-3 input resize-none"
+                      className="w-full px-4 py-3 input bg-slate-900 border-slate-800 text-white placeholder:text-slate-500 resize-none"
                       placeholder="Tell us how we can help you..."
                     ></textarea>
                  </div>
                 
                                  <button
                    type="submit"
-                  className="w-full btn-primary font-semibold py-3 px-6 rounded-lg"
+                  className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-6 rounded-lg transition-colors shadow-lg shadow-blue-500/25"
                  >
                    Send Message
                  </button>
