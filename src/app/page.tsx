@@ -156,28 +156,29 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white dark:bg-white">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <AnimatedHeading className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.95] cursor-heading cursor-heading-why-choose mb-6">
+      <section className="py-20 bg-slate-950 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-60 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.18),transparent_45%),radial-gradient(circle_at_80%_0%,rgba(79,70,229,0.16),transparent_40%)]" />
+        <div className="relative mx-auto max-w-4xl px-4 text-center space-y-6">
+          <AnimatedHeading enablePerspective={false} className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.95] cursor-heading cursor-heading-why-choose mb-2">
               READY TO START
               <br />
               AUTOMATED EXECUTION
           </AnimatedHeading>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-200 mb-6 max-w-2xl mx-auto">
             Join thousands of teams who trust theDBot for automated order execution. 
             Start with a free demo or launch your first automation today.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
             <Link
               href="/products"
-              className="inline-flex items-center gap-3 rounded-full bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center gap-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-blue-500/25"
             >
               Browse All Products
               <ArrowRight className="size-5" />
             </Link>
             <Link 
               href="/contact" 
-              className="text-lg text-muted-foreground hover:text-foreground transition-colors duration-300"
+              className="text-lg text-slate-200 hover:text-white transition-colors duration-300"
             >
               Contact Support →
             </Link>

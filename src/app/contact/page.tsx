@@ -3,16 +3,16 @@ import { Mail, MessageSquare, Clock, MapPin } from "@/components/icons";
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-slate-950 text-white">
       {/* Hero Section */}
       <section className="relative py-20 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 hero-gradient"></div>
+        <div className="absolute inset-0 opacity-70 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.18),transparent_45%),radial-gradient(circle_at_80%_0%,rgba(79,70,229,0.16),transparent_40%)]"></div>
         <div className="relative mx-auto max-w-4xl px-4">
           <div className="text-center space-y-8">
-            <h1 className="text-5xl sm:text-7xl font-heading tracking-tight">
-              <span className="text-foreground dark:text-white">Get in</span> <span className="text-accent">Touch</span>
+            <h1 className="text-5xl sm:text-7xl font-heading tracking-tight text-white">
+              <span className="text-white">Get in</span> <span className="text-blue-400">Touch</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-xl text-slate-200 max-w-2xl mx-auto">
               Have questions about our products? Need technical support? We&apos;re here to help.
             </p>
           </div>
@@ -20,20 +20,20 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-20">
+      <section className="py-20 bg-slate-950">
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div className="space-y-8">
               <div>
-                                 <h2 className="text-3xl font-bold text-foreground mb-4">Send us a Message</h2>
-                 <p className="text-muted-foreground">Fill out the form below and we&apos;ll get back to you within 24 hours.</p>
+                                 <h2 className="text-3xl font-bold text-white mb-4">Send us a Message</h2>
+                 <p className="text-slate-300">Fill out the form below and we&apos;ll get back to you within 24 hours.</p>
               </div>
               
               <form className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                                         <label htmlFor="firstName" className="block text-sm font-medium text-muted-foreground mb-2">
+                                         <label htmlFor="firstName" className="block text-sm font-medium text-slate-300 mb-2">
                        First Name
                      </label>
                      <input
@@ -45,7 +45,7 @@ export default function ContactPage() {
                      />
                   </div>
                                      <div>
-                                           <label htmlFor="lastName" className="block text-sm font-medium text-muted-foreground mb-2">
+                                          <label htmlFor="lastName" className="block text-sm font-medium text-slate-300 mb-2">
                         Last Name
                       </label>
                       <input
@@ -59,7 +59,7 @@ export default function ContactPage() {
                  </div>
                  
                  <div>
-                                       <label htmlFor="email" className="block text-sm font-medium text-muted-foreground mb-2">
+                                      <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
                       Email Address
                     </label>
                     <input
@@ -72,7 +72,7 @@ export default function ContactPage() {
                  </div>
                  
                  <div>
-                                       <label htmlFor="subject" className="block text-sm font-medium text-muted-foreground mb-2">
+                                      <label htmlFor="subject" className="block text-sm font-medium text-slate-300 mb-2">
                       Subject
                     </label>
                     <select
@@ -91,7 +91,7 @@ export default function ContactPage() {
                 </div>
                 
                                  <div>
-                                       <label htmlFor="message" className="block text-sm font-medium text-muted-foreground mb-2">
+                                      <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
                       Message
                     </label>
                     <textarea
@@ -105,7 +105,7 @@ export default function ContactPage() {
                 
                                  <button
                    type="submit"
-                   className="w-full btn-primary font-semibold py-3 px-6 rounded-lg"
+                  className="w-full btn-primary font-semibold py-3 px-6 rounded-lg"
                  >
                    Send Message
                  </button>
@@ -115,59 +115,59 @@ export default function ContactPage() {
             {/* Contact Information */}
             <div className="space-y-8">
                              <div>
-                                   <h2 className="text-3xl font-bold text-foreground mb-4">Contact Information</h2>
-                  <p className="text-muted-foreground">Get in touch with us through any of these channels.</p>
+                                  <h2 className="text-3xl font-bold text-white mb-4">Contact Information</h2>
+                 <p className="text-slate-300">Get in touch with us through any of these channels.</p>
                </div>
               
               <div className="space-y-6">
-                                 <div className="flex items-start space-x-4 p-6 rounded-lg card">
-                   <div className="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <div className="flex items-start space-x-4 p-6 rounded-lg card bg-slate-900 border border-slate-800">
+                  <div className="w-12 h-12 bg-blue-600/15 rounded-full flex items-center justify-center flex-shrink-0">
                      <Mail className="size-6 text-accent" />
                    </div>
                    <div>
-                     <h3 className="text-lg font-semibold text-foreground mb-2">Email Support</h3>
-                     <p className="text-muted-foreground mb-2">support@thedbot.com</p>
-                     <p className="text-sm text-muted-foreground">For technical support and general inquiries</p>
+                    <h3 className="text-lg font-semibold text-white mb-2">Email Support</h3>
+                    <p className="text-slate-300 mb-2">support@thedbot.com</p>
+                    <p className="text-sm text-slate-400">For technical support and general inquiries</p>
                    </div>
                  </div>
                 
-                                 <div className="flex items-start space-x-4 p-6 rounded-lg card">
-                   <div className="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <div className="flex items-start space-x-4 p-6 rounded-lg card bg-slate-900 border border-slate-800">
+                  <div className="w-12 h-12 bg-blue-600/15 rounded-full flex items-center justify-center flex-shrink-0">
                      <MessageSquare className="size-6 text-accent" />
                    </div>
                    <div>
-                     <h3 className="text-lg font-semibold text-foreground mb-2">Live Chat</h3>
-                     <p className="text-muted-foreground mb-2">Available on our website</p>
-                     <p className="text-sm text-muted-foreground">Real-time support during business hours</p>
+                    <h3 className="text-lg font-semibold text-white mb-2">Live Chat</h3>
+                    <p className="text-slate-300 mb-2">Available on our website</p>
+                    <p className="text-sm text-slate-400">Real-time support during business hours</p>
                    </div>
                  </div>
                  
-                                   <div className="flex items-start space-x-4 p-6 rounded-lg card">
-                   <div className="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                  <div className="flex items-start space-x-4 p-6 rounded-lg card bg-slate-900 border border-slate-800">
+                  <div className="w-12 h-12 bg-blue-600/15 rounded-full flex items-center justify-center flex-shrink-0">
                      <Clock className="size-6 text-accent" />
                    </div>
                    <div>
-                     <h3 className="text-lg font-semibold text-foreground mb-2">Support Hours</h3>
-                     <p className="text-muted-foreground mb-2">24/7 Email Support</p>
-                     <p className="text-sm text-muted-foreground">Live chat: Mon-Fri 9AM-6PM EST</p>
+                    <h3 className="text-lg font-semibold text-white mb-2">Support Hours</h3>
+                    <p className="text-slate-300 mb-2">24/7 Email Support</p>
+                    <p className="text-sm text-slate-400">Live chat: Mon-Fri 9AM-6PM EST</p>
                    </div>
                  </div>
                  
-                                   <div className="flex items-start space-x-4 p-6 rounded-lg card">
-                   <div className="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                  <div className="flex items-start space-x-4 p-6 rounded-lg card bg-slate-900 border border-slate-800">
+                  <div className="w-12 h-12 bg-blue-600/15 rounded-full flex items-center justify-center flex-shrink-0">
                      <MapPin className="size-6 text-accent" />
                    </div>
                    <div>
-                     <h3 className="text-lg font-semibold text-foreground mb-2">Office</h3>
-                     <p className="text-muted-foreground mb-2">Remote Team</p>
-                     <p className="text-sm text-muted-foreground">We operate globally with team members worldwide</p>
+                    <h3 className="text-lg font-semibold text-white mb-2">Office</h3>
+                    <p className="text-slate-300 mb-2">Remote Team</p>
+                    <p className="text-sm text-slate-400">We operate globally with team members worldwide</p>
                    </div>
                  </div>
               </div>
               
                              {/* Quick Links */}
-               <div className="p-6 rounded-lg card">
-                 <h3 className="text-xl font-bold text-foreground mb-4">Quick Links</h3>
+              <div className="p-6 rounded-lg card bg-slate-900 border border-slate-800">
+                <h3 className="text-xl font-bold text-white mb-4">Quick Links</h3>
                  <div className="space-y-3">
                    <Link href="/faq" className="block text-accent hover:text-accent/80 transition-colors">
                      → Frequently Asked Questions
