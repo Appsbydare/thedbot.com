@@ -11,11 +11,14 @@ export default function Home() {
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="text-center space-y-8">
             <div className="space-y-4">
-              <AnimatedHeading enablePerspective={false} className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.95] uppercase cursor-heading">
-                AUTOMATED EXECUTION
+              <AnimatedHeading enablePerspective={false} className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-heading tracking-tight leading-[0.95] uppercase cursor-heading whitespace-nowrap">
+                AUTOMATED
                 <br />
-                MADE SIMPLE
+                EXECUTION
               </AnimatedHeading>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading tracking-tight text-white uppercase mt-4">
+                MADE SIMPLE
+              </h2>
               <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 Automation software that turns Telegram or TradingView signals into instant orders on MetaTrader 5/4 with built-in risk controls.
                 <br />

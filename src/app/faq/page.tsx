@@ -75,21 +75,21 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-         <div className="border-b border-border">
+    <div className="border-b border-gray-200">
       <button
         className="flex justify-between items-center w-full py-6 text-left focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
       >
-                 <span className="text-lg font-semibold text-foreground">{question}</span>
-                 <ChevronDown 
-           className={`size-5 text-muted-foreground transition-transform duration-200 ${
-             isOpen ? 'rotate-180' : ''
-           }`} 
-         />
+        <span className="text-lg font-semibold text-black">{question}</span>
+        <ChevronDown 
+          className={`size-5 text-gray-500 transition-transform duration-200 ${
+            isOpen ? 'rotate-180' : ''
+          }`} 
+        />
       </button>
       {isOpen && (
         <div className="pb-6">
-                     <p className="text-muted-foreground leading-relaxed">{answer}</p>
+          <p className="text-gray-600 leading-relaxed">{answer}</p>
         </div>
       )}
     </div>
@@ -116,8 +116,8 @@ export default function FAQPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20">
+      {/* FAQ Section - Light */}
+      <section className="py-20 bg-white dark:bg-white">
         <div className="mx-auto max-w-4xl px-4">
           <div className="space-y-4">
             {faqs.map((faq, index) => (
@@ -126,19 +126,19 @@ export default function FAQPage() {
           </div>
           
           {/* Contact Support */}
-                     <div className="mt-16 text-center p-8 rounded-2xl card">
-             <h3 className="text-2xl font-bold text-foreground mb-4">
-               Still Have Questions?
-             </h3>
-             <p className="text-muted-foreground mb-6">
-               Can&apos;t find what you&apos;re looking for? Our support team is here to help.
-             </p>
-                         <a
-               href="/contact"
-               className="inline-flex items-center gap-2 rounded-full bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-3 font-semibold transition-all duration-300"
-             >
-               Contact Support
-             </a>
+          <div className="mt-16 text-center p-8 rounded-2xl bg-black text-white">
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Still Have Questions?
+            </h3>
+            <p className="text-gray-300 mb-6">
+              Can&apos;t find what you&apos;re looking for? Our support team is here to help.
+            </p>
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-full bg-accent hover:bg-accent/90 text-accent-foreground px-6 py-3 font-semibold transition-all duration-300"
+            >
+              Contact Support
+            </a>
           </div>
         </div>
       </section>
