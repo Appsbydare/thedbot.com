@@ -448,3 +448,13 @@ section[data-bg="black"] .cursor-heading-why-choose.heading-hover span[data-line
 .category-card:hover::after {
   opacity: 1;
 }
+
+/* Category carousel scroll animation - adjusted for 4 cards visible */
+@keyframes scrollCards {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 7 * 3.5));
+  }
+}

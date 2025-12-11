@@ -22,7 +22,7 @@ export default function Navbar() {
       <MatrixBackground containerRef={headerRef} />
       <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between relative z-10">
         <Link href="/" className="flex items-center space-x-2">
-          <Image src="/db-logo.png" alt="theDBot Logo" width={48} height={48} className="w-8 h-8" />
+          <Image src="/db-logo.png" alt="theDBot Logo" width={96} height={96} className="w-16 h-16" />
           <span className="text-xl font-bold text-foreground">theDBot</span>
         </Link>
 

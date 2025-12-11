@@ -7,9 +7,11 @@ const products = catalog;
 
 const categories = [
   { id: "all", name: "All Products", count: products.length },
-  { id: "forex", name: "Forex Automation", count: products.filter(p => p.category === "forex").length },
-  { id: "automation", name: "Signal Executors", count: products.filter(p => p.category === "automation").length },
-  { id: "indicators", name: "Indicators", count: products.filter(p => p.category === "indicators").length },
+  { id: "forex", name: "Trading Automation", count: products.filter(p => p.category === "forex" || p.category === "automation" || p.category === "indicators").length },
+  { id: "business", name: "Business Solutions", count: products.filter(p => p.category === "business").length },
+  { id: "api", name: "API Integration", count: products.filter(p => p.category === "api").length },
+  { id: "data", name: "Data & Reporting", count: products.filter(p => p.category === "data").length },
+  { id: "communication", name: "Communication Tools", count: products.filter(p => p.category === "communication").length },
 ];
 
 export default function ProductsPage() {
@@ -26,7 +28,7 @@ export default function ProductsPage() {
               PRODUCTS
             </AnimatedHeading>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Professional automation solutions for every market condition
+              Professional automation solutions for trading, business operations, and custom integrations
             </p>
           </div>
         </div>
@@ -42,10 +44,19 @@ export default function ProductsPage() {
           </div>
           <div className="rounded-xl p-6 bg-black text-white">
             <p className="text-sm text-gray-300 mb-3">
-              All our products are designed to work with MetaTrader 4/5 platforms (provided by your broker). Some products integrate with Telegram (signal executors) or TradingView (indicators).
+              Our solutions work across multiple platforms depending on your needs:
+            </p>
+            <p className="text-sm text-gray-300 mb-2">
+              <strong className="text-white">Trading Automation:</strong> MetaTrader 4/5 (provided by your broker), TradingView, Telegram signal services
+            </p>
+            <p className="text-sm text-gray-300 mb-2">
+              <strong className="text-white">Business Automation:</strong> REST APIs, webhooks, custom middleware for CRM, ERP, e-commerce platforms
+            </p>
+            <p className="text-sm text-gray-300 mb-3">
+              <strong className="text-white">Custom Integration:</strong> We build solutions for virtually any system with API access or database connectivity
             </p>
             <p className="text-sm text-gray-300">
-              <strong className="text-white">Broker Compatibility:</strong> Most products require your broker to allow Expert Advisors (EAs) and automated execution. Please verify with your broker before purchase.
+              <strong className="text-white">Note:</strong> Trading automation products require your broker to allow Expert Advisors (EAs) and automated execution. Business automation solutions are platform-agnostic and work with most modern systems.
             </p>
           </div>
         </div>
@@ -165,7 +176,7 @@ export default function ProductsPage() {
             Need a <span className="text-accent">Custom Solution</span>?
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            We can develop custom automation and indicators tailored to your specific strategy and requirements.
+            We specialize in custom automation development—from trading strategies to business process automation and complex API integrations. Tell us what you need, and we&apos;ll build it.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
             <Link

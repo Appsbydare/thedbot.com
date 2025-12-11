@@ -2,7 +2,7 @@ export type Product = {
   id: string;
   slug: string;
   name: string;
-  category: "forex" | "automation" | "indicators";
+  category: "forex" | "automation" | "indicators" | "business" | "api" | "data" | "communication";
   description: string;
   longDescription?: string;
   priceUSD: number;
@@ -11,7 +11,7 @@ export type Product = {
   rating?: number;
   reviews?: number;
   badge?: string;
-  deliverableType: "file" | "license";
+  deliverableType: "file" | "license" | "custom";
   deliverableRef: string; // path or SKU
   support?: string;
   demo?: boolean;
@@ -84,6 +84,117 @@ export const products: Product[] = [
     deliverableType: "file",
     deliverableRef: "rsi-divergence.txt",
     support: "Email Support",
+  },
+  {
+    id: "workflow-connector",
+    slug: "workflow-connector",
+    name: "Business Workflow Connector",
+    category: "business",
+    description: "Multi-platform API integration hub that connects your business systems in real-time",
+    longDescription:
+      "The Business Workflow Connector is a comprehensive API integration platform that seamlessly connects your CRM, ERP, e-commerce, and other business systems. Pre-built connectors for 20+ popular platforms combined with custom integration support make it the perfect solution for businesses looking to automate data flow and eliminate manual data entry.",
+    priceUSD: 199,
+    features: [
+      "Pre-built connectors for 20+ platforms",
+      "Custom API integration support",
+      "Real-time data sync",
+      "Error handling & logging",
+      "Webhook support",
+      "Scheduled synchronization",
+      "Data transformation tools",
+      "Multi-user support"
+    ],
+    rating: 4.9,
+    reviews: 45,
+    badge: "Featured",
+    deliverableType: "license",
+    deliverableRef: "workflow-connector-license",
+    support: "Priority Support",
+    demo: true,
+    specifications: {
+      "Platform": "Cloud-based (SaaS)",
+      "Supported Platforms": "20+ integrations",
+      "API Types": "REST, GraphQL, SOAP",
+      "Authentication": "OAuth 2.0, API Keys, JWT",
+      "Data Sync": "Real-time & Scheduled",
+      "Monitoring": "Real-time logs & alerts",
+      "Updates": "Automatic",
+      "Support": "24/7 Priority Support"
+    }
+  },
+  {
+    id: "ecommerce-automator",
+    slug: "ecommerce-automator",
+    name: "E-commerce Order Automator",
+    category: "business",
+    description: "Automatically sync orders between your store, inventory system, and fulfillment partners",
+    longDescription:
+      "The E-commerce Order Automator streamlines your online business operations by automatically synchronizing orders, inventory, and fulfillment across multiple platforms. Whether you sell on Shopify, WooCommerce, or custom platforms, this solution ensures your inventory is always accurate and your orders are processed efficiently.",
+    priceUSD: 149,
+    features: [
+      "Shopify, WooCommerce, Stripe integration",
+      "Inventory sync across platforms",
+      "Automated invoice generation",
+      "Multi-warehouse support",
+      "Order tracking automation",
+      "Customer notification system",
+      "Financial reporting",
+      "Returns management"
+    ],
+    rating: 4.8,
+    reviews: 68,
+    badge: "Popular",
+    deliverableType: "license",
+    deliverableRef: "ecommerce-automator-license",
+    support: "Priority Support",
+    demo: true,
+    specifications: {
+      "Platform": "Cloud-based (SaaS)",
+      "E-commerce Platforms": "Shopify, WooCommerce, Magento",
+      "Payment Gateways": "Stripe, PayPal, Square",
+      "Inventory Management": "Real-time sync",
+      "Multi-warehouse": "Unlimited warehouses",
+      "Order Processing": "Automated",
+      "Reporting": "Advanced analytics",
+      "Support": "Email & Chat Support"
+    }
+  },
+  {
+    id: "custom-api-integration",
+    slug: "custom-api-integration",
+    name: "Custom API Integration",
+    category: "api",
+    description: "Tailored automation solutions built specifically for your business requirements and existing systems",
+    longDescription:
+      "Our Custom API Integration service provides fully customized automation solutions designed specifically for your unique business needs. Whether you need to connect legacy systems, build complex multi-step workflows, or integrate proprietary software, our team of experts will design, develop, and deploy a solution that fits perfectly into your existing infrastructure.",
+    priceUSD: 0, // Custom quote
+    features: [
+      "One-on-one consultation",
+      "Custom development from scratch",
+      "Legacy system integration",
+      "Ongoing support & maintenance",
+      "Scalable architecture",
+      "Security compliance (GDPR, SOC2)",
+      "Documentation & training",
+      "Source code included"
+    ],
+    rating: 0,
+    reviews: 0,
+    badge: "New",
+    deliverableType: "custom",
+    deliverableRef: "custom-quote-required",
+    support: "Dedicated Support Team",
+    demo: false,
+    specifications: {
+      "Consultation": "Included",
+      "Development": "Custom from scratch",
+      "Timeline": "Based on complexity",
+      "Technologies": "Any platform",
+      "Integration Type": "API, Database, Middleware",
+      "Deployment": "Cloud or On-premise",
+      "Maintenance": "Optional contracts available",
+      "Support": "Dedicated support team"
+    }
   },
 ];
 

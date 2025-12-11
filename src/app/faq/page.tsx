@@ -68,6 +68,42 @@ const faqs = [
   {
     question: "How can I contact support?",
     answer: "Email support@thedbot.com. We provide installation help and technical assistance during your license period."
+  },
+  {
+    question: "What types of automation do you provide?",
+    answer: "We provide three main categories of automation: 1. Trading Automation: MT4/MT5 bots, TradingView integrations, Telegram signal executors 2. Business Automation: Workflow automation, API integrations, data synchronization, CRM/ERP connections 3. Custom Solutions: Tailored automation built for your specific requirements. Whether you need trading bots or business process automation, we can help."
+  },
+  {
+    question: "Can you integrate with my existing business systems?",
+    answer: "Yes! We specialize in API integrations and can connect most modern business systems including: CRM platforms (Salesforce, HubSpot, Zoho), E-commerce (Shopify, WooCommerce, Magento), Accounting software (QuickBooks, Xero, FreshBooks), Communication tools (Slack, WhatsApp Business API, Email), and Custom databases and legacy systems. Contact us to discuss your specific integration needs."
+  },
+  {
+    question: "Do you offer business automation solutions beyond trading?",
+    answer: "Absolutely! While we started with trading automation, we now provide comprehensive business automation services: API integration between business systems, Workflow automation for recurring tasks, Data synchronization across platforms, Automated reporting and dashboards, Communication and notification systems, and Custom middleware development. Schedule a consultation to discuss your automation needs."
+  },
+  {
+    question: "What's the difference between your products and custom development?",
+    answer: "Products: Pre-built automation solutions (like our trading bots) that are ready to use immediately with standard features and pricing. Custom Development: Built specifically for your unique requirements. This includes: Integrations with proprietary or legacy systems, Complex multi-system workflows, Specialized business logic, and Ongoing modifications and support. Custom projects require consultation and custom quotes."
+  },
+  {
+    question: "Can you automate my workflow if I don't have technical knowledge?",
+    answer: "Yes! We offer two approaches: 1. Managed Solutions: We handle everything—consultation, development, deployment, and maintenance 2. Turnkey Products: Pre-built solutions with easy setup guides and support. You don't need to be technical. We'll guide you through the process or handle it entirely for you."
+  },
+  {
+    question: "How long does a custom integration project take?",
+    answer: "Project timelines vary based on complexity: Simple API connections: 1-2 weeks, Multi-system workflows: 2-4 weeks, Complex enterprise integrations: 4-8+ weeks. We provide detailed timelines during consultation after understanding your requirements."
+  },
+  {
+    question: "Do you provide ongoing maintenance and support?",
+    answer: "Yes! All our solutions include: Initial setup support, Bug fixes and troubleshooting, Regular updates and security patches, and 24/7 technical support via email/chat. Custom development projects can include ongoing maintenance contracts for continuous improvements and modifications."
+  },
+  {
+    question: "Can you work with APIs that require special authentication?",
+    answer: "Yes! We have experience with various authentication methods including: OAuth 2.0, API keys, JWT tokens, Custom authentication protocols, Two-factor authentication systems, and Enterprise security requirements. Our team can handle even the most complex authentication requirements."
+  },
+  {
+    question: "What platforms and technologies do you work with?",
+    answer: "We work with a wide range of technologies: Programming: Python, JavaScript, VBA, Node.js, PHP; Platforms: Web APIs, Cloud services (AWS, Azure, Google Cloud); Trading: MetaTrader 4/5, TradingView, Telegram; Business: Shopify, Salesforce, QuickBooks, and 100+ other platforms; Databases: MySQL, PostgreSQL, MongoDB, SQL Server. If your system has an API or database access, we can likely integrate with it."
   }
 ];
 

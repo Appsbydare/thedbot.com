@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRef } from "react";
 import MatrixBackground from "./MatrixBackground";
 
@@ -14,14 +15,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">DB</span>
-              </div>
+            <Link href="/" className="flex items-center space-x-2">
+              <Image src="/db-logo.png" alt="theDBot Logo" width={96} height={96} className="w-16 h-16" />
               <span className="text-xl font-bold text-foreground">theDBot</span>
-            </div>
+            </Link>
             <p className="text-muted-foreground text-sm max-w-xs">
-              Professional automation solutions for MT4/MT5 and TradingView platforms.
+              Professional automation solutions for trading platforms, business systems, and custom API integrations.
             </p>
           </div>
 
@@ -30,13 +29,22 @@ export default function Footer() {
             <h3 className="text-foreground font-semibold">Products</h3>
             <nav className="space-y-2">
               <Link href="/products?category=forex" className="block text-muted-foreground hover:text-foreground transition-colors text-sm">
-                Forex Bots
+                Trading Automation
               </Link>
-              <Link href="/products?category=automation" className="block text-muted-foreground hover:text-foreground transition-colors text-sm">
-                Signal Executors
+              <Link href="/products?category=business" className="block text-muted-foreground hover:text-foreground transition-colors text-sm">
+                Business Workflow Solutions
               </Link>
-              <Link href="/products?category=indicators" className="block text-muted-foreground hover:text-foreground transition-colors text-sm">
-                Indicators
+              <Link href="/products?category=api" className="block text-muted-foreground hover:text-foreground transition-colors text-sm">
+                API Integration Services
+              </Link>
+              <Link href="/contact" className="block text-muted-foreground hover:text-foreground transition-colors text-sm">
+                Custom Development
+              </Link>
+              <Link href="/products?category=data" className="block text-muted-foreground hover:text-foreground transition-colors text-sm">
+                Data Synchronization
+              </Link>
+              <Link href="/products?category=communication" className="block text-muted-foreground hover:text-foreground transition-colors text-sm">
+                Communication Tools
               </Link>
             </nav>
           </div>
@@ -74,12 +82,14 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-border mt-8 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="border-t border-border mt-8 pt-8 flex flex-col items-center justify-center gap-4 text-center">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} theDBot. All rights reserved.
+            © {new Date().getFullYear()} the DBot LLC. All rights reserved.
           </p>
-          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-sm text-muted-foreground text-center sm:text-right">
-            <span>MetaTrader, MT4, and MT5 are trademarks of MetaQuotes Software Corp. Telegram is a trademark of Telegram FZ-LLC. TradingView is a trademark of TradingView, Inc. theDBot is an independent third-party application not affiliated with, endorsed by, or sponsored by these companies.</span>
+          <div className="max-w-4xl">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              All product names, logos, brands, trademarks and registered trademarks are property of their respective owners. All company, product and service names used in this website are for identification purposes only. Use of these names, trademarks and brands does not imply endorsement. theDBot is an independent service provider not affiliated with or endorsed by any third-party platforms mentioned.
+            </p>
           </div>
         </div>
       </div>
