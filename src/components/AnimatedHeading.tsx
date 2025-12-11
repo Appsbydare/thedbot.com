@@ -287,63 +287,21 @@ export default function AnimatedHeading({ children, className = "", enablePerspe
         });
       });
 
-      // Restore default positioning: first line left, second line right
-      // For single-line headings, use the lineStyle prop
-      if (lines.length === 1) {
-        const allSpans = lines[0] || [];
-        const xOffset = lineStyle === "second" ? 80 : -150;
-        allSpans.forEach((span) => {
-          gsap.to(span, {
-            x: xOffset,
-            duration: 0.4,
-            ease: "power2.out",
-          });
+      // Restore default positioning: return to x: 0 (alignment handled by CSS)
+      charSpans.forEach((span) => {
+        gsap.to(span, {
+          x: 0,
+          duration: 0.4,
+          ease: "power2.out",
         });
-      } else {
-        firstLineSpans.forEach((span) => {
-          gsap.to(span, {
-            x: -150,
-            duration: 0.4,
-            ease: "power2.out",
-          });
-        });
-
-        secondLineSpans.forEach((span) => {
-          gsap.to(span, {
-            x: 80,
-            duration: 0.4,
-            ease: "power2.out",
-          });
-        });
-      }
+      });
     };
 
     // Initially set to default state
     heading.classList.add("heading-default");
 
-    // Apply default positioning: first line left, second line right (skip for why-choose)
-    if (!isWhyChoose) {
-      // For single-line headings, use the lineStyle prop to determine positioning
-      if (lines.length === 1) {
-        const allSpans = lines[0] || [];
-        const xOffset = lineStyle === "second" ? 80 : -150;
-        allSpans.forEach((span) => {
-          gsap.set(span, { x: xOffset });
-        });
-      } else {
-        firstLineSpans.forEach((span) => {
-          gsap.set(span, {
-            x: -150,
-          });
-        });
-
-        secondLineSpans.forEach((span) => {
-          gsap.set(span, {
-            x: 80,
-          });
-        });
-      }
-    }
+    // Apply default positioning: no x offset - alignment is handled by parent container
+    // Skip default x positioning for all headings
 
     containerRef.current?.addEventListener("mouseenter", handleMouseEnter);
     containerRef.current?.addEventListener("mouseleave", handleMouseLeave);

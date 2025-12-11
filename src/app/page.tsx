@@ -11,15 +11,21 @@ export default function Home() {
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="text-center space-y-8">
             <div className="space-y-2">
-              <AnimatedHeading enablePerspective={false} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.9] uppercase cursor-heading">
-                AUTOMATED
-              </AnimatedHeading>
-              <AnimatedHeading enablePerspective={false} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.9] uppercase cursor-heading">
-                EXECUTION
-              </AnimatedHeading>
-              <AnimatedHeading enablePerspective={false} lineStyle="second" className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.9] uppercase cursor-heading">
-                MADE SIMPLE
-              </AnimatedHeading>
+              <div className="text-left">
+                <AnimatedHeading enablePerspective={false} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.9] uppercase cursor-heading inline-block">
+                  AUTOMATED
+                </AnimatedHeading>
+              </div>
+              <div className="text-left">
+                <AnimatedHeading enablePerspective={false} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.9] uppercase cursor-heading inline-block">
+                  EXECUTION
+                </AnimatedHeading>
+              </div>
+              <div className="text-right">
+                <AnimatedHeading enablePerspective={false} lineStyle="second" className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.9] uppercase cursor-heading inline-block">
+                  MADE SIMPLE
+                </AnimatedHeading>
+              </div>
               <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed pt-6">
                 Automation software that turns Telegram or TradingView signals into instant orders on MetaTrader 5/4 with built-in risk controls.
                 <br />
