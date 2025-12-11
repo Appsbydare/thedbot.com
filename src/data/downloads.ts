@@ -26,9 +26,9 @@ export type ProductDownload = {
 
 export const downloads: ProductDownload[] = [
   {
-    productId: 'telegram-trading-bot',
-    productName: 'Telegram Trading Bot (AutoTrader Gold V8)',
-    description: 'Professional automated trading solution that bridges Telegram signal channels with MetaTrader 5.',
+    productId: 'telegram-auto-executor',
+    productName: 'Telegram Auto Executor (AutoTrader Gold V8)',
+    description: 'Professional automation bridge that moves Telegram signal instructions into MetaTrader 5.',
     systemRequirements: [
       'Windows 10 or later (64-bit)',
       'MetaTrader 5 platform installed',
@@ -42,7 +42,7 @@ export const downloads: ProductDownload[] = [
         version: 'V8.2.11',
         releaseDate: '2024-10-20',
         // TODO: Replace with your actual GitHub release URL or hosting URL
-        downloadUrl: 'https://github.com/YOUR_USERNAME/YOUR_REPO/releases/download/v8.2.11/TradingBot_V8.2.11.exe',
+        downloadUrl: 'https://github.com/YOUR_USERNAME/YOUR_REPO/releases/download/v8.2.11/AutoExecutor_V8.2.11.exe',
         fileSize: '45 MB',
         changelog: [
           'Enhanced signal parsing with 35+ regex patterns',

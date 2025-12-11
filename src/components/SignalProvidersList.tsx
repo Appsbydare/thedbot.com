@@ -10,7 +10,7 @@ interface SignalProvidersListProps {
 
 export default function SignalProvidersList({ providers }: SignalProvidersListProps) {
   const [sortBy, setSortBy] = useState<'winRate' | 'subscribers' | 'totalProfit' | 'sharpeRatio'>('winRate');
-  const [filterBy, setFilterBy] = useState<'all' | 'crypto' | 'forex' | 'stocks' | 'indices' | 'mixed'>('all');
+  const [filterBy, setFilterBy] = useState<'all' | 'digital-assets' | 'forex' | 'stocks' | 'indices' | 'mixed'>('all');
   const [riskFilter, setRiskFilter] = useState<'all' | 'low' | 'medium' | 'high'>('all');
 
   const filteredAndSortedProviders = useMemo(() => {
@@ -54,7 +54,7 @@ export default function SignalProvidersList({ providers }: SignalProvidersListPr
 
   const getSpecializationBadgeColor = (specialization: string) => {
     switch (specialization) {
-      case 'crypto': return 'bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300 border border-blue-200 dark:border-blue-800';
+      case 'digital-assets': return 'bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300 border border-blue-200 dark:border-blue-800';
       case 'forex': return 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800';
       case 'stocks': return 'bg-violet-50 text-violet-700 dark:bg-violet-950 dark:text-violet-300 border border-violet-200 dark:border-violet-800';
       case 'indices': return 'bg-orange-50 text-orange-700 dark:bg-orange-950 dark:text-orange-300 border border-orange-200 dark:border-orange-800';
@@ -64,9 +64,18 @@ export default function SignalProvidersList({ providers }: SignalProvidersListPr
   };
 
   const formatTradingStyle = (style: string) => {
-    return style.split('-').map(word =>
-      word.charAt(0).toUpperCase() + word.slice(1)
-    ).join(' ');
+    const labels: Record<string, string> = {
+      'scalping': 'Scalping',
+      'day-trading': 'Day Execution',
+      'swing': 'Swing',
+      'long-term': 'Long Term'
+    };
+    return labels[style] ?? style.replace(/-/g, ' ');
+  };
+
+  const formatSpecialization = (specialization: string) => {
+    if (specialization === 'digital-assets') return 'Digital Assets';
+    return specialization.toUpperCase();
   };
 
   return (
@@ -88,11 +97,11 @@ export default function SignalProvidersList({ providers }: SignalProvidersListPr
 
             <select
               value={filterBy}
-              onChange={(e) => setFilterBy(e.target.value as 'all' | 'crypto' | 'forex' | 'stocks' | 'indices' | 'mixed')}
+              onChange={(e) => setFilterBy(e.target.value as 'all' | 'digital-assets' | 'forex' | 'stocks' | 'indices' | 'mixed')}
               className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
             >
               <option value="all">All Specializations</option>
-              <option value="crypto">Cryptocurrency</option>
+              <option value="digital-assets">Digital Assets</option>
               <option value="forex">Forex</option>
               <option value="stocks">Stocks</option>
               <option value="indices">Indices</option>
@@ -132,7 +141,7 @@ export default function SignalProvidersList({ providers }: SignalProvidersListPr
                 </h3>
                 <div className="flex items-center gap-2 mb-2">
                   <span className={`px-2 py-1 text-xs font-medium rounded-full ${getSpecializationBadgeColor(provider.specialization)}`}>
-                    {provider.specialization.toUpperCase()}
+                    {formatSpecialization(provider.specialization)}
                   </span>
                   <span className={`px-2 py-1 text-xs font-medium rounded-full ${getRiskBadgeColor(provider.riskLevel)}`}>
                     {provider.riskLevel.toUpperCase()} RISK

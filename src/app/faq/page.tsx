@@ -11,27 +11,27 @@ const faqs = [
   },
   {
     question: "What payment methods do you accept?",
-    answer: "We accept various cryptocurrencies including Bitcoin, Ethereum, USDT, and other major cryptocurrencies through secure payment gateways. All payments are processed instantly and securely."
+    answer: "We accept digital asset payments (USDT, BTC, ETH, and more) through secure gateways. All payments are processed instantly and securely."
   },
   {
     question: "Can I use the bot on multiple accounts?",
     answer: "No, each license is valid for one MT4/MT5 account only. This prevents unauthorized sharing and ensures fair usage. If you need multiple accounts, you'll need to purchase additional licenses."
   },
   {
-    question: "How do I install the trading bot?",
-    answer: "After purchase, you'll receive detailed installation instructions via email. Our Python-based bots integrate with MT4/MT5 through APIs and include Telegram integration for signal notifications. Our support team is available to help with setup."
+    question: "How do I install the automation?",
+    answer: "After purchase, you'll receive detailed installation instructions via email. Our Python-based automations integrate with MT4/MT5 through APIs and include Telegram integration for signal notifications. Our support team is available to help with setup."
   },
   {
     question: "Do you offer refunds?",
-    answer: "We offer a 7-day money-back guarantee if the bot doesn't work as advertised on your system. However, refunds are not available for indicators or if the bot has been used for live trading."
+    answer: "We offer a 7-day money-back guarantee if the automation doesn't work as advertised on your system. However, refunds are not available for indicators or if the software has been used on live accounts."
   },
   {
     question: "What kind of support do you provide?",
     answer: "We provide email support, installation assistance, and access to our knowledge base. Premium support with priority response is available for enterprise customers."
   },
   {
-    question: "Are the bots tested and safe?",
-    answer: "All our Python-based bots are thoroughly backtested and tested on demo accounts before release. They include built-in risk management features and are designed to be safe for live trading when used properly."
+    question: "Are the automations tested and safe?",
+    answer: "All our Python-based automations are thoroughly tested on demo accounts before release. They include built-in risk management features and are designed to be safe for live environments when used properly."
   },
   {
     question: "Do you provide updates?",
@@ -43,7 +43,7 @@ const faqs = [
   },
   {
     question: "Can I modify the bot settings?",
-    answer: "Yes, all our Python bots come with customizable parameters that you can adjust to match your trading strategy and risk tolerance. We provide documentation for all available settings."
+    answer: "Yes, all our Python bots come with customizable parameters that you can adjust to match your execution strategy and risk tolerance. We provide documentation for all available settings."
   },
   {
     question: "What are the system requirements?",
@@ -54,12 +54,12 @@ const faqs = [
     answer: "Yes, you receive the complete Python source code with your purchase, allowing you to understand how the bot works and make custom modifications if needed."
   },
   {
-    question: "Do I need approval from Telegram to use the Telegram Trading Bot?",
+    question: "Do I need approval from Telegram to use the Telegram Auto Executor?",
     answer: "No formal approval is needed. You must use your own Telegram API credentials (free from my.telegram.org) and comply with Telegram's Terms of Service."
   },
   {
-    question: "Does my broker need to allow automated trading?",
-    answer: "Yes. Many products require Expert Advisors (EAs). Please confirm your broker allows automated trading before purchase."
+    question: "Does my broker need to allow automated execution?",
+    answer: "Yes. Many products require Expert Advisors (EAs). Please confirm your broker allows automated execution before purchase."
   },
   {
     question: "What is your refund policy?",
@@ -110,7 +110,7 @@ export default function FAQPage() {
               QUESTIONS
             </AnimatedHeading>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Find answers to common questions about our trading bots, licensing, payments, and support
+              Find answers to common questions about our automation software, licensing, payments, and support
             </p>
           </div>
         </div>

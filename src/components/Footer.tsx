@@ -14,7 +14,7 @@ export default function Footer() {
               <span className="text-xl font-bold text-foreground">theDBot</span>
             </div>
             <p className="text-muted-foreground text-sm max-w-xs">
-              Professional automated trading solutions for MT4/MT5 and TradingView platforms.
+              Professional automation solutions for MT4/MT5 and TradingView platforms.
             </p>
           </div>
 
@@ -25,8 +25,8 @@ export default function Footer() {
               <Link href="/products?category=forex" className="block text-muted-foreground hover:text-foreground transition-colors text-sm">
                 Forex Bots
               </Link>
-              <Link href="/products?category=crypto" className="block text-muted-foreground hover:text-foreground transition-colors text-sm">
-                Crypto Bots
+              <Link href="/products?category=automation" className="block text-muted-foreground hover:text-foreground transition-colors text-sm">
+                Signal Executors
               </Link>
               <Link href="/products?category=indicators" className="block text-muted-foreground hover:text-foreground transition-colors text-sm">
                 Indicators

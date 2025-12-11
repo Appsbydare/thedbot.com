@@ -11,9 +11,14 @@ if (typeof window !== "undefined") {
 interface AnimatedHeadingProps {
   children: React.ReactNode;
   className?: string;
+  /**
+   * Enables the per-character perspective/scale effect.
+   * Set to false to keep entrance/hover motion without the 3D stretch.
+   */
+  enablePerspective?: boolean;
 }
 
-export default function AnimatedHeading({ children, className = "" }: AnimatedHeadingProps) {
+export default function AnimatedHeading({ children, className = "", enablePerspective = true }: AnimatedHeadingProps) {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const hasAnimated = useRef(false);
@@ -95,6 +100,7 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
 
     // Check if this is the why-choose section (no 3D perspective)
     const isWhyChoose = heading.classList.contains("cursor-heading-why-choose");
+    const perspectiveEnabled = enablePerspective && !isWhyChoose;
 
     // Apply 3D perspective scaling to letters (skip for why-choose)
     lines.forEach((line, lineIndex) => {
@@ -104,21 +110,19 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
           const totalChars = line.length;
           let scale = 1;
           
-          if (!isWhyChoose) {
-            // Only apply 3D perspective for non-why-choose sections
+          if (perspectiveEnabled) {
+            // Only apply 3D perspective when enabled and not the why-choose variant
             if (lineIndex === 0) {
-              // First line: start big, end small - increased perspective even more
               const progress = charIndex / (totalChars - 1 || 1);
               scale = 1.5 - (progress * 0.6); // From 1.5 to 0.9 (more dramatic)
               span.setAttribute("data-line", "first");
             } else if (lineIndex === 1) {
-              // Second line: start small, end big (opposite) - increased perspective even more
               const progress = charIndex / (totalChars - 1 || 1);
               scale = 0.9 + (progress * 0.6); // From 0.9 to 1.5 (more dramatic)
               span.setAttribute("data-line", "second");
             }
           } else {
-            // For why-choose: no 3D perspective, just set line attribute
+            // Without perspective, still tag lines for hover motion
             if (lineIndex === 0) {
               span.setAttribute("data-line", "first");
             } else if (lineIndex === 1) {
@@ -126,7 +130,7 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
             }
           }
           
-          span.style.transform = isWhyChoose ? "none" : `scaleY(${scale})`;
+          span.style.transform = perspectiveEnabled ? `scaleY(${scale})` : "none";
           span.setAttribute("data-default-scale", scale.toString());
         }
       });
@@ -154,7 +158,7 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
         const initialScale = parseFloat(span.getAttribute("data-default-scale") || "1");
         span.style.opacity = "0";
         gsap.set(span, {
-          scaleY: initialScale,
+          scaleY: perspectiveEnabled ? initialScale : 1,
           x: -200,
         });
         
@@ -178,7 +182,7 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
         const initialScale = parseFloat(span.getAttribute("data-default-scale") || "1");
         span.style.opacity = "0";
         gsap.set(span, {
-          scaleY: initialScale,
+          scaleY: perspectiveEnabled ? initialScale : 1,
           x: 200,
         });
         
@@ -216,7 +220,7 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
         const isFirstLine = span.getAttribute("data-line") === "first";
         
         gsap.to(span, {
-          scaleY: 1,
+          scaleY: perspectiveEnabled ? 1 : 1,
           fontSize: isFirstLine ? "1.3em" : "1.0em",
           duration: 0.4,
           ease: "power2.out",
@@ -267,7 +271,7 @@ export default function AnimatedHeading({ children, className = "" }: AnimatedHe
       charSpans.forEach((span) => {
         const defaultScale = parseFloat(span.getAttribute("data-default-scale") || "1");
         gsap.to(span, {
-          scaleY: defaultScale,
+          scaleY: perspectiveEnabled ? defaultScale : 1,
           fontSize: "",
           duration: 0.4,
           ease: "power2.out",

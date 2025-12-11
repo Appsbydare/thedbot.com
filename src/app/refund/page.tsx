@@ -37,9 +37,9 @@ export default function RefundPage() {
                 <h2 className="text-3xl font-bold text-foreground mb-6">Not Eligible</h2>
                 <div className="space-y-4 text-muted-foreground">
                   <ul className="list-disc list-inside space-y-2">
-                    <li>Trading losses or performance-related outcomes</li>
+                    <li>Market losses or performance-related outcomes</li>
                     <li>Change of mind after successful installation and activation</li>
-                    <li>Incompatibility with your broker&apos;s restrictions on automated trading</li>
+                    <li>Incompatibility with your broker&apos;s restrictions on automated execution</li>
                     <li>Refund requests after the 7-day window</li>
                   </ul>
                 </div>

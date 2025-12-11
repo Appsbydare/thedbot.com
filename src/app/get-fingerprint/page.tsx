@@ -55,11 +55,11 @@ export default function GetFingerprintPage() {
               <div className="flex-1">
                 <h3 className="text-lg font-semibold text-white mb-2">Download the Application</h3>
                 <p className="text-gray-300 mb-3">
-                  Download the Telegram Trading Bot application to your computer. The application will automatically 
+                  Download the Telegram Auto Executor application to your computer. The application will automatically 
                   detect and display your hardware fingerprint.
                 </p>
                 <Link 
-                  href="/products/telegram-trading-bot" 
+                  href="/products/telegram-auto-executor" 
                   className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
                 >
                   Download Application
@@ -113,7 +113,7 @@ export default function GetFingerprintPage() {
                   <span className="text-xl">⚠️</span>
                   <p className="text-sm">
                     <strong>Important:</strong> Make sure you run the application on the computer where you plan 
-                    to use the trading bot. Your license will be bound to this specific hardware fingerprint.
+                    to use the automation. Your license will be bound to this specific hardware fingerprint.
                   </p>
                 </div>
               </div>
@@ -131,7 +131,7 @@ export default function GetFingerprintPage() {
                   to enter it during the payment process.
                 </p>
                 <Link 
-                  href="/products/telegram-trading-bot" 
+                  href="/products/telegram-auto-executor" 
                   className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
                 >
                   <CheckCircle className="size-5" />

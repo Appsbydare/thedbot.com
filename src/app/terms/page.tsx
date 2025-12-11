@@ -26,7 +26,7 @@ export default function TermsPage() {
                 <h2 className="text-3xl font-bold text-foreground mb-6">Introduction</h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    These Terms and Conditions (&quot;Terms&quot;) govern your use of theDBot&apos;s trading automation software, 
+                    These Terms and Conditions (&quot;Terms&quot;) govern your use of theDBot&apos;s automation software, 
                     services, and website. By accessing or using our services, you agree to be bound by these Terms.
                   </p>
                   <p>
@@ -42,10 +42,10 @@ export default function TermsPage() {
                 <div className="space-y-4 text-muted-foreground">
                   <div className="bg-muted p-6 rounded-lg">
                     <ul className="space-y-2 list-disc list-inside">
-                      <li><strong>Service:</strong> Our Python-based trading bots, indicators, and related software</li>
+                      <li><strong>Service:</strong> Our Python-based automation bots, indicators, and related software</li>
                       <li><strong>User:</strong> Any individual or entity using our services</li>
                       <li><strong>License:</strong> The right to use our software on a single MT4/MT5 account</li>
-                      <li><strong>Platform:</strong> MetaTrader 4/5 trading platforms</li>
+                      <li><strong>Platform:</strong> MetaTrader 4/5 platforms</li>
                       <li><strong>API:</strong> Application Programming Interface for MT4/MT5 integration</li>
                     </ul>
                   </div>
@@ -57,7 +57,7 @@ export default function TermsPage() {
                 <h2 className="text-3xl font-bold text-foreground mb-6">License Terms</h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    By purchasing our trading automation software, you are granted a limited, non-exclusive, 
+                    By purchasing our automation software, you are granted a limited, non-exclusive, 
                     non-transferable license to use the Python-based software on a single MT4/MT5 account.
                   </p>
                   <div className="bg-muted p-6 rounded-lg">
@@ -85,7 +85,7 @@ export default function TermsPage() {
                                      <div className="bg-muted p-6 rounded-lg">
                      <h3 className="text-xl font-semibold text-foreground mb-4">United States (USA):</h3>
                     <ul className="space-y-2 list-disc list-inside">
-                      <li>Compliance with CFTC regulations for automated trading</li>
+                      <li>Compliance with CFTC regulations for automated execution</li>
                       <li>Adherence to SEC guidelines for financial software</li>
                       <li>GDPR compliance for EU users</li>
                       <li>State-specific regulations where applicable</li>
@@ -120,18 +120,18 @@ export default function TermsPage() {
                  <h2 className="text-3xl font-bold text-foreground mb-6">Usage Terms</h2>
                  <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Our Python-based trading bots are designed for educational and trading purposes. 
-                    Users are responsible for their own trading decisions and risk management.
+                    Our Python-based automation bots are designed for educational and operational purposes. 
+                    Users are responsible for their own account decisions and risk management.
                   </p>
                                      <div className="bg-muted p-6 rounded-lg">
                      <h3 className="text-xl font-semibold text-foreground mb-4">User Responsibilities:</h3>
                     <ul className="space-y-2 list-disc list-inside">
-                      <li>Test all bots on demo accounts before live trading</li>
-                      <li>Understand the risks involved in automated trading</li>
+                      <li>Test all bots on demo accounts before live deployment</li>
+                      <li>Understand the risks involved in automated execution</li>
                       <li>Monitor bot performance and adjust settings as needed</li>
                       <li>Ensure proper risk management and position sizing</li>
                       <li>Keep Python environment and dependencies updated</li>
-                      <li>Comply with local trading regulations and broker terms</li>
+                      <li>Comply with local financial regulations and broker terms</li>
                       <li>Maintain secure API credentials and access</li>
                     </ul>
                   </div>
@@ -143,14 +143,14 @@ export default function TermsPage() {
                  <h2 className="text-3xl font-bold text-foreground mb-6">Payment Terms</h2>
                  <div className="space-y-4 text-muted-foreground">
                   <p>
-                    All payments are processed securely through cryptocurrency payment gateways. 
+                    All payments are processed securely through digital asset payment gateways. 
                     Prices are listed in USD but may be converted to your local currency.
                   </p>
                                      <div className="bg-muted p-6 rounded-lg">
                      <h3 className="text-xl font-semibold text-foreground mb-4">Payment Information:</h3>
                     <ul className="space-y-2 list-disc list-inside">
                       <li>All prices are final and non-negotiable</li>
-                      <li>Payments are processed in cryptocurrency only</li>
+                      <li>Payments are processed in digital assets only</li>
                       <li>License delivery occurs after payment confirmation</li>
                       <li>No recurring fees or subscriptions</li>
                       <li>Refunds available within 7 days for unused licenses</li>
@@ -171,7 +171,7 @@ export default function TermsPage() {
                      <h3 className="text-xl font-semibold text-foreground mb-4">Refund Conditions:</h3>
                     <ul className="space-y-2 list-disc list-inside">
                       <li>Request must be made within 7 days of purchase</li>
-                      <li>Bot must not have been used for live trading</li>
+                      <li>Bot must not have been used on live accounts</li>
                       <li>Technical issues that cannot be resolved by our support team</li>
                       <li>No refunds for indicators or used licenses</li>
                       <li>Refunds processed in the original payment method</li>
@@ -230,10 +230,10 @@ export default function TermsPage() {
                   <div className="bg-red-900/20 border border-red-700/50 p-6 rounded-lg">
                     <h3 className="text-xl font-semibold text-red-400 mb-4">Important Disclaimers:</h3>
                     <ul className="space-y-2 list-disc list-inside">
-                      <li>Trading involves substantial risk of loss and is not suitable for all investors</li>
+                      <li>Markets involve substantial risk of loss and are not suitable for all users</li>
                       <li>Past performance does not guarantee future results</li>
-                      <li>Automated trading systems can result in losses</li>
-                      <li>We are not responsible for trading losses or financial damages</li>
+                      <li>Automated execution systems can result in losses</li>
+                      <li>We are not responsible for financial losses or damages</li>
                       <li>Users should always test on demo accounts first</li>
                       <li>API connectivity issues are beyond our control</li>
                       <li>Market conditions may affect bot performance</li>
@@ -254,7 +254,7 @@ export default function TermsPage() {
                     <ul className="space-y-2 list-disc list-inside">
                       <li>Maximum liability: Purchase price of the license</li>
                       <li>No consequential or indirect damages</li>
-                      <li>No liability for trading losses</li>
+                      <li>No liability for financial losses</li>
                       <li>No liability for data loss or corruption</li>
                       <li>Force majeure events excluded</li>
                     </ul>

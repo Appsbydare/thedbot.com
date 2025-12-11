@@ -28,7 +28,7 @@ export default function PrivacyPage() {
                   <p>
                     At theDBot, we are committed to protecting your privacy and ensuring the security of your personal information. 
                     This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our 
-                    trading bots, indicators, and related services.
+                    automation bots, indicators, and related services.
                   </p>
                   <p>
                     By using our services, you agree to the collection and use of information in accordance with this policy. 

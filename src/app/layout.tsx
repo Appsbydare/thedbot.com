@@ -25,8 +25,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "theDBot — Automated Trading Tools",
-  description: "Trading bots, signal executors, and indicators for MT4/MT5 & TradingView.",
+  title: "theDBot — Automated Execution Tools",
+  description: "Automation software, signal executors, and indicators for MT4/MT5 & TradingView.",
 };
 
 export default function RootLayout({

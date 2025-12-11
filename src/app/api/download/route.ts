@@ -3,7 +3,7 @@ import { LicensesRepo } from "@/lib/repos";
 
 const files: Record<string, string> = {
   "forex-ma-bot.txt": "Thank you for purchasing Forex MA Bot Pro. Your license is valid.",
-  "telegram-trading-bot.txt": "Thank you for purchasing Telegram Trading Bot. Your license is valid.",
+  "telegram-auto-executor.txt": "Thank you for purchasing Telegram Auto Executor. Your license is valid.",
   "rsi-divergence.txt": "Thank you for purchasing RSI Divergence Indicator. Your license is valid.",
 };
 

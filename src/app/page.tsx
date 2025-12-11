@@ -11,15 +11,15 @@ export default function Home() {
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="text-center space-y-8">
             <div className="space-y-4">
-              <AnimatedHeading className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.95] uppercase cursor-heading">
+              <AnimatedHeading enablePerspective={false} className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.95] uppercase cursor-heading">
                 AUTOMATED
                 <br />
-                TRADING MADE SIMPLE
+                EXECUTION MADE SIMPLE
               </AnimatedHeading>
               <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Professional trading bots, signal executors, and indicators for MT4/MT5 & TradingView.
+                Automation software that turns Telegram or TradingView signals into instant orders on MetaTrader 5/4 with built-in risk controls.
                 <br />
-                <span className="text-accent font-semibold">Crypto payments • Instant delivery • Secure licensing</span>
+                <span className="text-accent font-semibold">Automate order execution when a Telegram signal arrives in MetaTrader 5 • Instant delivery • Secure licensing</span>
               </p>
             </div>
             
@@ -52,7 +52,7 @@ export default function Home() {
               theDBot
             </AnimatedHeading>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mt-4">
-              Professional-grade trading automation with enterprise-level security and support
+              Professional-grade automation with enterprise-level security and support
             </p>
           </div>
 
@@ -97,12 +97,12 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center mb-16">
             <AnimatedHeading className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.95] cursor-heading cursor-heading-why-choose mb-4">
-              TRADING
+              AUTOMATION
               <br />
               CATEGORIES
             </AnimatedHeading>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mt-4">
-              Choose from our comprehensive range of automated trading solutions
+              Choose from our comprehensive range of automation solutions
             </p>
           </div>
 
@@ -111,28 +111,28 @@ export default function Home() {
               <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-600/20 dark:to-blue-800/20 p-8 h-80 hover:from-blue-200 hover:to-blue-300 dark:hover:from-blue-600/30 dark:hover:to-blue-800/30 transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent dark:from-black/60 dark:to-transparent"></div>
                 <div className="relative z-10 h-full flex flex-col justify-end">
-                  <h3 className="text-3xl font-bold text-foreground dark:text-white mb-4">Forex Bots</h3>
+                  <h3 className="text-3xl font-bold text-foreground dark:text-white mb-4">Forex Automation</h3>
                   <p className="text-muted-foreground dark:text-gray-300 mb-6">
-                    Advanced currency trading automation with multi-pair support and risk management
+                    Advanced currency automation with multi-pair support and risk management
                   </p>
                   <div className="flex items-center text-accent group-hover:text-accent/80 transition-colors">
-                    <span className="font-semibold">Explore Forex</span>
+                    <span className="font-semibold">Explore Forex Automation</span>
                     <ArrowRight className="size-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </div>
             </Link>
 
-            <Link href="/products?category=crypto" className="group">
+            <Link href="/products?category=automation" className="group">
               <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-100 to-green-200 dark:from-green-600/20 dark:to-green-800/20 p-8 h-80 hover:from-green-200 hover:to-green-300 dark:hover:from-green-600/30 dark:hover:to-green-800/30 transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent dark:from-black/60 dark:to-transparent"></div>
                 <div className="relative z-10 h-full flex flex-col justify-end">
-                  <h3 className="text-3xl font-bold text-foreground dark:text-white mb-4">Crypto Bots</h3>
+                  <h3 className="text-3xl font-bold text-foreground dark:text-white mb-4">Signal Executors</h3>
                   <p className="text-muted-foreground dark:text-gray-300 mb-6">
-                    High-frequency cryptocurrency trading with advanced market analysis algorithms
+                    Automate execution from Telegram or TradingView signals directly into MT5
                   </p>
                   <div className="flex items-center text-accent group-hover:text-accent/80 transition-colors">
-                    <span className="font-semibold">Explore Crypto</span>
+                    <span className="font-semibold">Explore Executors</span>
                     <ArrowRight className="size-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
@@ -164,11 +164,11 @@ export default function Home() {
           <AnimatedHeading className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.95] cursor-heading cursor-heading-why-choose mb-6">
               READY TO START
               <br />
-              AUTOMATED TRADING
+              AUTOMATED EXECUTION
           </AnimatedHeading>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join thousands of traders who trust theDBot for their automated trading needs. 
-            Start with a free demo or purchase your first bot today.
+            Join thousands of teams who trust theDBot for automated order execution. 
+            Start with a free demo or launch your first automation today.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
             <Link

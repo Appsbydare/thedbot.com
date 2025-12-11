@@ -57,7 +57,7 @@ export default function PaymentModal({ productId, productName, amountUSD, isOpen
     }
 
     if (selectedPaymentMethod === 'card') {
-      alert('Card payments coming soon! Please use cryptocurrency for now.')
+      alert('Card payments coming soon! Please use the alternative payment option for now.')
       return
     }
 
@@ -202,7 +202,7 @@ export default function PaymentModal({ productId, productName, amountUSD, isOpen
 
           {/* Payment Methods */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Select Payment Method</h3>
+          <h3 className="text-lg font-semibold text-white mb-4">Select Payment Method</h3>
             <div className="space-y-3">
               
               {/* Card Payment - Coming Soon */}
@@ -230,12 +230,12 @@ export default function PaymentModal({ productId, productName, amountUSD, isOpen
                 </div>
               </button>
 
-              {/* Cryptocurrency */}
+              {/* Digital Asset Payment */}
               <button
                 type="button"
-                onClick={() => setSelectedPaymentMethod('crypto')}
+                onClick={() => setSelectedPaymentMethod('digital')}
                 className={`w-full p-4 rounded-lg border-2 transition-all ${
-                  selectedPaymentMethod === 'crypto'
+                  selectedPaymentMethod === 'digital'
                     ? 'border-blue-500 bg-blue-500/10'
                     : 'border-gray-600 bg-gray-700/50 hover:border-gray-500'
                 }`}
@@ -245,8 +245,8 @@ export default function PaymentModal({ productId, productName, amountUSD, isOpen
                   <div className="flex items-center gap-3">
                     <div className="text-2xl">₿</div>
                     <div className="text-left">
-                      <div className="text-white font-semibold">Cryptocurrency</div>
-                      <div className="text-sm text-gray-400">USDT, Bitcoin, Ethereum & more</div>
+                      <div className="text-white font-semibold">Digital Asset Payment</div>
+                      <div className="text-sm text-gray-400">USDT, BTC, ETH & more</div>
                     </div>
                   </div>
                   <span className="bg-green-600 text-green-100 text-xs font-semibold px-3 py-1 rounded-full">
@@ -271,7 +271,7 @@ export default function PaymentModal({ productId, productName, amountUSD, isOpen
                     <div className="text-2xl">🟡</div>
                     <div className="text-left">
                       <div className="text-white font-semibold">Binance Pay</div>
-                      <div className="text-sm text-gray-400">Quick crypto payment via Binance</div>
+                      <div className="text-sm text-gray-400">Quick digital asset payment via Binance</div>
                     </div>
                   </div>
                   <span className="bg-yellow-600 text-yellow-100 text-xs font-semibold px-3 py-1 rounded-full">
@@ -289,11 +289,11 @@ export default function PaymentModal({ productId, productName, amountUSD, isOpen
             <div className="text-sm text-gray-300 space-y-2 max-h-40 overflow-y-auto">
               <p>• All purchases are final and non-refundable once the license key has been delivered.</p>
               <p>• Your license key will be sent to the provided email address within 24 hours of payment confirmation.</p>
-              <p>• Each license is valid for one trading account activation only.</p>
-              <p>• Cryptocurrency payments may take up to 1 hour for blockchain confirmation.</p>
+              <p>• Each license is valid for one account activation only.</p>
+              <p>• Digital asset payments may take up to 1 hour for blockchain confirmation.</p>
               <p>• You agree to use the software in accordance with our Terms of Service.</p>
               <p>• Technical support is provided as specified in the product description.</p>
-              <p>• We do not provide financial advice. Trading carries risk.</p>
+              <p>• We do not provide financial advice. Markets carry risk.</p>
             </div>
             
             <label className="flex items-start gap-3 mt-4 cursor-pointer">
@@ -305,7 +305,7 @@ export default function PaymentModal({ productId, productName, amountUSD, isOpen
                 disabled={isProcessing}
               />
               <span className="text-sm text-gray-300">
-                I agree to the terms and conditions, and understand that cryptocurrency payments are non-refundable *
+                I agree to the terms and conditions, and understand that digital asset payments are non-refundable *
               </span>
             </label>
           </div>

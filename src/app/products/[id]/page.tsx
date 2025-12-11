@@ -98,7 +98,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                 {/* Product Icon */}
                 <div className="ml-6">
                   <div className="w-20 h-20 bg-blue-600/20 rounded-full flex items-center justify-center">
-                    {product.name === "Telegram Trading Bot" ? (
+                    {product.name === "Telegram Auto Executor" ? (
                       <div className="text-3xl">📱</div>
                     ) : (
                       <Zap className="size-10 text-blue-400" />
@@ -117,7 +117,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             </div>
 
             {/* Platform Requirements & Legal Notice (Telegram bot only) */}
-            {product.id === "telegram-trading-bot" && (
+            {product.id === "telegram-auto-executor" && (
               <div className="bg-gray-800 rounded-2xl p-8">
                 <h2 className="text-2xl font-heading text-white mb-6">Platform Requirements & Legal Notice</h2>
                 <div className="space-y-6 text-gray-300">
@@ -131,7 +131,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                       <li>Users must obtain their own Telegram API credentials (API ID & Hash) from <a href="https://my.telegram.org" target="_blank" className="underline">my.telegram.org</a></li>
                       <li>Requires MetaTrader 5 platform (provided by your forex broker)</li>
                       <li>Windows operating system or VPS recommended for 24/7 operation</li>
-                      <li>Broker must allow Expert Advisors (EAs) and automated trading</li>
+                      <li>Broker must allow Expert Advisors (EAs) and automated execution</li>
                     </ul>
                   </div>
                   <div>
@@ -139,8 +139,8 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                     <ul className="list-disc list-inside space-y-2">
                       <li>Comply with Telegram&apos;s Terms of Service</li>
                       <li>Comply with your broker&apos;s terms and conditions</li>
-                      <li>Test thoroughly on demo accounts before live trading</li>
-                      <li>Ensure you have proper permissions for automated trading</li>
+                  <li>Test thoroughly on demo accounts before live deployment</li>
+                  <li>Ensure you have proper permissions for automated execution</li>
                     </ul>
                   </div>
                 </div>
@@ -238,14 +238,14 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                 {product.specifications && (
                   <div className="space-y-2 mb-4">
                     <a 
-                      href="/Product Specs/Telegram-Trading-Bot-Specifications.html" 
+                      href="/Product Specs/Telegram-Auto-Executor-Specifications.html" 
                       target="_blank"
                       className="block w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-center text-sm"
                     >
                       📄 View Specifications
                     </a>
                     <a 
-                      href="/Product Specs/Telegram-Trading-Bot-Technical-Specs.html" 
+                      href="/Product Specs/Telegram-Auto-Executor-Technical-Specs.html" 
                       target="_blank"
                       className="block w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-center text-sm"
                     >
@@ -255,11 +255,11 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                 )}
                 
                 <p className="text-xs text-gray-400 text-center">
-                  Secure payment via cryptocurrency.
+                  Secure payment via digital currency.
                 </p>
               </div>
 
-              {/* Trading Warning */}
+              {/* Automation Warning */}
               <div className="bg-yellow-900/20 border border-yellow-600/30 rounded-2xl p-6">
                 <h3 className="text-xl font-heading text-yellow-400 mb-4 flex items-center gap-2">
                   ⚠️ Important Warning

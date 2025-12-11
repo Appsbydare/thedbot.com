@@ -7,8 +7,8 @@ const products = catalog;
 
 const categories = [
   { id: "all", name: "All Products", count: products.length },
-  { id: "forex", name: "Forex Bots", count: products.filter(p => p.category === "forex").length },
-  { id: "crypto", name: "Crypto Bots", count: products.filter(p => p.category === "crypto").length },
+  { id: "forex", name: "Forex Automation", count: products.filter(p => p.category === "forex").length },
+  { id: "automation", name: "Signal Executors", count: products.filter(p => p.category === "automation").length },
   { id: "indicators", name: "Indicators", count: products.filter(p => p.category === "indicators").length },
 ];
 
@@ -20,12 +20,12 @@ export default function ProductsPage() {
         <div className="relative mx-auto max-w-6xl px-4">
           <div className="text-center space-y-8">
             <AnimatedHeading className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.95] uppercase cursor-heading cursor-heading-why-choose">
-              TRADING
+              AUTOMATION
               <br />
               PRODUCTS
             </AnimatedHeading>
             <p className="text-xl sm:text-2xl text-black max-w-3xl mx-auto leading-relaxed">
-              Professional automated trading solutions for every market condition
+              Professional automation solutions for every market condition
             </p>
           </div>
         </div>
@@ -41,10 +41,10 @@ export default function ProductsPage() {
           </div>
           <div className="rounded-xl p-6 bg-card border border-border">
             <p className="text-sm text-muted-foreground mb-3">
-              All our products are designed to work with MetaTrader 4/5 platforms (provided by your broker). Some products integrate with Telegram (signal bots) or TradingView (indicators).
+              All our products are designed to work with MetaTrader 4/5 platforms (provided by your broker). Some products integrate with Telegram (signal executors) or TradingView (indicators).
             </p>
             <p className="text-sm text-muted-foreground">
-              <strong>Broker Compatibility:</strong> Most products require your broker to allow Expert Advisors (EAs) and automated trading. Please verify with your broker before purchase.
+              <strong>Broker Compatibility:</strong> Most products require your broker to allow Expert Advisors (EAs) and automated execution. Please verify with your broker before purchase.
             </p>
           </div>
         </div>
@@ -164,7 +164,7 @@ export default function ProductsPage() {
             Need a <span className="text-accent">Custom Solution</span>?
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            We can develop custom trading bots and indicators tailored to your specific strategy and requirements.
+            We can develop custom automation and indicators tailored to your specific strategy and requirements.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
             <Link

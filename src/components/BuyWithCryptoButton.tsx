@@ -26,7 +26,7 @@ export default function BuyWithCryptoButton({ productId, amountUSD, buyerName, b
 
   return (
     <button onClick={handleClick} className={className}>
-      Pay with Crypto
+      Pay with Digital Payment
     </button>
   );
 }

@@ -12,7 +12,7 @@ export type SignalProvider = {
   registeredDate: string;
   isActive: boolean;
   tradingStyle: 'scalping' | 'day-trading' | 'swing' | 'long-term';
-  specialization: 'forex' | 'crypto' | 'stocks' | 'indices' | 'mixed';
+  specialization: 'forex' | 'digital-assets' | 'stocks' | 'indices' | 'mixed';
 
   // Performance Metrics
   totalSignals: number;
@@ -53,17 +53,17 @@ export type DailyPerformance = {
 // Sample Signal Providers Data
 export const signalProviders: SignalProvider[] = [
   {
-    id: "telegram-trading-signals",
-    name: "Telegram Trading Signals",
-    slug: "telegram-trading-signals",
-    description: "Professional trading signals via Telegram with multi-asset support. Focus on Forex, Gold, and Crypto markets.",
-    telegramChannel: "https://t.me/telegramtradingsignals",
-    telegramUsername: "@telegramtradingsignals",
-    avatar: "/avatars/telegram-trading.jpg",
+    id: "telegram-signal-bridge",
+    name: "Telegram Signal Bridge",
+    slug: "telegram-signal-bridge",
+    description: "Professional signal alerts via Telegram with multi-asset support. Focus on Forex, Gold, and digital assets.",
+    telegramChannel: "https://t.me/telegramsignalbridge",
+    telegramUsername: "@telegramsignalbridge",
+    avatar: "/avatars/telegram-bridge.jpg",
     registeredDate: "2024-01-15",
     isActive: true,
     tradingStyle: 'scalping',
-    specialization: 'crypto',
+    specialization: 'digital-assets',
     totalSignals: 1247,
     winRate: 68.5,
     averageProfit: 0.85,
@@ -120,7 +120,7 @@ export const signalProviders: SignalProvider[] = [
     id: "swing-king",
     name: "Swing King",
     slug: "swing-king",
-    description: "Swing trading signals for stocks and indices. Holds positions for 2-7 days with higher profit targets.",
+    description: "Swing signal alerts for stocks and indices. Holds positions for 2-7 days with higher profit targets.",
     telegramChannel: "https://t.me/swingking_trades",
     telegramUsername: "@swingking_trades",
     avatar: "/avatars/swing-king.jpg",
@@ -152,7 +152,7 @@ export const signalProviders: SignalProvider[] = [
     id: "indices-elite",
     name: "Indices Elite",
     slug: "indices-elite",
-    description: "Specialized in major stock indices like S&P 500, NASDAQ, DAX, and FTSE. Long-term position trading.",
+    description: "Specialized in major stock indices like S&P 500, NASDAQ, DAX, and FTSE. Long-term positioning strategies.",
     telegramChannel: "https://t.me/indiceselite",
     telegramUsername: "@indiceselite",
     avatar: "/avatars/indices-elite.jpg",
@@ -184,7 +184,7 @@ export const signalProviders: SignalProvider[] = [
     id: "diversified-trader",
     name: "Diversified Trader",
     slug: "diversified-trader",
-    description: "Balanced approach across forex, crypto, and indices. Risk-managed portfolio diversification signals.",
+    description: "Balanced approach across forex, digital assets, and indices. Risk-managed portfolio diversification signals.",
     telegramChannel: "https://t.me/diversifiedtrader",
     telegramUsername: "@diversifiedtrader",
     avatar: "/avatars/diversified-trader.jpg",
@@ -216,7 +216,7 @@ export const signalProviders: SignalProvider[] = [
     id: "commodity-king",
     name: "Commodity King",
     slug: "commodity-king",
-    description: "Expert in commodities trading including gold, silver, oil, and agricultural products.",
+    description: "Expert in commodities strategies including gold, silver, oil, and agricultural products.",
     telegramChannel: "https://t.me/commodityking",
     telegramUsername: "@commodityking",
     avatar: "/avatars/commodity-king.jpg",
@@ -277,17 +277,17 @@ export const signalProviders: SignalProvider[] = [
     ]
   },
   {
-    id: "crypto-queen",
-    name: "Crypto Queen",
-    slug: "crypto-queen",
-    description: "Queen of cryptocurrency signals with focus on altcoins and DeFi opportunities. Expert in market cycles.",
-    telegramChannel: "https://t.me/cryptoqueen_signals",
-    telegramUsername: "@cryptoqueen_signals",
+    id: "digital-signals-queen",
+    name: "Digital Signals Queen",
+    slug: "digital-signals-queen",
+    description: "Specialist in digital asset signal alerts with focus on altcoins and DeFi opportunities. Expert in market cycles.",
+    telegramChannel: "https://t.me/digitalsignalsqueen",
+    telegramUsername: "@digitalsignalsqueen",
     avatar: "/avatars/crypto-queen.jpg",
     registeredDate: "2023-10-22",
     isActive: true,
     tradingStyle: 'swing',
-    specialization: 'crypto',
+    specialization: 'digital-assets',
     totalSignals: 987,
     winRate: 71.5,
     averageProfit: 2.45,
@@ -344,7 +344,7 @@ export const signalProviders: SignalProvider[] = [
     id: "index-master",
     name: "Index Master",
     slug: "index-master",
-    description: "Master of global indices trading with expertise in S&P 500, NASDAQ, FTSE, DAX, and Nikkei correlations.",
+    description: "Master of global indices strategies with expertise in S&P 500, NASDAQ, FTSE, DAX, and Nikkei correlations.",
     telegramChannel: "https://t.me/indexmaster_trades",
     telegramUsername: "@indexmaster_trades",
     avatar: "/avatars/index-master.jpg",

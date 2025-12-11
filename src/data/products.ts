@@ -2,7 +2,7 @@ export type Product = {
   id: string;
   slug: string;
   name: string;
-  category: "forex" | "crypto" | "indicators";
+  category: "forex" | "automation" | "indicators";
   description: string;
   longDescription?: string;
   priceUSD: number;
@@ -24,9 +24,9 @@ export const products: Product[] = [
     slug: "forex-ma-bot",
     name: "Forex MA Bot Pro",
     category: "forex",
-    description: "Advanced moving average crossover bot with multi-timeframe analysis",
+    description: "Advanced moving average crossover automation with multi-timeframe analysis",
     longDescription:
-      "The Forex MA Bot Pro is a sophisticated automated trading solution designed for forex markets.",
+      "The Forex MA Bot Pro is a sophisticated automation solution designed for forex markets, pairing intelligent crossover logic with configurable risk controls.",
     priceUSD: 299,
     features: ["MT4/MT5 Compatible", "Multi-timeframe", "Risk Management", "Backtesting"],
     rating: 4.8,
@@ -38,21 +38,21 @@ export const products: Product[] = [
     demo: true,
   },
   {
-    id: "telegram-trading-bot",
-    slug: "telegram-trading-bot",
-    name: "Telegram Trading Bot",
-    category: "crypto",
-    description: "Professional automated trading bot that monitors Telegram signals and executes trades in MetaTrader 5 with advanced strategy management",
+    id: "telegram-auto-executor",
+    slug: "telegram-auto-executor",
+    name: "Telegram Auto Executor",
+    category: "automation",
+    description: "Professional automation that listens to Telegram signals and executes orders in MetaTrader 5 with advanced strategy management",
     longDescription:
-      "The Telegram Trading Bot (AutoTrader Gold V8) is a sophisticated automated trading solution that bridges Telegram signal channels with MetaTrader 5. This professional-grade bot features dual Telegram client support (Pyrogram & Telethon), advanced signal parsing with 35+ regex patterns, and comprehensive strategy management including Multi-Take Profit and Trailing Stop strategies. The bot includes a modern PyQt5 GUI, real-time position monitoring, automatic risk management, and supports multiple asset classes including Forex, Gold, and Cryptocurrencies. With features like breakeven management, customizable lot sizing, and comprehensive logging, it provides institutional-quality automation for both retail and professional traders.",
+      "The Telegram Auto Executor (AutoTrader Gold V8) is a professional automation bridge between Telegram signal channels and MetaTrader 5. It offers dual Telegram client support (Pyrogram & Telethon), advanced signal parsing with 35+ regex patterns, and comprehensive strategy management including Multi-Take Profit and Trailing Stop handling. A modern PyQt5 GUI, real-time position monitoring, automatic risk controls, and multi-asset support (Forex, Gold, Indices) deliver institutional-grade execution without manual intervention.",
     priceUSD: 99,
     monthlyPriceUSD: 899,
-    features: ["Dual Telegram Client Support", "Advanced Signal Parsing (35+ Patterns)", "Multi-TP Strategy Management", "Trailing Stop Automation", "Real-time Position Monitoring", "Breakeven Management", "Custom Symbol Mapping", "Professional PyQt5 GUI", "Comprehensive Risk Management", "Multi-Asset Support (Forex/Gold/Crypto)", "SQLite Database Integration", "Automatic MT5 Integration"],
+    features: ["Dual Telegram Client Support", "Advanced Signal Parsing (35+ Patterns)", "Multi-TP Strategy Management", "Trailing Stop Automation", "Real-time Position Monitoring", "Breakeven Management", "Custom Symbol Mapping", "Professional PyQt5 GUI", "Comprehensive Risk Management", "Multi-Asset Support (Forex/Gold/Indices)", "SQLite Database Integration", "Automatic MT5 Integration"],
     rating: 4.9,
     reviews: 800,
     badge: "New",
     deliverableType: "file",
-    deliverableRef: "telegram-trading-bot.txt",
+    deliverableRef: "telegram-auto-executor.txt",
     support: "Priority Support",
     demo: true,
     specifications: {
@@ -61,7 +61,7 @@ export const products: Product[] = [
       "Telegram Clients": "Pyrogram & Telethon",
       "Signal Patterns": "35+ Regex Patterns",
       "Execution Speed": "< 1 Second",
-      "Supported Assets": "Forex, Gold, Crypto, Indices",
+      "Supported Assets": "Forex, Gold, Indices",
       "Strategies": "Multi-TP & Trailing Stop",
       "Database": "SQLite Integration",
       "GUI Framework": "PyQt5 Professional",

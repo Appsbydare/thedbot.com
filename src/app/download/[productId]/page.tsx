@@ -186,7 +186,7 @@ export default function DownloadPage({ params }: { params: { productId: string }
               <div>
                 <h3 className="text-white font-semibold mb-1">Activate your license</h3>
                 <p className="text-gray-300 text-sm">
-                  Enter your license key in the app to activate and start trading!
+                  Enter your license key in the app to activate and start executing!
                 </p>
               </div>
             </div>

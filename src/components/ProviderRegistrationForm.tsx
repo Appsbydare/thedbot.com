@@ -11,10 +11,10 @@ interface ProviderRegistrationData {
   country: string;
   telegramUsername: string;
 
-  // Trading Experience
+  // Experience
   yearsOfExperience: string;
   tradingStyle: 'scalping' | 'day-trading' | 'swing' | 'long-term' | '';
-  specialization: 'forex' | 'crypto' | 'stocks' | 'indices' | 'mixed' | '';
+  specialization: 'forex' | 'digital-assets' | 'stocks' | 'indices' | 'mixed' | '';
   averageMonthlyVolume: string;
 
   // Performance Metrics
@@ -312,15 +312,15 @@ export default function ProviderRegistrationForm() {
         </div>
       )}
 
-      {/* Step 2: Trading Experience */}
+      {/* Step 2: Execution Experience */}
       {currentStep === 2 && (
         <div className="space-y-6">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Trading Experience</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Execution Experience</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Years of Trading Experience *
+                Years of Experience *
               </label>
               <select
                 value={formData.yearsOfExperience}
@@ -338,7 +338,7 @@ export default function ProviderRegistrationForm() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Primary Trading Style *
+                Primary Execution Style *
               </label>
               <select
                 value={formData.tradingStyle}
@@ -348,8 +348,8 @@ export default function ProviderRegistrationForm() {
               >
                 <option value="">Select Style</option>
                 <option value="scalping">Scalping</option>
-                <option value="day-trading">Day Trading</option>
-                <option value="swing">Swing Trading</option>
+                <option value="day-trading">Day Execution</option>
+                <option value="swing">Swing Entries</option>
                 <option value="long-term">Long-term Investing</option>
               </select>
             </div>
@@ -368,7 +368,7 @@ export default function ProviderRegistrationForm() {
               >
                 <option value="">Select Specialization</option>
                 <option value="forex">Forex</option>
-                <option value="crypto">Cryptocurrency</option>
+                <option value="digital-assets">Digital Assets</option>
                 <option value="stocks">Stocks</option>
                 <option value="indices">Indices</option>
                 <option value="mixed">Mixed/Portfolio</option>
@@ -377,7 +377,7 @@ export default function ProviderRegistrationForm() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Average Monthly Trading Volume
+                Average Monthly Volume
               </label>
               <input
                 type="text"
@@ -396,7 +396,7 @@ export default function ProviderRegistrationForm() {
         <div className="space-y-6">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Performance Metrics</h2>
           <p className="text-gray-600 dark:text-gray-400">
-            Please provide your historical trading performance data for evaluation.
+            Please provide your historical performance data for evaluation.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -582,7 +582,7 @@ export default function ProviderRegistrationForm() {
               value={formData.description}
               onChange={(e) => handleInputChange('description', e.target.value)}
               rows={4}
-              placeholder="Describe your trading strategy, experience, and what makes you unique as a signal provider..."
+              placeholder="Describe your strategy, experience, and what makes you unique as a signal provider..."
               className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               required
             />
@@ -598,7 +598,7 @@ export default function ProviderRegistrationForm() {
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Trading Statement (3-6 months) *
+                Strategy Statement (3-6 months) *
               </label>
               <input
                 type="file"
@@ -608,7 +608,7 @@ export default function ProviderRegistrationForm() {
                 required
               />
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                Upload a recent trading statement (PDF preferred, max 5MB)
+                Upload a recent statement (PDF preferred, max 5MB)
               </p>
             </div>
 
@@ -639,7 +639,7 @@ export default function ProviderRegistrationForm() {
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
               />
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                Upload any relevant trading certificates or qualifications (max 5MB)
+                Upload any relevant certificates or qualifications (max 5MB)
               </p>
             </div>
           </div>
