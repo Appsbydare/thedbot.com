@@ -1,18 +1,23 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="bg-secondary border-t border-border mt-20">
       <div className="mx-auto max-w-7xl px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand */}
+          {/* Brand with Logo */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">DB</span>
-              </div>
+            <Link href="/" className="flex items-center space-x-2">
+              <Image 
+                src="/db-logo.svg" 
+                alt="theDBot Logo" 
+                width={40} 
+                height={40}
+                className="w-10 h-10"
+              />
               <span className="text-xl font-bold text-foreground">theDBot</span>
-            </div>
+            </Link>
             <p className="text-muted-foreground text-sm max-w-xs">
               Professional automation solutions for MT4/MT5 and TradingView platforms.
             </p>
@@ -67,12 +72,14 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-border mt-8 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="border-t border-border mt-8 pt-8 flex flex-col items-center gap-4 text-center">
           <p className="text-muted-foreground text-sm">
             © {new Date().getFullYear()} theDBot. All rights reserved.
           </p>
-          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-sm text-muted-foreground text-center sm:text-right">
-            <span>MetaTrader, MT4, and MT5 are trademarks of MetaQuotes Software Corp. Telegram is a trademark of Telegram FZ-LLC. TradingView is a trademark of TradingView, Inc. theDBot is an independent third-party application not affiliated with, endorsed by, or sponsored by these companies.</span>
+          <div className="text-sm text-muted-foreground space-y-1">
+            <p>MetaTrader, MT4, and MT5 are trademarks of MetaQuotes Software Corp.</p>
+            <p>Telegram is a trademark of Telegram FZ-LLC. TradingView is a trademark of TradingView, Inc.</p>
+            <p>theDBot is an independent third-party application not affiliated with, endorsed by, or sponsored by these companies.</p>
           </div>
         </div>
       </div>

@@ -195,12 +195,13 @@ export default function CustomCursor() {
         ref={cursorDotRef}
         className="fixed top-0 left-0 pointer-events-none z-[10000] will-change-transform"
         style={{
-          width: "6px",
-          height: "6px",
-          borderRadius: "50%",
-          background: "rgba(255, 255, 255, 1)",
-          boxShadow: "0 0 8px rgba(255, 255, 255, 0.8)",
-          transform: "translate(-50%, -50%)",
+          width: "0",
+          height: "0",
+          borderLeft: "6px solid transparent",
+          borderRight: "6px solid transparent",
+          borderBottom: "12px solid rgba(255, 255, 255, 1)",
+          filter: "drop-shadow(0 0 4px rgba(255, 255, 255, 0.8))",
+          transform: "translate(-50%, -50%) rotate(-45deg)",
           pointerEvents: "none",
         }}
       />
