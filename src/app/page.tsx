@@ -108,15 +108,14 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Link href="/products?category=forex" className="group">
-              <div className="category-card relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-8 h-80 transition-all duration-500 hover:from-slate-800 hover:via-slate-700 hover:to-slate-900">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent dark:from-black/60 dark:to-transparent"></div>
+              <div className="category-card relative overflow-hidden rounded-2xl bg-gradient-to-br from-white via-slate-50 to-white p-8 h-80 transition-all duration-500 hover:from-white hover:via-slate-100 hover:to-white">
                 <div className="relative z-10 h-full flex flex-col justify-end">
-                  <h3 className="text-3xl font-bold text-white mb-4">Forex Automation</h3>
-                  <p className="text-slate-200/80 mb-6">
+                  <h3 className="text-3xl font-bold text-slate-900 mb-4">Forex Automation</h3>
+                  <p className="text-slate-600 mb-6">
                     Advanced currency automation with multi-pair support and risk management
                   </p>
                   <div className="flex items-center text-accent group-hover:text-accent/80 transition-colors">
-                    <span className="font-semibold text-white">Explore Forex Automation</span>
+                    <span className="font-semibold text-blue-700">Explore Forex Automation</span>
                     <ArrowRight className="size-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
@@ -124,15 +123,14 @@ export default function Home() {
             </Link>
 
             <Link href="/products?category=automation" className="group">
-              <div className="category-card relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-900 p-8 h-80 transition-all duration-500 hover:from-emerald-800 hover:via-emerald-700 hover:to-emerald-900">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent dark:from-black/60 dark:to-transparent"></div>
+              <div className="category-card relative overflow-hidden rounded-2xl bg-gradient-to-br from-white via-blue-50 to-white p-8 h-80 transition-all duration-500 hover:from-white hover:via-blue-100 hover:to-white">
                 <div className="relative z-10 h-full flex flex-col justify-end">
-                  <h3 className="text-3xl font-bold text-white mb-4">Signal Executors</h3>
-                  <p className="text-slate-100/85 mb-6">
+                  <h3 className="text-3xl font-bold text-slate-900 mb-4">Signal Executors</h3>
+                  <p className="text-slate-600 mb-6">
                     Automate execution from Telegram or TradingView signals directly into MT5
                   </p>
                   <div className="flex items-center text-accent group-hover:text-accent/80 transition-colors">
-                    <span className="font-semibold text-white">Explore Executors</span>
+                    <span className="font-semibold text-indigo-700">Explore Executors</span>
                     <ArrowRight className="size-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
@@ -140,15 +138,14 @@ export default function Home() {
             </Link>
 
             <Link href="/products?category=indicators" className="group">
-              <div className="category-card relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900 p-8 h-80 transition-all duration-500 hover:from-purple-800 hover:via-purple-700 hover:to-purple-900">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent dark:from-black/60 dark:to-transparent"></div>
+              <div className="category-card relative overflow-hidden rounded-2xl bg-gradient-to-br from-white via-indigo-50 to-white p-8 h-80 transition-all duration-500 hover:from-white hover:via-indigo-100 hover:to-white">
                 <div className="relative z-10 h-full flex flex-col justify-end">
-                  <h3 className="text-3xl font-bold text-white mb-4">Indicators</h3>
-                  <p className="text-slate-100/85 mb-6">
+                  <h3 className="text-3xl font-bold text-slate-900 mb-4">Indicators</h3>
+                  <p className="text-slate-600 mb-6">
                     Custom Pine Script indicators for TradingView with real-time alerts and signals
                   </p>
                   <div className="flex items-center text-accent group-hover:text-accent/80 transition-colors">
-                    <span className="font-semibold text-white">Explore Indicators</span>
+                    <span className="font-semibold text-indigo-700">Explore Indicators</span>
                     <ArrowRight className="size-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
