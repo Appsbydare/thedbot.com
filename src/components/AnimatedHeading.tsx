@@ -218,55 +218,72 @@ export default function AnimatedHeading({ children, className = "", enablePerspe
       heading.classList.add("heading-hover");
       heading.classList.remove("heading-default");
 
-      // Animate lines: first line slightly right, second line slightly left, then center both
-      const firstLineContainer = heading.querySelector(".line-first") || firstLineSpans[0]?.parentElement;
-      const secondLineContainer = heading.querySelector(".line-second") || secondLineSpans[0]?.parentElement;
-      
-      // Remove 3D perspective from all spans
-      // Increase font size by 20% only for first line
-      charSpans.forEach((span) => {
-        const defaultScale = parseFloat(span.getAttribute("data-default-scale") || "1");
-        const isFirstLine = span.getAttribute("data-line") === "first";
+      // For single-line headings, animate based on lineStyle
+      // "first" style (left-aligned) moves right to center
+      // "second" style (right-aligned) moves left to center
+      if (lines.length === 1) {
+        const allSpans = lines[0] || [];
+        const initialShift = lineStyle === "second" ? -50 : 50;
         
-        gsap.to(span, {
-          scaleY: perspectiveEnabled ? 1 : 1,
-          fontSize: isFirstLine ? "1.3em" : "1.0em",
-          duration: 0.4,
-          ease: "power2.out",
+        allSpans.forEach((span) => {
+          gsap.to(span, {
+            x: initialShift,
+            duration: 0.3,
+            ease: "power2.out",
+            onComplete: () => {
+              gsap.to(span, {
+                x: 0,
+                duration: 0.3,
+                ease: "power2.out",
+              });
+            },
+          });
         });
-      });
+      } else {
+        // Multi-line heading logic
+        charSpans.forEach((span) => {
+          const isFirstLine = span.getAttribute("data-line") === "first";
+          
+          gsap.to(span, {
+            scaleY: perspectiveEnabled ? 1 : 1,
+            fontSize: isFirstLine ? "1.3em" : "1.0em",
+            duration: 0.4,
+            ease: "power2.out",
+          });
+        });
 
-      // Shift first line slightly right, then center
-      firstLineSpans.forEach((span) => {
-        gsap.to(span, {
-          x: 30,
-          duration: 0.3,
-          ease: "power2.out",
-          onComplete: () => {
-            gsap.to(span, {
-              x: 0,
-              duration: 0.3,
-              ease: "power2.out",
-            });
-          },
+        // Shift first line slightly right, then center
+        firstLineSpans.forEach((span) => {
+          gsap.to(span, {
+            x: 30,
+            duration: 0.3,
+            ease: "power2.out",
+            onComplete: () => {
+              gsap.to(span, {
+                x: 0,
+                duration: 0.3,
+                ease: "power2.out",
+              });
+            },
+          });
         });
-      });
 
-      // Shift second line slightly left, then center
-      secondLineSpans.forEach((span) => {
-        gsap.to(span, {
-          x: -30,
-          duration: 0.3,
-          ease: "power2.out",
-          onComplete: () => {
-            gsap.to(span, {
-              x: 0,
-              duration: 0.3,
-              ease: "power2.out",
-            });
-          },
+        // Shift second line slightly left, then center
+        secondLineSpans.forEach((span) => {
+          gsap.to(span, {
+            x: -30,
+            duration: 0.3,
+            ease: "power2.out",
+            onComplete: () => {
+              gsap.to(span, {
+                x: 0,
+                duration: 0.3,
+                ease: "power2.out",
+              });
+            },
+          });
         });
-      });
+      }
     };
 
     const handleMouseLeave = () => {

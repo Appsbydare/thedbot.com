@@ -109,29 +109,21 @@ export default function CustomCursor() {
           transition: "width 0.3s ease, height 0.3s ease",
         }}
       />
-      {/* Arrow cursor - standard pointer shape */}
+      {/* Arrow head cursor - triangle only */}
       <div
         ref={cursorDotRef}
         className="fixed top-0 left-0 pointer-events-none z-[10000] will-change-transform"
         style={{
-          width: "20px",
-          height: "20px",
+          width: "0",
+          height: "0",
+          borderLeft: "8px solid transparent",
+          borderRight: "8px solid transparent",
+          borderBottom: "14px solid white",
+          filter: "drop-shadow(0 0 2px rgba(0, 0, 0, 0.5))",
+          transform: "translate(-8px, -2px) rotate(-45deg)",
           pointerEvents: "none",
         }}
-      >
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="white"
-          style={{
-            filter: "drop-shadow(0 0 2px rgba(0, 0, 0, 0.5))",
-            transform: "translate(-2px, -2px)",
-          }}
-        >
-          <path d="M4 4 L4 20 L9 15 L13 22 L16 20 L12 13 L20 13 Z" />
-        </svg>
-      </div>
+      />
       <style jsx global>{`
         .cursor-circle {
           mix-blend-mode: difference !important;
