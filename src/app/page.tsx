@@ -108,7 +108,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Link href="/products?category=forex" className="group">
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-600/20 dark:to-blue-800/20 p-8 h-80 hover:from-blue-200 hover:to-blue-300 dark:hover:from-blue-600/30 dark:hover:to-blue-800/30 transition-all duration-300">
+              <div className="category-card relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-600/20 dark:to-blue-800/20 p-8 h-80 transition-all duration-500">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent dark:from-black/60 dark:to-transparent"></div>
                 <div className="relative z-10 h-full flex flex-col justify-end">
                   <h3 className="text-3xl font-bold text-foreground dark:text-white mb-4">Forex Automation</h3>
@@ -124,7 +124,7 @@ export default function Home() {
             </Link>
 
             <Link href="/products?category=automation" className="group">
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-100 to-green-200 dark:from-green-600/20 dark:to-green-800/20 p-8 h-80 hover:from-green-200 hover:to-green-300 dark:hover:from-green-600/30 dark:hover:to-green-800/30 transition-all duration-300">
+              <div className="category-card relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-100 to-green-200 dark:from-green-600/20 dark:to-green-800/20 p-8 h-80 transition-all duration-500">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent dark:from-black/60 dark:to-transparent"></div>
                 <div className="relative z-10 h-full flex flex-col justify-end">
                   <h3 className="text-3xl font-bold text-foreground dark:text-white mb-4">Signal Executors</h3>
@@ -140,7 +140,7 @@ export default function Home() {
             </Link>
 
             <Link href="/products?category=indicators" className="group">
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-600/20 dark:to-purple-800/20 p-8 h-80 hover:from-purple-200 hover:to-purple-300 dark:hover:from-purple-600/30 dark:hover:to-purple-800/30 transition-all duration-300">
+              <div className="category-card relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-600/20 dark:to-purple-800/20 p-8 h-80 transition-all duration-500">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent dark:from-black/60 dark:to-transparent"></div>
                 <div className="relative z-10 h-full flex flex-col justify-end">
                   <h3 className="text-3xl font-bold text-foreground dark:text-white mb-4">Indicators</h3>

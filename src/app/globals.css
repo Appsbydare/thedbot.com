@@ -380,3 +380,32 @@ section[data-bg="black"] .cursor-heading-why-choose.heading-hover span[data-line
   color: rgba(255, 255, 255, 1);
   -webkit-text-stroke: 0px;
 }
+
+/* Category cards for dark sections */
+.category-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  transform: translateY(0) scale(1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.category-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.12), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.category-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.category-card:hover::after {
+  opacity: 1;
+}
