@@ -201,7 +201,7 @@ export default function CustomCursor() {
           borderRight: "6px solid transparent",
           borderBottom: "12px solid rgba(255, 255, 255, 1)",
           filter: "drop-shadow(0 0 4px rgba(255, 255, 255, 0.8))",
-          transform: "translate(-50%, -50%) rotate(-45deg)",
+          transform: "translate(-50%, -50%) rotate(-135deg)",
           pointerEvents: "none",
         }}
       />

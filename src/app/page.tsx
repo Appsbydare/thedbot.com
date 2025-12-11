@@ -17,7 +17,7 @@ export default function Home() {
               <AnimatedHeading enablePerspective={false} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.9] uppercase cursor-heading">
                 EXECUTION
               </AnimatedHeading>
-              <AnimatedHeading enablePerspective={false} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.9] uppercase cursor-heading">
+              <AnimatedHeading enablePerspective={false} lineStyle="second" className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading tracking-tight leading-[0.9] uppercase cursor-heading">
                 MADE SIMPLE
               </AnimatedHeading>
               <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed pt-6">
@@ -162,10 +162,12 @@ export default function Home() {
       {/* CTA Section - White Background */}
       <section className="py-20 bg-white dark:bg-white relative overflow-hidden">
         <div className="relative mx-auto max-w-4xl px-4 text-center space-y-6">
-          <AnimatedHeading enablePerspective={false} className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-heading tracking-tight leading-[0.95] cursor-heading cursor-heading-why-choose mb-2">
+          <AnimatedHeading enablePerspective={false} className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-heading tracking-tight leading-[0.95] cursor-heading cursor-heading-why-choose mb-2">
               READY TO START
               <br />
-              AUTOMATED EXECUTION
+              AUTOMATED
+              <br />
+              EXECUTION
           </AnimatedHeading>
           <p className="text-xl text-gray-600 mb-6 max-w-2xl mx-auto">
             Join thousands of teams who trust theDBot for automated order execution. 

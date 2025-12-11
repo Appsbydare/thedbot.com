@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-2">
               <Image 
-                src="/db-logo.svg" 
+                src="/db-logo.png" 
                 alt="theDBot Logo" 
                 width={40} 
                 height={40}

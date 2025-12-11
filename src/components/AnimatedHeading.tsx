@@ -16,9 +16,15 @@ interface AnimatedHeadingProps {
    * Set to false to keep entrance/hover motion without the 3D stretch.
    */
   enablePerspective?: boolean;
+  /**
+   * Controls the line style for single-line headings.
+   * "first" = outline text, left-aligned on leave
+   * "second" = solid text, right-aligned on leave
+   */
+  lineStyle?: "first" | "second";
 }
 
-export default function AnimatedHeading({ children, className = "", enablePerspective = true }: AnimatedHeadingProps) {
+export default function AnimatedHeading({ children, className = "", enablePerspective = true, lineStyle = "first" }: AnimatedHeadingProps) {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const hasAnimated = useRef(false);
@@ -123,7 +129,10 @@ export default function AnimatedHeading({ children, className = "", enablePerspe
             }
           } else {
             // Without perspective, still tag lines for hover motion
-            if (lineIndex === 0) {
+            // For single-line headings, use the lineStyle prop
+            if (lines.length === 1) {
+              span.setAttribute("data-line", lineStyle);
+            } else if (lineIndex === 0) {
               span.setAttribute("data-line", "first");
             } else if (lineIndex === 1) {
               span.setAttribute("data-line", "second");
@@ -279,21 +288,34 @@ export default function AnimatedHeading({ children, className = "", enablePerspe
       });
 
       // Restore default positioning: first line left, second line right
-      firstLineSpans.forEach((span) => {
-        gsap.to(span, {
-          x: -150,
-          duration: 0.4,
-          ease: "power2.out",
+      // For single-line headings, use the lineStyle prop
+      if (lines.length === 1) {
+        const allSpans = lines[0] || [];
+        const xOffset = lineStyle === "second" ? 80 : -150;
+        allSpans.forEach((span) => {
+          gsap.to(span, {
+            x: xOffset,
+            duration: 0.4,
+            ease: "power2.out",
+          });
         });
-      });
+      } else {
+        firstLineSpans.forEach((span) => {
+          gsap.to(span, {
+            x: -150,
+            duration: 0.4,
+            ease: "power2.out",
+          });
+        });
 
-      secondLineSpans.forEach((span) => {
-        gsap.to(span, {
-          x: 80,
-          duration: 0.4,
-          ease: "power2.out",
+        secondLineSpans.forEach((span) => {
+          gsap.to(span, {
+            x: 80,
+            duration: 0.4,
+            ease: "power2.out",
+          });
         });
-      });
+      }
     };
 
     // Initially set to default state
@@ -301,17 +323,26 @@ export default function AnimatedHeading({ children, className = "", enablePerspe
 
     // Apply default positioning: first line left, second line right (skip for why-choose)
     if (!isWhyChoose) {
-      firstLineSpans.forEach((span) => {
-        gsap.set(span, {
-          x: -150,
+      // For single-line headings, use the lineStyle prop to determine positioning
+      if (lines.length === 1) {
+        const allSpans = lines[0] || [];
+        const xOffset = lineStyle === "second" ? 80 : -150;
+        allSpans.forEach((span) => {
+          gsap.set(span, { x: xOffset });
         });
-      });
+      } else {
+        firstLineSpans.forEach((span) => {
+          gsap.set(span, {
+            x: -150,
+          });
+        });
 
-      secondLineSpans.forEach((span) => {
-        gsap.set(span, {
-          x: 80,
+        secondLineSpans.forEach((span) => {
+          gsap.set(span, {
+            x: 80,
+          });
         });
-      });
+      }
     }
 
     containerRef.current?.addEventListener("mouseenter", handleMouseEnter);
