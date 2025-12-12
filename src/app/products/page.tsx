@@ -34,34 +34,6 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* Platform Compatibility Notice - White Section */}
-      <section className="py-8 bg-white dark:bg-white border-t border-gray-200">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl sm:text-4xl font-heading tracking-tight leading-[0.95] uppercase text-black">
-              PLATFORM COMPATIBILITY
-            </h2>
-          </div>
-          <div className="rounded-xl p-6 bg-black text-white">
-            <p className="text-sm text-gray-300 mb-3">
-              Our solutions work across multiple platforms depending on your needs:
-            </p>
-            <p className="text-sm text-gray-300 mb-2">
-              <strong className="text-white">Trading Automation:</strong> MetaTrader 4/5 (provided by your broker), TradingView, Telegram signal services
-            </p>
-            <p className="text-sm text-gray-300 mb-2">
-              <strong className="text-white">Business Automation:</strong> REST APIs, webhooks, custom middleware for CRM, ERP, e-commerce platforms
-            </p>
-            <p className="text-sm text-gray-300 mb-3">
-              <strong className="text-white">Custom Integration:</strong> We build solutions for virtually any system with API access or database connectivity
-            </p>
-            <p className="text-sm text-gray-300">
-              <strong className="text-white">Note:</strong> Trading automation products require your broker to allow Expert Advisors (EAs) and automated execution. Business automation solutions are platform-agnostic and work with most modern systems.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Category Filter - White Section */}
       <section className="py-12 bg-white dark:bg-white">
         <div className="mx-auto max-w-6xl px-4">
@@ -165,6 +137,34 @@ export default function ProductsPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Platform Compatibility Notice - White Section */}
+      <section className="py-8 bg-white dark:bg-white border-t border-gray-200">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl sm:text-4xl font-heading tracking-tight leading-[0.95] uppercase text-black">
+              PLATFORM COMPATIBILITY
+            </h2>
+          </div>
+          <div className="rounded-xl p-6 bg-black text-white">
+            <p className="text-sm text-gray-300 mb-3">
+              Our solutions work across multiple platforms depending on your needs:
+            </p>
+            <p className="text-sm text-gray-300 mb-2">
+              <strong className="text-white">Trading Automation:</strong> MetaTrader 4/5 (provided by your broker), TradingView, Telegram signal services
+            </p>
+            <p className="text-sm text-gray-300 mb-2">
+              <strong className="text-white">Business Automation:</strong> REST APIs, webhooks, custom middleware for CRM, ERP, e-commerce platforms
+            </p>
+            <p className="text-sm text-gray-300 mb-3">
+              <strong className="text-white">Custom Integration:</strong> We build solutions for virtually any system with API access or database connectivity
+            </p>
+            <p className="text-sm text-gray-300">
+              <strong className="text-white">Note:</strong> Trading automation products require your broker to allow Expert Advisors (EAs) and automated execution. Business automation solutions are platform-agnostic and work with most modern systems.
+            </p>
           </div>
         </div>
       </section>
