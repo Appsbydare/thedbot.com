@@ -118,37 +118,28 @@ function CategoryCarousel() {
   const [focusedIndex, setFocusedIndex] = useState(-1);
   const trackRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const pausedTransform = useRef<string>('');
-  const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const lastFocusedRef = useRef(-1);
+  const cooldownUntilRef = useRef(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (isPaused && trackRef.current) {
-        const style = window.getComputedStyle(trackRef.current);
-        const transform = style.transform;
-        if (transform && transform !== 'none') {
-          pausedTransform.current = transform;
-        }
-      }
-    }, 50);
-    return () => clearInterval(interval);
-  }, [isPaused]);
-
-  // Detect which card is in the center and pause it
   useEffect(() => {
     if (isPaused) return;
 
-    const checkCenterCard = () => {
+    const checkInterval = setInterval(() => {
+      const now = Date.now();
+      
+      // Skip if in cooldown period or currently focused
+      if (now < cooldownUntilRef.current || focusedIndex !== -1) return;
+      
       if (!trackRef.current || !containerRef.current) return;
 
       const containerRect = containerRef.current.getBoundingClientRect();
       const containerCenter = containerRect.left + containerRect.width / 2;
-
       const cards = trackRef.current.children;
-      let closestIndex = -1;
-      let minDistance = Infinity;
 
-      // Check first set of cards only (not duplicates)
+      let closestIndex = -1;
+      let closestDistance = Infinity;
+
+      // Find the card that's closest to the center
       for (let i = 0; i < categories.length; i++) {
         const card = cards[i] as HTMLElement;
         if (!card) continue;
@@ -157,36 +148,28 @@ function CategoryCarousel() {
         const cardCenter = cardRect.left + cardRect.width / 2;
         const distance = Math.abs(cardCenter - containerCenter);
 
-        if (distance < minDistance) {
-          minDistance = distance;
+        if (distance < closestDistance) {
+          closestDistance = distance;
           closestIndex = i;
         }
       }
 
-      // If a card is close enough to center (within threshold), focus it
-      const threshold = containerRect.width * 0.15; // 15% of container width
-      if (minDistance < threshold && closestIndex !== focusedIndex && focusedIndex === -1) {
+      // Only focus if the closest card is very close to center (within 15px for perfect centering)
+      // and it's not the same as the last focused card
+      if (closestIndex !== -1 && closestDistance < 15 && lastFocusedRef.current !== closestIndex) {
         setFocusedIndex(closestIndex);
-        
-        // Clear any existing timeout
-        if (pauseTimeoutRef.current) {
-          clearTimeout(pauseTimeoutRef.current);
-        }
+        lastFocusedRef.current = closestIndex;
 
-        // Pause for 5 seconds when a card reaches center, then resume
-        pauseTimeoutRef.current = setTimeout(() => {
+        // Resume after 5 seconds and set cooldown
+        setTimeout(() => {
           setFocusedIndex(-1);
+          // Add 3 second cooldown after resuming to let animation progress
+          cooldownUntilRef.current = Date.now() + 3000;
         }, 5000);
       }
-    };
+    }, 100);
 
-    const interval = setInterval(checkCenterCard, 100);
-    return () => {
-      clearInterval(interval);
-      if (pauseTimeoutRef.current) {
-        clearTimeout(pauseTimeoutRef.current);
-      }
-    };
+    return () => clearInterval(checkInterval);
   }, [isPaused, focusedIndex]);
 
   return (
@@ -211,7 +194,7 @@ function CategoryCarousel() {
               key={`first-${index}`} 
               category={category} 
               isPaused={isPaused}
-              isFocused={index === focusedIndex}
+              isFocused={focusedIndex === index}
             />
           ))}
           {/* Duplicate for seamless loop */}
