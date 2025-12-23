@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Trading Bot - Technical Specifications</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #28a745;
+            border-bottom: 2px solid #28a745;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #555;
+            margin-top: 25px;
+        }
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .feature-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+        }
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .specs-table th, .specs-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .specs-table th {
+            background: #28a745;
+            color: white;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #6c757d;
+            color: white;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Telegram Trading Bot</h1>
+        <p>Technical Specifications v8.2.11</p>
+    </div>
+
+    <div class="section">
+        <h2>Architecture Overview</h2>
+        
+        <h3>Core Components</h3>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>Telegram Client Module</h4>
+                <p>Dual client support (Pyrogram & Telethon), session management, message monitoring and parsing</p>
+            </div>
+            <div class="feature-card">
+                <h4>MT5 Trader Module</h4>
+                <p>MetaTrader 5 API integration, order execution, position monitoring and control</p>
+            </div>
+            <div class="feature-card">
+                <h4>Signal Parser Module</h4>
+                <p>Advanced regex-based signal parsing, multi-format support, symbol normalization</p>
+            </div>
+            <div class="feature-card">
+                <h4>Strategy Handler Module</h4>
+                <p>Strategy management, Multi-TP strategy, Trailing stop strategy, position management</p>
+            </div>
+            <div class="feature-card">
+                <h4>GUI Application</h4>
+                <p>PyQt5-based interface, real-time visualization, configuration management</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Signal Processing Engine</h2>
+        
+        <h3>Supported Signal Formats</h3>
+        
+        <h4>Standard Format</h4>
+        <div class="code-block">
+BUY XAUUSD @ 2145.67 SL 2140.00 TP 2155.00
+SELL GOLD @ 2140.50 SL 2145.00 TP 2135.00
+        </div>
+
+        <h4>Range Entry Format</h4>
+        <div class="code-block">
+BUY GOLD ENTER IN = 2140 - 2145 SL = 2140 TP1 = 2150
+SELL XAUUSD ENTER IN = 2145 - 2140 SL = 2150 TP1 = 2135
+        </div>
+
+        <h4>Casual Format</h4>
+        <div class="code-block">
+BUY GOLD NOW SL 2140 TP 2155
+SELL XAUUSD QUICK SL 2145 TP 2135
+        </div>
+
+        <h4>Multi-TP Format</h4>
+        <div class="code-block">
+BUY GOLD @ 2140 SL 2135 TP1 2145 TP2 2150 TP3 2155
+SELL XAUUSD @ 2145 SL 2150 TP1 2140 TP2 2135 TP3 2130
+        </div>
+
+        <h3>Signal Parsing Features</h3>
+        <ul>
+            <li><strong>Regex Pattern Matching:</strong> 35+ predefined patterns for signal detection</li>
+            <li><strong>Symbol Normalization:</strong> Automatic symbol mapping for different brokers</li>
+            <li><strong>Price Validation:</strong> Real-time price validation and range checking</li>
+            <li><strong>Multi-Language Support:</strong> Unicode support for international characters</li>
+            <li><strong>Error Recovery:</strong> Graceful handling of malformed signals</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Trading Strategy Implementation</h2>
+        
+        <h3>Multi-Take Profit Strategy</h3>
+        <div class="code-block">
+{
+    "name": "Multi-TP Strategy",
+    "num_trades": 3,
+    "tp_levels": [100, 200, 300],
+    "tp_lot_sizes": [0.5, 0.3, 0.2],
+    "default_sl": 50,
+    "magic_number": 10001
+}
+        </div>
+        <p><strong>Features:</strong></p>
+        <ul>
+            <li>Multiple position creation with different TP levels</li>
+            <li>Customizable lot sizes for each TP level</li>
+            <li>Integrated trailing stop management</li>
+            <li>Automatic position monitoring and updates</li>
+        </ul>
+
+        <h3>Trailing Stop Strategy</h3>
+        <div class="code-block">
+{
+    "name": "Trailing Stop Strategy",
+    "ts_thresholds": [200, 500, 1000],
+    "ts_sl_levels": [50, 200, 500],
+    "ts_dynamic_increment": 400,
+    "move_to_breakeven": true,
+    "breakeven_pips": 30
+}
+        </div>
+        <p><strong>Features:</strong></p>
+        <ul>
+            <li>Dynamic trailing stop activation</li>
+            <li>Progressive stop loss levels</li>
+            <li>Breakeven management</li>
+            <li>Real-time position monitoring</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Database Schema</h2>
+        
+        <h3>Strategies Table</h3>
+        <div class="code-block">
+CREATE TABLE strategies (
+    id INTEGER PRIMARY KEY,
+    name TEXT UNIQUE NOT NULL,
+    settings TEXT NOT NULL,
+    description TEXT,
+    channel_id TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+        </div>
+
+        <h3>Trades Table</h3>
+        <div class="code-block">
+CREATE TABLE trades (
+    id INTEGER PRIMARY KEY,
+    ticket INTEGER NOT NULL,
+    symbol TEXT NOT NULL,
+    type TEXT NOT NULL,
+    open_time TIMESTAMP NOT NULL,
+    close_time TIMESTAMP,
+    open_price REAL NOT NULL,
+    close_price REAL,
+    volume REAL NOT NULL,
+    profit REAL,
+    pips REAL,
+    strategy TEXT,
+    magic_number INTEGER
+);
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Configuration Management</h2>
+        
+        <h3>Environment Variables</h3>
+        <div class="code-block">
+# Telegram Configuration
+API_ID=your_api_id
+API_HASH=your_api_hash
+CHANNEL_ID=your_channel_id
+CLIENT_TYPE=pyrogram
+SESSION_NAME=AutoTraderGold_V8
+
+# MT5 Configuration
+MT5_LOGIN=your_mt5_login
+MT5_PASSWORD=your_mt5_password
+MT5_SERVER=your_mt5_server
+MT5_TERMINAL_PATH=C:\Program Files\MetaTrader 5\terminal64.exe
+
+# Trading Configuration
+LOT_SIZE=0.01
+MAX_SLIPPAGE=100
+GOLD_SYMBOL=XAUUSDm
+BTC_SYMBOL=BTCUSDm
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>API Integration</h2>
+        
+        <h3>MetaTrader 5 API</h3>
+        <ul>
+            <li><strong>Connection Management:</strong> Automatic connection and reconnection</li>
+            <li><strong>Order Execution:</strong> Market, limit, and stop orders</li>
+            <li><strong>Position Management:</strong> Real-time position monitoring</li>
+            <li><strong>Account Information:</strong> Balance, equity, and margin data</li>
+            <li><strong>Symbol Information:</strong> Symbol specifications and trading conditions</li>
+        </ul>
+
+        <h3>Telegram API</h3>
+        <ul>
+            <li><strong>Pyrogram Integration:</strong> Modern async Telegram client</li>
+            <li><strong>Telethon Integration:</strong> Alternative Telegram client</li>
+            <li><strong>Message Handling:</strong> Real-time message processing</li>
+            <li><strong>Session Management:</strong> Secure session storage and management</li>
+            <li><strong>Channel Monitoring:</strong> Multi-channel signal monitoring</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Performance Optimization</h2>
+        
+        <h3>Asynchronous Processing</h3>
+        <ul>
+            <li><strong>Async/Await:</strong> Full async implementation for non-blocking operations</li>
+            <li><strong>Event Loop:</strong> QEventLoop integration for GUI responsiveness</li>
+            <li><strong>Concurrent Processing:</strong> Parallel signal processing and execution</li>
+            <li><strong>Background Tasks:</strong> Non-blocking background operations</li>
+        </ul>
+
+        <h3>Memory Management</h3>
+        <ul>
+            <li><strong>Efficient Data Structures:</strong> Optimized data structures for high-frequency operations</li>
+            <li><strong>Garbage Collection:</strong> Automatic memory cleanup</li>
+            <li><strong>Resource Pooling:</strong> Connection and resource pooling</li>
+            <li><strong>Cache Management:</strong> Intelligent caching for frequently accessed data</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Security Features</h2>
+        
+        <h3>Authentication</h3>
+        <ul>
+            <li><strong>Two-Factor Authentication:</strong> Support for 2FA-enabled Telegram accounts</li>
+            <li><strong>Session Security:</strong> Encrypted session storage</li>
+            <li><strong>API Key Protection:</strong> Secure API key management</li>
+            <li><strong>Hardware Fingerprinting:</strong> License validation system</li>
+        </ul>
+
+        <h3>Data Protection</h3>
+        <ul>
+            <li><strong>Encrypted Storage:</strong> Sensitive data encryption</li>
+            <li><strong>Secure Communication:</strong> Encrypted communication channels</li>
+            <li><strong>Access Control:</strong> User authentication and authorization</li>
+            <li><strong>Audit Logging:</strong> Comprehensive audit trail</li>
+        </ul>
+    </div>
+
+    <div class="warning">
+        <h3>⚠️ Important Technical Notes</h3>
+        <p><strong>System Requirements:</strong> Ensure your system meets all requirements before installation.</p>
+        <p><strong>Broker Compatibility:</strong> Verify your broker supports MetaTrader 5 API access.</p>
+        <p><strong>Network Requirements:</strong> Stable internet connection required for both Telegram and MT5 connectivity.</p>
+        <p><strong>Security:</strong> Keep your API credentials secure and never share them.</p>
+    </div>
+
+    <div class="footer">
+        <p><strong>Document Version:</strong> 1.0 | <strong>Last Updated:</strong> October 2025 | <strong>Technical Review:</strong> Completed</p>
+        <p>© 2025 TheDBot.com - Software Manufacturing Company</p>
+    </div>
+</body>
+</html>
