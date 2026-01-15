@@ -7,7 +7,7 @@ import MatrixBackground from "./MatrixBackground";
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
-  
+
   return (
     <footer ref={footerRef} className="bg-secondary border-t border-border mt-20 relative overflow-hidden">
       <MatrixBackground containerRef={footerRef} />
@@ -53,6 +53,9 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-foreground font-semibold">Support</h3>
             <nav className="space-y-2">
+              <Link href="/blog" className="block text-muted-foreground hover:text-foreground transition-colors text-sm">
+                Blog
+              </Link>
               <Link href="/faq" className="block text-muted-foreground hover:text-foreground transition-colors text-sm">
                 FAQ
               </Link>
