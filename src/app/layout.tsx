@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 import RobotCursor from "@/components/RobotCursor";
-import SnowEffect from "@/components/SnowEffect";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -68,7 +68,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
-        <SnowEffect />
+
       </body>
     </html>
   );
