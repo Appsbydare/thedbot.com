@@ -12,6 +12,7 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products" },
   { href: "/blog", label: "Blog" },
+  { href: "/about", label: "About Us" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
@@ -20,6 +21,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const headerRef = useRef<HTMLElement>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   // Lock body scroll when menu is open
   useEffect(() => {
@@ -36,15 +39,50 @@ export default function Navbar() {
     };
   }, [isMobileMenuOpen]);
 
+  // Handle scroll to show/hide navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY < 50) {
+        // Always show navbar at the top
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down - hide navbar
+        setIsVisible(false);
+      } else {
+        // Scrolling up - show navbar
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
   return (
-    <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-md glass border-b border-border">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <header 
+      ref={headerRef} 
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-transform duration-300 ease-in-out ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+      style={{
+        backdropFilter: 'blur(20px) saturate(200%)',
+        WebkitBackdropFilter: 'blur(20px) saturate(200%)',
+        backgroundColor: 'rgba(0, 0, 0, 0.15)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+        boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.15)',
+      }}
+    >
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
         <MatrixBackground containerRef={headerRef} />
       </div>
       <div className="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between relative z-10">
         <Link href="/" className="flex items-center space-x-2">
           <Image src="/db-logo.png" alt="theDBot Logo" width={96} height={96} className="w-16 h-16" />
-          <span className="text-xl font-bold text-foreground">theDBot</span>
+          <span className="text-xl font-bold text-white">theDBot</span>
         </Link>
 
         <div className="flex items-center gap-8">
@@ -57,10 +95,10 @@ export default function Navbar() {
                   key={href}
                   href={href}
                   className={
-                    "transition-all duration-300 hover:text-accent relative " +
+                    "transition-all duration-300 hover:text-accent relative font-medium " +
                     (isActive
                       ? "text-accent font-semibold"
-                      : "text-muted-foreground hover:text-foreground"
+                      : "text-white/90 hover:text-white"
                     )
                   }
                 >

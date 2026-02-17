@@ -9,7 +9,7 @@ export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
 
   return (
-    <footer ref={footerRef} className="bg-secondary border-t border-border mt-20 relative overflow-hidden">
+    <footer ref={footerRef} className="bg-black border-t border-white/10 relative overflow-hidden">
       <MatrixBackground containerRef={footerRef} />
       <div className="mx-auto max-w-7xl px-4 py-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
