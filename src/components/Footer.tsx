@@ -90,7 +90,10 @@ export default function Footer() {
             © {new Date().getFullYear()} the DBot LLC. All rights reserved.
           </p>
           <p className="text-muted-foreground text-sm">
-            1207 Delaware Ave #2685, Wilmington, DE 19806
+            Headoffice: 1207 Delaware Ave #2685, Wilmington, DE 19806
+          </p>
+          <p className="text-muted-foreground text-sm">
+            Branch: Pelawatte, Western Province, Sri Lanka
           </p>
           <div className="max-w-4xl">
             <p className="text-sm text-muted-foreground leading-relaxed">
