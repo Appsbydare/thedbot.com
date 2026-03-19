@@ -67,33 +67,19 @@ export function generateSampleLicenses(): LicenseDatabase {
 
 /**
  * Script to initialize the license system
- * Run this once to set up your environment variables
+ * Run this once offline to generate env variables — do NOT call in production routes.
  */
 export function setupLicenseSystem() {
-  console.log("=== License System Setup ===");
-  
   // Generate encryption key
   const encryptionKey = crypto.randomBytes(32).toString('hex');
-  console.log("Generated encryption key:", encryptionKey);
-  
+
   // Generate admin API key
   const adminApiKey = crypto.randomBytes(32).toString('hex');
-  console.log("Generated admin API key:", adminApiKey);
-  
+
   // Initialize database
   const encryptedData = initializeLicenseDatabase();
-  console.log("Encrypted license data length:", encryptedData.length);
-  
-  console.log("\n=== Environment Variables to Set ===");
-  console.log("LICENSE_ENCRYPTION_KEY=" + encryptionKey);
-  console.log("LICENSE_DATA_ENCRYPTED=" + encryptedData);
-  console.log("ADMIN_API_KEY=" + adminApiKey);
-  
-  console.log("\n=== Next Steps ===");
-  console.log("1. Add these environment variables to your Vercel project");
-  console.log("2. Test the license validation API");
-  console.log("3. Generate your first license using the admin API");
-  
+
+  // Return values to be set as env vars — write to .env.local, never log in prod
   return {
     encryptionKey,
     adminApiKey,

@@ -1,10 +1,18 @@
 import { neon } from "@neondatabase/serverless";
 import { NextResponse } from "next/server";
+import { auth } from "@/lib/auth/server";
 
 const sql = neon(process.env.DATABASE_URL!);
 
+async function requireAdmin() {
+  const { data: session } = await auth.getSession();
+  if (!session?.user) return null;
+  return session;
+}
+
 // GET all tasks with subtasks
 export async function GET() {
+  if (!await requireAdmin()) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   const tasks = await sql`
     SELECT t.*, 
       COALESCE(
@@ -23,8 +31,12 @@ export async function GET() {
 
 // POST create task (with optional subtasks)
 export async function POST(req: Request) {
+  if (!await requireAdmin()) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   const body = await req.json();
   const { title, description, status = "todo", priority = "medium", start_date, due_date, assignee_name, color_tag = "#6366f1", subtasks = [] } = body;
+  if (!title || typeof title !== "string" || title.trim() === "") {
+    return NextResponse.json({ error: "title is required" }, { status: 400 });
+  }
 
   // Convert empty strings to null so Postgres doesn't try to parse "" as a date
   const orNull = (v: string | undefined | null) => (v && v.trim() !== "" ? v : null);

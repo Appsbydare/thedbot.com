@@ -7,7 +7,10 @@ export type EmailPayload = {
 export async function sendEmail({ to, subject, text }: EmailPayload): Promise<void> {
   const resendApiKey = process.env.RESEND_API_KEY;
   if (!resendApiKey) {
-    console.log("[email mock] to=%s subject=%s\n%s", to, subject, text);
+    // Only log in development — never in production (email body may contain PII)
+    if (process.env.NODE_ENV !== "production") {
+      console.log("[email mock] to=%s subject=%s", to, subject);
+    }
     return;
   }
   const res = await fetch("https://api.resend.com/emails", {

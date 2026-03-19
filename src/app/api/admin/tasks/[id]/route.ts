@@ -1,10 +1,20 @@
 import { neon } from "@neondatabase/serverless";
 import { NextResponse } from "next/server";
+import { auth } from "@/lib/auth/server";
 
 const sql = neon(process.env.DATABASE_URL!);
 
+async function requireAdmin() {
+  const { data: session } = await auth.getSession();
+  if (!session?.user) return null;
+  return session;
+}
+
+const orNull = (v: string | undefined | null) => (v && v.trim() !== "" ? v : null);
+
 // GET single task with subtasks
 export async function GET(_: Request, { params }: { params: Promise<{ id: string }> }) {
+  if (!await requireAdmin()) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   const { id } = await params;
   const [task] = await sql`
     SELECT t.*, 
@@ -18,11 +28,10 @@ export async function GET(_: Request, { params }: { params: Promise<{ id: string
 
 // PATCH update task
 export async function PATCH(req: Request, { params }: { params: Promise<{ id: string }> }) {
+  if (!await requireAdmin()) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   const { id } = await params;
   const body = await req.json();
   const { title, description, status, priority, start_date, due_date, assignee_name, color_tag } = body;
-
-  const orNull = (v: string | undefined | null) => (v && v.trim() !== "" ? v : null);
 
   await sql`
     UPDATE admin_tasks SET
@@ -49,6 +58,7 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
 
 // DELETE task
 export async function DELETE(_: Request, { params }: { params: Promise<{ id: string }> }) {
+  if (!await requireAdmin()) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   const { id } = await params;
   await sql`DELETE FROM admin_tasks WHERE id = ${id}`;
   return NextResponse.json({ success: true });

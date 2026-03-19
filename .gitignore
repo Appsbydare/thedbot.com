@@ -44,3 +44,7 @@ next-env.d.ts
 .agent/skills/neon-postgres/SKILL.md
 .agents/skills/neon-postgres/SKILL.md
 seed-admin.ts
+seed*.ts
+reset*.ts
+scratch*.ts
+.agents/rules/security-performance-protocol.md
