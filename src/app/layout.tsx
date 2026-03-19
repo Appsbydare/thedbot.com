@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter, Bebas_Neue } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import PageTransition from "@/components/PageTransition";
-import RobotCursor from "@/components/RobotCursor";
 import SmoothScroll from "@/components/SmoothScroll";
-
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -74,9 +69,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                // Force dark mode
                 document.documentElement.classList.add('dark');
-                // Remove any light mode preferences
                 localStorage.removeItem('theme');
               })();
             `,
@@ -87,15 +80,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${bebasNeue.variable} antialiased dark:bg-gray-900 dark:text-white relative overflow-x-hidden`}
       >
         <SmoothScroll />
-        <div className="relative">
-          {/* <RobotCursor /> */}
-          <Navbar />
-          <main>
-            <PageTransition>{children}</PageTransition>
-          </main>
-          <Footer />
-        </div>
-
+        {children}
       </body>
     </html>
   );
