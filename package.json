@@ -42,5 +42,9 @@
     "eslint-config-next": "16.0.8",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "overrides": {
+    "better-auth": "1.4.6",
+    "@better-fetch/fetch": "1.1.21"
   }
 }
