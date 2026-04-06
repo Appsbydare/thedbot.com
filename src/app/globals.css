@@ -438,6 +438,20 @@ section[data-bg="black"] .cursor-heading-why-choose.heading-hover span[data-line
   -webkit-text-stroke: 0px;
 }
 
+/* Plain cursor-heading on black (e.g. Other Services) — same stroked look as hero AUTOMATION */
+section[data-bg="black"] .cursor-heading:not(.cursor-heading-why-choose).heading-default span[data-line="first"],
+section[data-bg="black"] .cursor-heading:not(.cursor-heading-why-choose).heading-hover span[data-line="first"] {
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
+  font-size: 1.3em;
+}
+
+section[data-bg="black"] .cursor-heading:not(.cursor-heading-why-choose).heading-default span[data-line="second"],
+section[data-bg="black"] .cursor-heading:not(.cursor-heading-why-choose).heading-hover span[data-line="second"] {
+  color: rgba(255, 255, 255, 0.95);
+  -webkit-text-stroke: 0px;
+}
+
 /* Category cards for dark sections */
 .category-card {
   border: 1px solid rgba(15, 23, 42, 0.08);

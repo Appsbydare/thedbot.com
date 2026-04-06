@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Zap, Shield, TrendingUp, Globe } from "@/components/icons";
+import { ArrowRight, Zap, Shield, TrendingUp, Globe, CheckCircle } from "@/components/icons";
 import AnimatedHeading from "@/components/AnimatedHeading";
 import { useState, useRef, useEffect } from "react";
 import RevealOnScroll from "@/components/RevealOnScroll";
@@ -114,6 +114,96 @@ const categories = [
     ctaColor: "text-pink-700"
   }
 ];
+
+const otherServices = [
+  {
+    icon: "🏢",
+    title: "ERP Systems",
+    desc: "Enterprise resource planning to unify finance, supply chain, and operations—implemented and integrated with the systems you already run.",
+    highlights: [
+      "Financials, inventory, and procurement on one ledger",
+      "Data migration, training, and phased go-live support",
+      "Banking, tax, and e-commerce connectors"
+    ],
+    accent: "blue" as const,
+  },
+  {
+    icon: "💳",
+    title: "POS Systems",
+    desc: "Modern point-of-sale for retail and hospitality with reliable hardware options, omnichannel flows, and stock visibility at the register.",
+    highlights: [
+      "Barcode, kitchen, and multi-location setups",
+      "Payments, refunds, and end-of-day reconciliation",
+      "Live inventory sync with your back office"
+    ],
+    accent: "indigo" as const,
+  },
+  {
+    icon: "👥",
+    title: "HR Systems",
+    desc: "HR platforms for people data, time tracking, and hiring—so payroll and compliance stay accurate as you scale.",
+    highlights: [
+      "Onboarding, contracts, and employee self-service",
+      "Attendance, shifts, and leave in one place",
+      "Payroll-ready exports and audit-friendly history"
+    ],
+    accent: "violet" as const,
+  },
+  {
+    icon: "🤖",
+    title: "AI Chat Bots",
+    desc: "Conversational assistants for support, lead capture, and FAQs—grounded in your content and wired into your workflows.",
+    highlights: [
+      "Trained on your docs, policies, and product catalog",
+      "Handoff to humans when confidence is low",
+      "Deploy on web, WhatsApp, or internal tools"
+    ],
+    accent: "fuchsia" as const,
+  },
+];
+
+const otherServiceAccents = {
+  blue: {
+    bar: "from-sky-400 to-blue-500",
+    cardGlass:
+      "border-sky-400/30 bg-gradient-to-br from-sky-500/20 via-blue-600/12 to-white/5 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.55),0_0_48px_-16px_rgba(56,189,248,0.22)] ring-1 ring-inset ring-sky-300/25 backdrop-blur-xl backdrop-saturate-150 hover:border-sky-300/50 hover:from-sky-400/30 hover:via-blue-600/20 hover:to-white/10 hover:shadow-[0_20px_48px_-12px_rgba(0,0,0,0.6),0_0_56px_-12px_rgba(56,189,248,0.35)] hover:ring-sky-200/35",
+    divider: "border-sky-400/25",
+    iconWrap:
+      "bg-gradient-to-br from-sky-400/35 to-blue-700/20 shadow-inner shadow-sky-950/40 ring-1 ring-sky-300/40",
+    bullet: "text-sky-300",
+    cta: "text-sky-300 group-hover:text-sky-200",
+  },
+  indigo: {
+    bar: "from-indigo-400 to-blue-500",
+    cardGlass:
+      "border-indigo-400/30 bg-gradient-to-br from-indigo-500/20 via-blue-700/10 to-white/5 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.55),0_0_48px_-16px_rgba(129,140,248,0.22)] ring-1 ring-inset ring-indigo-300/25 backdrop-blur-xl backdrop-saturate-150 hover:border-indigo-300/50 hover:from-indigo-400/30 hover:via-blue-700/20 hover:to-white/10 hover:shadow-[0_20px_48px_-12px_rgba(0,0,0,0.6),0_0_56px_-12px_rgba(129,140,248,0.35)] hover:ring-indigo-200/35",
+    divider: "border-indigo-400/25",
+    iconWrap:
+      "bg-gradient-to-br from-indigo-400/35 to-indigo-900/25 shadow-inner shadow-indigo-950/40 ring-1 ring-indigo-300/40",
+    bullet: "text-indigo-300",
+    cta: "text-indigo-300 group-hover:text-indigo-200",
+  },
+  violet: {
+    bar: "from-violet-400 to-purple-500",
+    cardGlass:
+      "border-violet-400/30 bg-gradient-to-br from-violet-500/20 via-purple-700/10 to-white/5 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.55),0_0_48px_-16px_rgba(167,139,250,0.22)] ring-1 ring-inset ring-violet-300/25 backdrop-blur-xl backdrop-saturate-150 hover:border-violet-300/50 hover:from-violet-400/30 hover:via-purple-700/20 hover:to-white/10 hover:shadow-[0_20px_48px_-12px_rgba(0,0,0,0.6),0_0_56px_-12px_rgba(167,139,250,0.35)] hover:ring-violet-200/35",
+    divider: "border-violet-400/25",
+    iconWrap:
+      "bg-gradient-to-br from-violet-400/35 to-purple-900/25 shadow-inner shadow-violet-950/40 ring-1 ring-violet-300/40",
+    bullet: "text-violet-300",
+    cta: "text-violet-300 group-hover:text-violet-200",
+  },
+  fuchsia: {
+    bar: "from-fuchsia-400 to-pink-500",
+    cardGlass:
+      "border-fuchsia-400/30 bg-gradient-to-br from-fuchsia-500/20 via-pink-700/10 to-white/5 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.55),0_0_48px_-16px_rgba(232,121,249,0.22)] ring-1 ring-inset ring-fuchsia-300/25 backdrop-blur-xl backdrop-saturate-150 hover:border-fuchsia-300/50 hover:from-fuchsia-400/30 hover:via-pink-700/20 hover:to-white/10 hover:shadow-[0_20px_48px_-12px_rgba(0,0,0,0.6),0_0_56px_-12px_rgba(232,121,249,0.35)] hover:ring-fuchsia-200/35",
+    divider: "border-fuchsia-400/25",
+    iconWrap:
+      "bg-gradient-to-br from-fuchsia-400/35 to-pink-900/25 shadow-inner shadow-fuchsia-950/40 ring-1 ring-fuchsia-300/40",
+    bullet: "text-fuchsia-300",
+    cta: "text-fuchsia-300 group-hover:text-fuchsia-200",
+  },
+};
 
 function CategoryCarousel() {
   const [isPaused, setIsPaused] = useState(false);
@@ -472,34 +562,79 @@ export default function Home() {
       </section>
 
       {/* Other Services Section */}
-      <section className="py-16 sm:py-20 bg-slate-50 border-t border-gray-200">
-        <div className="mx-auto max-w-6xl px-4">
+      <section
+        data-bg="black"
+        className="relative py-16 sm:py-20 overflow-hidden bg-black border-t border-white/10"
+      >
+        <div
+          className="pointer-events-none absolute inset-0 opacity-50"
+          aria-hidden
+          style={{
+            backgroundImage:
+              "radial-gradient(ellipse 90% 60% at 50% -10%, rgb(59 130 246 / 0.22), transparent 55%), radial-gradient(ellipse 70% 50% at 100% 100%, rgb(139 92 246 / 0.12), transparent 50%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-6xl px-4">
           <RevealOnScroll className="text-center mb-10 sm:mb-16" width="100%">
-            <AnimatedHeading className="text-4xl sm:text-5xl md:text-6xl font-heading tracking-tight leading-[0.9] cursor-heading cursor-heading-why-choose mb-4 text-black">
+            <AnimatedHeading
+              enablePerspective={false}
+              className="text-4xl sm:text-5xl md:text-6xl font-heading tracking-tight leading-[0.9] uppercase cursor-heading inline-block mb-4"
+            >
               OTHER SERVICES
             </AnimatedHeading>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mt-4 leading-relaxed">
-              Discover more ways we can help transform your business operations
+            <p className="text-lg sm:text-xl text-white/75 max-w-2xl mx-auto mt-4 leading-relaxed">
+              Discover more ways we can help transform your business operations—implementation,
+              integrations, and ongoing support tailored to your stack.
             </p>
           </RevealOnScroll>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {[
-              { icon: "🏢", title: "ERP Systems", desc: "Enterprise resource planning solutions to manage your core business processes seamlessly." },
-              { icon: "💳", title: "POS Systems", desc: "Point of sale systems for retail and hospitality, integrated with inventory." },
-              { icon: "👥", title: "HR Systems", desc: "Human resources management tools for payroll, recruitment, and attendance." },
-              { icon: "🤖", title: "AI Chat Bots", desc: "Intelligent conversational agents to handle customer support and queries." }
-            ].map((service, i) => (
-              <RevealOnScroll key={i} delay={i * 0.1}>
-                <div className="text-center space-y-4 p-8 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full">
-                  <div className="w-16 h-16 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-3xl">
-                    {service.icon}
+            {otherServices.map((service, i) => {
+              const a = otherServiceAccents[service.accent];
+              return (
+                <RevealOnScroll key={service.title} delay={i * 0.1}>
+                  <div
+                    className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-1 ${a.cardGlass}`}
+                  >
+                    <div
+                      className={`h-1 w-full bg-gradient-to-r ${a.bar} opacity-95`}
+                      aria-hidden
+                    />
+                    <div className="flex flex-1 flex-col p-6 sm:p-8 text-left">
+                      <div
+                        className={`mb-5 flex size-14 shrink-0 items-center justify-center rounded-2xl text-3xl transition-transform duration-300 group-hover:scale-105 ${a.iconWrap}`}
+                      >
+                        {service.icon}
+                      </div>
+                      <h3 className="text-xl font-bold tracking-tight text-white">
+                        {service.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-white/70">{service.desc}</p>
+                      <ul
+                        className={`mt-5 flex flex-1 flex-col gap-2.5 border-t pt-5 ${a.divider}`}
+                      >
+                        {service.highlights.map((line) => (
+                          <li key={line} className="flex gap-2 text-sm text-white/85">
+                            <CheckCircle
+                              className={`mt-0.5 size-4 shrink-0 ${a.bullet}`}
+                              aria-hidden
+                            />
+                            <span className="leading-snug">{line}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <Link
+                        href="/contact"
+                        className={`mt-6 inline-flex items-center gap-1.5 text-sm font-semibold transition-colors ${a.cta}`}
+                      >
+                        Talk to us about this
+                        <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+                      </Link>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-black">{service.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{service.desc}</p>
-                </div>
-              </RevealOnScroll>
-            ))}
+                </RevealOnScroll>
+              );
+            })}
           </div>
         </div>
       </section>
