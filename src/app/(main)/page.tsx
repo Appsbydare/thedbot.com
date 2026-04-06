@@ -470,6 +470,39 @@ export default function Home() {
           </div>
         </RevealOnScroll>
       </section>
+
+      {/* Other Services Section */}
+      <section className="py-16 sm:py-20 bg-slate-50 border-t border-gray-200">
+        <div className="mx-auto max-w-6xl px-4">
+          <RevealOnScroll className="text-center mb-10 sm:mb-16" width="100%">
+            <AnimatedHeading className="text-4xl sm:text-5xl md:text-6xl font-heading tracking-tight leading-[0.9] cursor-heading cursor-heading-why-choose mb-4 text-black">
+              OTHER SERVICES
+            </AnimatedHeading>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mt-4 leading-relaxed">
+              Discover more ways we can help transform your business operations
+            </p>
+          </RevealOnScroll>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {[
+              { icon: "🏢", title: "ERP Systems", desc: "Enterprise resource planning solutions to manage your core business processes seamlessly." },
+              { icon: "💳", title: "POS Systems", desc: "Point of sale systems for retail and hospitality, integrated with inventory." },
+              { icon: "👥", title: "HR Systems", desc: "Human resources management tools for payroll, recruitment, and attendance." },
+              { icon: "🤖", title: "AI Chat Bots", desc: "Intelligent conversational agents to handle customer support and queries." }
+            ].map((service, i) => (
+              <RevealOnScroll key={i} delay={i * 0.1}>
+                <div className="text-center space-y-4 p-8 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full">
+                  <div className="w-16 h-16 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-3xl">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-black">{service.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{service.desc}</p>
+                </div>
+              </RevealOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
