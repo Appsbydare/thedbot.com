@@ -36,6 +36,8 @@ export const metadata: Metadata = {
   description: "Automation software, signal executors, and indicators for MT4/MT5 & TradingView.",
 };
 
+import AIAssistant from "@/components/AIAssistant";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -81,6 +83,7 @@ export default function RootLayout({
       >
         <SmoothScroll />
         {children}
+        <AIAssistant />
       </body>
     </html>
   );
